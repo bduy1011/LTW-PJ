@@ -8,24 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Dell\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ACER\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\IT\\GIT\\Media-Player-Project\\ZingMp3\\ZingMp3\\ZingMp3.csproj",
+      "projectUniqueName": "D:\\Nam_2\\HK1\\Lập trình trực quan\\DoAn\\Media-Player-Project\\ZingMp3\\ZingMp3\\ZingMp3.csproj",
       "projectName": "ZingMp3",
-      "projectPath": "C:\\IT\\GIT\\Media-Player-Project\\ZingMp3\\ZingMp3\\ZingMp3.csproj",
-      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "C:\\IT\\GIT\\Media-Player-Project\\ZingMp3\\ZingMp3\\obj\\",
+      "projectPath": "D:\\Nam_2\\HK1\\Lập trình trực quan\\DoAn\\Media-Player-Project\\ZingMp3\\ZingMp3\\ZingMp3.csproj",
+      "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+      "outputPath": "D:\\Nam_2\\HK1\\Lập trình trực quan\\DoAn\\Media-Player-Project\\ZingMp3\\ZingMp3\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -69,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

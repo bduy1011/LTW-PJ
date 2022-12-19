@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZingMp3
 {
-    //Song 
-    //Ahihi
-    internal class Song
+    public class Song
     {
         private string songName;
         private string singerName;
