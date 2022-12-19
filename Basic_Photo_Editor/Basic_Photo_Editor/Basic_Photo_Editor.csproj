@@ -52,8 +52,53 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Function_Forms\Brightness_Contrast.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function_Forms\Brightness_Contrast.Designer.cs">
+      <DependentUpon>Brightness_Contrast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function_Forms\ColorBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function_Forms\ColorBalance.Designer.cs">
+      <DependentUpon>ColorBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function_Forms\GaussianBlur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function_Forms\GaussianBlur.Designer.cs">
+      <DependentUpon>GaussianBlur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function_Forms\Hue_Saturation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function_Forms\Hue_Saturation.Designer.cs">
+      <DependentUpon>Hue_Saturation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function_Forms\Noise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function_Forms\Noise.Designer.cs">
+      <DependentUpon>Noise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function_Forms\Pixelate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function_Forms\Pixelate.Designer.cs">
+      <DependentUpon>Pixelate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function_Forms\Threshold.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function_Forms\Threshold.Designer.cs">
+      <DependentUpon>Threshold.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +120,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Paint_Tools\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

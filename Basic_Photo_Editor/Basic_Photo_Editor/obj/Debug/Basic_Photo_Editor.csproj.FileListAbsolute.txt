@@ -1,0 +1,11 @@
+C:\Workspace\winform\Basic_Photo_Editor\Basic_Photo_Editor\bin\Debug\Basic_Photo_Editor.exe.config
+C:\Workspace\winform\Basic_Photo_Editor\Basic_Photo_Editor\bin\Debug\Basic_Photo_Editor.exe
+C:\Workspace\winform\Basic_Photo_Editor\Basic_Photo_Editor\bin\Debug\Basic_Photo_Editor.pdb
+C:\Workspace\winform\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.AssemblyReference.cache
+C:\Workspace\winform\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.SuggestedBindingRedirects.cache
+C:\Workspace\winform\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.FormMain.resources
+C:\Workspace\winform\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Properties.Resources.resources
+C:\Workspace\winform\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.GenerateResource.cache
+C:\Workspace\winform\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.CoreCompileInputs.cache
+C:\Workspace\winform\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.exe
+C:\Workspace\winform\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.pdb
