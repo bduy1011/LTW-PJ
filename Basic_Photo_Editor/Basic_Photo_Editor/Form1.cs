@@ -46,11 +46,31 @@ namespace Basic_Photo_Editor
             }
         }
         #endregion
-        
-        #region Can tao form Newfile
+
+        #region Save Button: code ham save
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            
+            if (Current.Working)
+            {
+                if (Current.Stored)
+                {
+                    //Current.DrawSpace.Final.Save(Current.FilePath);
+                    Current.Saved = true;
+                    saveToolStripMenuItem.Enabled = false;
+                }
+                else
+                {
+                    //SaveAsToolStripMenuItem_Click(this, e);
+                }
+                Current.Parent.Text = Current.FileName;
+            }
+        }
+
+        #endregion
+
+        #region  NewButton: Can Tao form New file
+        private void newToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
             using (Forms.NewFileForm nff = new Forms.NewFileForm())
             {
                 nff.ColorFore = mainColorPic.BackColor;
@@ -72,7 +92,5 @@ namespace Basic_Photo_Editor
             }
         }
         #endregion
-
-
     }
 }
