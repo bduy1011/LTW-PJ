@@ -19,7 +19,7 @@ namespace Basic_Photo_Editor
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-
+            //abc
         }
     }
 }

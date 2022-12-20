@@ -139,10 +139,6 @@
             this.RestoreBtn = new System.Windows.Forms.Button();
             this.ExitBtn = new System.Windows.Forms.Button();
             this.TabControl = new System.Windows.Forms.TabControl();
-            this.statusStrip1.SuspendLayout();
-            this.menuStrip.SuspendLayout();
-            this.leftPanel.SuspendLayout();
-            this.colorPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.colorSwitch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorWheel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainColorPic)).BeginInit();
@@ -150,17 +146,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.blueBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.greenBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.redBar)).BeginInit();
-            this.toolPanel.SuspendLayout();
-            this.sToolStrip.SuspendLayout();
-            this.pToolStrip.SuspendLayout();
-            this.mToolStrip.SuspendLayout();
-            this.rightPanel.SuspendLayout();
-            this.historyGroupBox.SuspendLayout();
-            this.layerPanel.SuspendLayout();
-            this.layerToolStrip.SuspendLayout();
-            this.blendPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.opacityBar)).BeginInit();
-            this.bottomPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -846,14 +832,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Photo Editor";
             this.Load += new System.EventHandler(this.FormMain_Load);
-            //this.SizeChanged += new System.EventHandler(this.FormMain_SizeChanged);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
-            this.leftPanel.ResumeLayout(false);
-            this.colorPanel.ResumeLayout(false);
-            this.colorPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.colorSwitch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorWheel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainColorPic)).EndInit();
@@ -861,23 +839,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.blueBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.greenBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.redBar)).EndInit();
-            this.toolPanel.ResumeLayout(false);
-            this.sToolStrip.ResumeLayout(false);
-            this.sToolStrip.PerformLayout();
-            this.pToolStrip.ResumeLayout(false);
-            this.pToolStrip.PerformLayout();
-            this.mToolStrip.ResumeLayout(false);
-            this.mToolStrip.PerformLayout();
-            this.rightPanel.ResumeLayout(false);
-            this.historyGroupBox.ResumeLayout(false);
-            this.layerPanel.ResumeLayout(false);
-            this.layerPanel.PerformLayout();
-            this.layerToolStrip.ResumeLayout(false);
-            this.layerToolStrip.PerformLayout();
-            this.blendPanel.ResumeLayout(false);
-            this.blendPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.opacityBar)).EndInit();
-            this.bottomPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
