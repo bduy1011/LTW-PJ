@@ -135,58 +135,10 @@
             this.zoomInBtn = new System.Windows.Forms.Button();
             this.centerBtn = new System.Windows.Forms.Button();
             this.bottomPanel = new System.Windows.Forms.Panel();
+            this.MinMaxBtn = new System.Windows.Forms.Button();
+            this.RestoreBtn = new System.Windows.Forms.Button();
+            this.ExitBtn = new System.Windows.Forms.Button();
             this.TabControl = new System.Windows.Forms.TabControl();
-            this.menuStrip_File = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip_Edit = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip_Tools = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip_View = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip_Layer = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip_Color = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip_Filter = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip_Help = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileMenuItem_New = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileMenuItem_Open = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.fileMenuItem_Save = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileMenuItem_SaveAs = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileMenuItem_Close = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.fileMenuItem_Exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.editMenuItem_Copy = new System.Windows.Forms.ToolStripMenuItem();
-            this.editMenuItem_Paste = new System.Windows.Forms.ToolStripMenuItem();
-            this.editMenuItem_Cut = new System.Windows.Forms.ToolStripMenuItem();
-            this.editMenuItem_Undo = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewMenuItem_ZoomIn = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewMenuItem_ZoomOut = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewMenuItem_Center = new System.Windows.Forms.ToolStripMenuItem();
-            this.layerMenuItem_NewLayer = new System.Windows.Forms.ToolStripMenuItem();
-            this.layerMenuItem_DeleteLayer = new System.Windows.Forms.ToolStripMenuItem();
-            this.layerMenuItem_Clear = new System.Windows.Forms.ToolStripMenuItem();
-            this.layerMenuItem_Rename = new System.Windows.Forms.ToolStripMenuItem();
-            this.layerMenuItem_Duplicate = new System.Windows.Forms.ToolStripMenuItem();
-            this.layerMenuItem_Merge = new System.Windows.Forms.ToolStripMenuItem();
-            this.layerMenuItem_Fill = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.colorMenuItem_ColorBalance = new System.Windows.Forms.ToolStripMenuItem();
-            this.colorMenuItem_Brightness_Contrast = new System.Windows.Forms.ToolStripMenuItem();
-            this.colorMenuItem_Hue_Saturation = new System.Windows.Forms.ToolStripMenuItem();
-            this.colorMenuItem_Invert = new System.Windows.Forms.ToolStripMenuItem();
-            this.colorMenuItem__Threshold = new System.Windows.Forms.ToolStripMenuItem();
-            this.colorMenuItem_Grayscale = new System.Windows.Forms.ToolStripMenuItem();
-            this.filterMenuItem_Blur = new System.Windows.Forms.ToolStripMenuItem();
-            this.filterMenuItem_Noise = new System.Windows.Forms.ToolStripMenuItem();
-            this.filterMenuItem_Pixelate = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsMenuItem_Transform = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsMenuItem_Drag = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsMenuItem_Select = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsMenuItem_Pen = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsMenuItem_Eraser = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsMenuItem_ColorPicker = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsMenuItem_Shape = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsMenuItem_Line = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsMenuItem_Bucket = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsMenuItem_AboutPhotoEditor = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.colorSwitch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorWheel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainColorPic)).BeginInit();
@@ -200,10 +152,9 @@
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 484);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1084);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1034, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1920, 22);
             this.statusStrip1.TabIndex = 6;
             // 
             // mouseLocation
@@ -339,20 +290,11 @@
             // 
             // menuStrip
             // 
+            this.menuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuStrip_File,
-            this.menuStrip_Edit,
-            this.menuStrip_View,
-            this.menuStrip_Layer,
-            this.menuStrip_Color,
-            this.menuStrip_Filter,
-            this.menuStrip_Tools,
-            this.menuStrip_Help});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1034, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1920, 24);
             this.menuStrip.TabIndex = 7;
             // 
             // iconToolStripMenuItem
@@ -482,10 +424,9 @@
             // 
             // leftPanel
             // 
-            this.leftPanel.Location = new System.Drawing.Point(76, 364);
-            this.leftPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.leftPanel.Location = new System.Drawing.Point(0, 0);
             this.leftPanel.Name = "leftPanel";
-            this.leftPanel.Size = new System.Drawing.Size(178, 80);
+            this.leftPanel.Size = new System.Drawing.Size(200, 100);
             this.leftPanel.TabIndex = 4;
             // 
             // colorPanel
@@ -499,7 +440,7 @@
             // 
             this.hexCode.Location = new System.Drawing.Point(0, 0);
             this.hexCode.Name = "hexCode";
-            this.hexCode.Size = new System.Drawing.Size(100, 22);
+            this.hexCode.Size = new System.Drawing.Size(100, 26);
             this.hexCode.TabIndex = 0;
             // 
             // colorSwitch
@@ -685,10 +626,9 @@
             // 
             // rightPanel
             // 
-            this.rightPanel.Location = new System.Drawing.Point(324, 364);
-            this.rightPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rightPanel.Location = new System.Drawing.Point(0, 0);
             this.rightPanel.Name = "rightPanel";
-            this.rightPanel.Size = new System.Drawing.Size(178, 80);
+            this.rightPanel.Size = new System.Drawing.Size(200, 100);
             this.rightPanel.TabIndex = 5;
             // 
             // historyGroupBox
@@ -779,7 +719,7 @@
             // 
             this.blendModeBox.Location = new System.Drawing.Point(0, 0);
             this.blendModeBox.Name = "blendModeBox";
-            this.blendModeBox.Size = new System.Drawing.Size(121, 24);
+            this.blendModeBox.Size = new System.Drawing.Size(121, 28);
             this.blendModeBox.TabIndex = 0;
             // 
             // label1
@@ -808,7 +748,7 @@
             // 
             this.comboBox1.Location = new System.Drawing.Point(0, 0);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.Size = new System.Drawing.Size(121, 28);
             this.comboBox1.TabIndex = 0;
             // 
             // zoomOutBtn
@@ -834,427 +774,49 @@
             // 
             // bottomPanel
             // 
-            this.bottomPanel.Location = new System.Drawing.Point(76, 261);
-            this.bottomPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bottomPanel.Location = new System.Drawing.Point(0, 0);
             this.bottomPanel.Name = "bottomPanel";
-            this.bottomPanel.Size = new System.Drawing.Size(178, 80);
+            this.bottomPanel.Size = new System.Drawing.Size(200, 100);
             this.bottomPanel.TabIndex = 3;
+            // 
+            // MinMaxBtn
+            // 
+            this.MinMaxBtn.Location = new System.Drawing.Point(0, 0);
+            this.MinMaxBtn.Name = "MinMaxBtn";
+            this.MinMaxBtn.Size = new System.Drawing.Size(75, 23);
+            this.MinMaxBtn.TabIndex = 0;
+            // 
+            // RestoreBtn
+            // 
+            this.RestoreBtn.Location = new System.Drawing.Point(0, 0);
+            this.RestoreBtn.Name = "RestoreBtn";
+            this.RestoreBtn.Size = new System.Drawing.Size(75, 23);
+            this.RestoreBtn.TabIndex = 1;
+            // 
+            // ExitBtn
+            // 
+            this.ExitBtn.Location = new System.Drawing.Point(0, 0);
+            this.ExitBtn.Name = "ExitBtn";
+            this.ExitBtn.Size = new System.Drawing.Size(75, 23);
+            this.ExitBtn.TabIndex = 2;
             // 
             // TabControl
             // 
-            this.TabControl.Location = new System.Drawing.Point(324, 261);
-            this.TabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TabControl.Location = new System.Drawing.Point(0, 0);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(178, 80);
+            this.TabControl.Size = new System.Drawing.Size(200, 100);
             this.TabControl.TabIndex = 8;
-            // 
-            // menuStrip_File
-            // 
-            this.menuStrip_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileMenuItem_New,
-            this.fileMenuItem_Open,
-            this.toolStripSeparator3,
-            this.fileMenuItem_Save,
-            this.fileMenuItem_SaveAs,
-            this.fileMenuItem_Close,
-            this.toolStripSeparator4,
-            this.fileMenuItem_Exit});
-            this.menuStrip_File.Name = "menuStrip_File";
-            this.menuStrip_File.Size = new System.Drawing.Size(46, 24);
-            this.menuStrip_File.Text = "File";
-            // 
-            // menuStrip_Edit
-            // 
-            this.menuStrip_Edit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editMenuItem_Copy,
-            this.editMenuItem_Paste,
-            this.editMenuItem_Cut,
-            this.editMenuItem_Undo});
-            this.menuStrip_Edit.Name = "menuStrip_Edit";
-            this.menuStrip_Edit.Size = new System.Drawing.Size(49, 24);
-            this.menuStrip_Edit.Text = "Edit";
-            // 
-            // menuStrip_Tools
-            // 
-            this.menuStrip_Tools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolsMenuItem_Transform,
-            this.toolsMenuItem_Drag,
-            this.toolsMenuItem_Select,
-            this.toolsMenuItem_Pen,
-            this.toolsMenuItem_Eraser,
-            this.toolsMenuItem_ColorPicker,
-            this.toolsMenuItem_Shape,
-            this.toolsMenuItem_Line,
-            this.toolsMenuItem_Bucket});
-            this.menuStrip_Tools.Name = "menuStrip_Tools";
-            this.menuStrip_Tools.Size = new System.Drawing.Size(58, 24);
-            this.menuStrip_Tools.Text = "Tools";
-            // 
-            // menuStrip_View
-            // 
-            this.menuStrip_View.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewMenuItem_ZoomIn,
-            this.viewMenuItem_ZoomOut,
-            this.viewMenuItem_Center});
-            this.menuStrip_View.Name = "menuStrip_View";
-            this.menuStrip_View.Size = new System.Drawing.Size(55, 24);
-            this.menuStrip_View.Text = "View";
-            // 
-            // menuStrip_Layer
-            // 
-            this.menuStrip_Layer.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.layerMenuItem_NewLayer,
-            this.layerMenuItem_DeleteLayer,
-            this.toolStripSeparator5,
-            this.layerMenuItem_Clear,
-            this.layerMenuItem_Rename,
-            this.layerMenuItem_Duplicate,
-            this.layerMenuItem_Merge,
-            this.layerMenuItem_Fill});
-            this.menuStrip_Layer.Name = "menuStrip_Layer";
-            this.menuStrip_Layer.Size = new System.Drawing.Size(58, 24);
-            this.menuStrip_Layer.Text = "Layer";
-            // 
-            // menuStrip_Color
-            // 
-            this.menuStrip_Color.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.colorMenuItem_ColorBalance,
-            this.colorMenuItem_Brightness_Contrast,
-            this.colorMenuItem_Hue_Saturation,
-            this.colorMenuItem_Invert,
-            this.colorMenuItem__Threshold,
-            this.colorMenuItem_Grayscale});
-            this.menuStrip_Color.Name = "menuStrip_Color";
-            this.menuStrip_Color.Size = new System.Drawing.Size(59, 24);
-            this.menuStrip_Color.Text = "Color";
-            // 
-            // menuStrip_Filter
-            // 
-            this.menuStrip_Filter.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.filterMenuItem_Blur,
-            this.filterMenuItem_Noise,
-            this.filterMenuItem_Pixelate});
-            this.menuStrip_Filter.Name = "menuStrip_Filter";
-            this.menuStrip_Filter.Size = new System.Drawing.Size(56, 24);
-            this.menuStrip_Filter.Text = "Filter";
-            // 
-            // menuStrip_Help
-            // 
-            this.menuStrip_Help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolsMenuItem_AboutPhotoEditor});
-            this.menuStrip_Help.Name = "menuStrip_Help";
-            this.menuStrip_Help.Size = new System.Drawing.Size(55, 24);
-            this.menuStrip_Help.Text = "Help";
-            // 
-            // fileMenuItem_New
-            // 
-            this.fileMenuItem_New.Name = "fileMenuItem_New";
-            this.fileMenuItem_New.ShortcutKeyDisplayString = "Ctrl N";
-            this.fileMenuItem_New.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.fileMenuItem_New.Size = new System.Drawing.Size(224, 26);
-            this.fileMenuItem_New.Text = "New";
-            // 
-            // fileMenuItem_Open
-            // 
-            this.fileMenuItem_Open.Name = "fileMenuItem_Open";
-            this.fileMenuItem_Open.ShortcutKeyDisplayString = "Ctrl O";
-            this.fileMenuItem_Open.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.fileMenuItem_Open.Size = new System.Drawing.Size(224, 26);
-            this.fileMenuItem_Open.Text = "Open";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(221, 6);
-            // 
-            // fileMenuItem_Save
-            // 
-            this.fileMenuItem_Save.Name = "fileMenuItem_Save";
-            this.fileMenuItem_Save.ShortcutKeyDisplayString = "Ctrl S";
-            this.fileMenuItem_Save.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.fileMenuItem_Save.Size = new System.Drawing.Size(224, 26);
-            this.fileMenuItem_Save.Text = "Save";
-            // 
-            // fileMenuItem_SaveAs
-            // 
-            this.fileMenuItem_SaveAs.Name = "fileMenuItem_SaveAs";
-            this.fileMenuItem_SaveAs.Size = new System.Drawing.Size(224, 26);
-            this.fileMenuItem_SaveAs.Text = "Save As";
-            // 
-            // fileMenuItem_Close
-            // 
-            this.fileMenuItem_Close.Name = "fileMenuItem_Close";
-            this.fileMenuItem_Close.ShortcutKeyDisplayString = "Ctrl W";
-            this.fileMenuItem_Close.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-            this.fileMenuItem_Close.Size = new System.Drawing.Size(224, 26);
-            this.fileMenuItem_Close.Text = "Close";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(221, 6);
-            // 
-            // fileMenuItem_Exit
-            // 
-            this.fileMenuItem_Exit.Name = "fileMenuItem_Exit";
-            this.fileMenuItem_Exit.Size = new System.Drawing.Size(224, 26);
-            this.fileMenuItem_Exit.Text = "Exit";
-            // 
-            // editMenuItem_Copy
-            // 
-            this.editMenuItem_Copy.Name = "editMenuItem_Copy";
-            this.editMenuItem_Copy.ShortcutKeyDisplayString = "Ctrl C";
-            this.editMenuItem_Copy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.editMenuItem_Copy.Size = new System.Drawing.Size(224, 26);
-            this.editMenuItem_Copy.Text = "Copy";
-            // 
-            // editMenuItem_Paste
-            // 
-            this.editMenuItem_Paste.Name = "editMenuItem_Paste";
-            this.editMenuItem_Paste.ShortcutKeyDisplayString = "Ctrl V";
-            this.editMenuItem_Paste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.editMenuItem_Paste.Size = new System.Drawing.Size(224, 26);
-            this.editMenuItem_Paste.Text = "Paste";
-            // 
-            // editMenuItem_Cut
-            // 
-            this.editMenuItem_Cut.Name = "editMenuItem_Cut";
-            this.editMenuItem_Cut.ShortcutKeyDisplayString = "Ctrl X";
-            this.editMenuItem_Cut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.editMenuItem_Cut.Size = new System.Drawing.Size(224, 26);
-            this.editMenuItem_Cut.Text = "Cut";
-            // 
-            // editMenuItem_Undo
-            // 
-            this.editMenuItem_Undo.Name = "editMenuItem_Undo";
-            this.editMenuItem_Undo.ShortcutKeyDisplayString = "Ctrl X";
-            this.editMenuItem_Undo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.editMenuItem_Undo.Size = new System.Drawing.Size(224, 26);
-            this.editMenuItem_Undo.Text = "Undo";
-            // 
-            // viewMenuItem_ZoomIn
-            // 
-            this.viewMenuItem_ZoomIn.Name = "viewMenuItem_ZoomIn";
-            this.viewMenuItem_ZoomIn.ShortcutKeyDisplayString = "Ctrl +";
-            this.viewMenuItem_ZoomIn.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Add)));
-            this.viewMenuItem_ZoomIn.Size = new System.Drawing.Size(224, 26);
-            this.viewMenuItem_ZoomIn.Text = "Zoom In";
-            // 
-            // viewMenuItem_ZoomOut
-            // 
-            this.viewMenuItem_ZoomOut.Name = "viewMenuItem_ZoomOut";
-            this.viewMenuItem_ZoomOut.ShortcutKeyDisplayString = "Ctrl -";
-            this.viewMenuItem_ZoomOut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Subtract)));
-            this.viewMenuItem_ZoomOut.Size = new System.Drawing.Size(224, 26);
-            this.viewMenuItem_ZoomOut.Text = "Zoom Out";
-            // 
-            // viewMenuItem_Center
-            // 
-            this.viewMenuItem_Center.Name = "viewMenuItem_Center";
-            this.viewMenuItem_Center.ShortcutKeyDisplayString = "Ctrl Shift C";
-            this.viewMenuItem_Center.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.C)));
-            this.viewMenuItem_Center.Size = new System.Drawing.Size(224, 26);
-            this.viewMenuItem_Center.Text = "Center";
-            // 
-            // layerMenuItem_NewLayer
-            // 
-            this.layerMenuItem_NewLayer.Name = "layerMenuItem_NewLayer";
-            this.layerMenuItem_NewLayer.ShortcutKeyDisplayString = "Ctrl Shift N";
-            this.layerMenuItem_NewLayer.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.N)));
-            this.layerMenuItem_NewLayer.Size = new System.Drawing.Size(256, 26);
-            this.layerMenuItem_NewLayer.Text = "New Layer";
-            // 
-            // layerMenuItem_DeleteLayer
-            // 
-            this.layerMenuItem_DeleteLayer.Name = "layerMenuItem_DeleteLayer";
-            this.layerMenuItem_DeleteLayer.ShortcutKeyDisplayString = "Ctrl Shift D";
-            this.layerMenuItem_DeleteLayer.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.D)));
-            this.layerMenuItem_DeleteLayer.Size = new System.Drawing.Size(256, 26);
-            this.layerMenuItem_DeleteLayer.Text = "Delete Layer";
-            // 
-            // layerMenuItem_Clear
-            // 
-            this.layerMenuItem_Clear.Name = "layerMenuItem_Clear";
-            this.layerMenuItem_Clear.ShortcutKeyDisplayString = "Ctrl Shift Del";
-            this.layerMenuItem_Clear.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.Delete)));
-            this.layerMenuItem_Clear.Size = new System.Drawing.Size(256, 26);
-            this.layerMenuItem_Clear.Text = "Clear";
-            // 
-            // layerMenuItem_Rename
-            // 
-            this.layerMenuItem_Rename.Name = "layerMenuItem_Rename";
-            this.layerMenuItem_Rename.ShortcutKeyDisplayString = "Ctrl Shift R";
-            this.layerMenuItem_Rename.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.R)));
-            this.layerMenuItem_Rename.Size = new System.Drawing.Size(256, 26);
-            this.layerMenuItem_Rename.Text = "Rename";
-            // 
-            // layerMenuItem_Duplicate
-            // 
-            this.layerMenuItem_Duplicate.Name = "layerMenuItem_Duplicate";
-            this.layerMenuItem_Duplicate.ShortcutKeyDisplayString = "Ctrl Shift J";
-            this.layerMenuItem_Duplicate.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.J)));
-            this.layerMenuItem_Duplicate.Size = new System.Drawing.Size(256, 26);
-            this.layerMenuItem_Duplicate.Text = "Duplicate";
-            // 
-            // layerMenuItem_Merge
-            // 
-            this.layerMenuItem_Merge.Name = "layerMenuItem_Merge";
-            this.layerMenuItem_Merge.ShortcutKeyDisplayString = "Ctrl Shift K";
-            this.layerMenuItem_Merge.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.K)));
-            this.layerMenuItem_Merge.Size = new System.Drawing.Size(256, 26);
-            this.layerMenuItem_Merge.Text = "Merge";
-            // 
-            // layerMenuItem_Fill
-            // 
-            this.layerMenuItem_Fill.Name = "layerMenuItem_Fill";
-            this.layerMenuItem_Fill.ShortcutKeyDisplayString = "Ctrl Shift F";
-            this.layerMenuItem_Fill.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.F)));
-            this.layerMenuItem_Fill.Size = new System.Drawing.Size(256, 26);
-            this.layerMenuItem_Fill.Text = "Fill";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(253, 6);
-            // 
-            // colorMenuItem_ColorBalance
-            // 
-            this.colorMenuItem_ColorBalance.Name = "colorMenuItem_ColorBalance";
-            this.colorMenuItem_ColorBalance.Size = new System.Drawing.Size(248, 26);
-            this.colorMenuItem_ColorBalance.Text = "Color Balance";
-            // 
-            // colorMenuItem_Brightness_Contrast
-            // 
-            this.colorMenuItem_Brightness_Contrast.Name = "colorMenuItem_Brightness_Contrast";
-            this.colorMenuItem_Brightness_Contrast.Size = new System.Drawing.Size(248, 26);
-            this.colorMenuItem_Brightness_Contrast.Text = "Brightness and Contrast";
-            // 
-            // colorMenuItem_Hue_Saturation
-            // 
-            this.colorMenuItem_Hue_Saturation.Name = "colorMenuItem_Hue_Saturation";
-            this.colorMenuItem_Hue_Saturation.Size = new System.Drawing.Size(248, 26);
-            this.colorMenuItem_Hue_Saturation.Text = "Hue and Saturation";
-            // 
-            // colorMenuItem_Invert
-            // 
-            this.colorMenuItem_Invert.Name = "colorMenuItem_Invert";
-            this.colorMenuItem_Invert.Size = new System.Drawing.Size(248, 26);
-            this.colorMenuItem_Invert.Text = "Invert";
-            // 
-            // colorMenuItem__Threshold
-            // 
-            this.colorMenuItem__Threshold.Name = "colorMenuItem__Threshold";
-            this.colorMenuItem__Threshold.Size = new System.Drawing.Size(248, 26);
-            this.colorMenuItem__Threshold.Text = "Threshold";
-            // 
-            // colorMenuItem_Grayscale
-            // 
-            this.colorMenuItem_Grayscale.Name = "colorMenuItem_Grayscale";
-            this.colorMenuItem_Grayscale.Size = new System.Drawing.Size(248, 26);
-            this.colorMenuItem_Grayscale.Text = "Grayscale";
-            // 
-            // filterMenuItem_Blur
-            // 
-            this.filterMenuItem_Blur.Name = "filterMenuItem_Blur";
-            this.filterMenuItem_Blur.Size = new System.Drawing.Size(224, 26);
-            this.filterMenuItem_Blur.Text = "Blur";
-            // 
-            // filterMenuItem_Noise
-            // 
-            this.filterMenuItem_Noise.Name = "filterMenuItem_Noise";
-            this.filterMenuItem_Noise.Size = new System.Drawing.Size(224, 26);
-            this.filterMenuItem_Noise.Text = "Noise";
-            // 
-            // filterMenuItem_Pixelate
-            // 
-            this.filterMenuItem_Pixelate.Name = "filterMenuItem_Pixelate";
-            this.filterMenuItem_Pixelate.Size = new System.Drawing.Size(224, 26);
-            this.filterMenuItem_Pixelate.Text = "Pixelate";
-            // 
-            // toolsMenuItem_Transform
-            // 
-            this.toolsMenuItem_Transform.Name = "toolsMenuItem_Transform";
-            this.toolsMenuItem_Transform.ShortcutKeyDisplayString = "T";
-            this.toolsMenuItem_Transform.Size = new System.Drawing.Size(224, 26);
-            this.toolsMenuItem_Transform.Text = "Transform";
-            // 
-            // toolsMenuItem_Drag
-            // 
-            this.toolsMenuItem_Drag.Name = "toolsMenuItem_Drag";
-            this.toolsMenuItem_Drag.ShortcutKeyDisplayString = "H";
-            this.toolsMenuItem_Drag.Size = new System.Drawing.Size(224, 26);
-            this.toolsMenuItem_Drag.Text = "Drag";
-            // 
-            // toolsMenuItem_Select
-            // 
-            this.toolsMenuItem_Select.Name = "toolsMenuItem_Select";
-            this.toolsMenuItem_Select.ShortcutKeyDisplayString = "A";
-            this.toolsMenuItem_Select.Size = new System.Drawing.Size(224, 26);
-            this.toolsMenuItem_Select.Text = "Select";
-            // 
-            // toolsMenuItem_Pen
-            // 
-            this.toolsMenuItem_Pen.Name = "toolsMenuItem_Pen";
-            this.toolsMenuItem_Pen.ShortcutKeyDisplayString = "B";
-            this.toolsMenuItem_Pen.Size = new System.Drawing.Size(224, 26);
-            this.toolsMenuItem_Pen.Text = "Pen";
-            // 
-            // toolsMenuItem_Eraser
-            // 
-            this.toolsMenuItem_Eraser.Name = "toolsMenuItem_Eraser";
-            this.toolsMenuItem_Eraser.ShortcutKeyDisplayString = "E";
-            this.toolsMenuItem_Eraser.Size = new System.Drawing.Size(224, 26);
-            this.toolsMenuItem_Eraser.Text = "Eraser";
-            // 
-            // toolsMenuItem_ColorPicker
-            // 
-            this.toolsMenuItem_ColorPicker.Name = "toolsMenuItem_ColorPicker";
-            this.toolsMenuItem_ColorPicker.ShortcutKeyDisplayString = "P";
-            this.toolsMenuItem_ColorPicker.Size = new System.Drawing.Size(224, 26);
-            this.toolsMenuItem_ColorPicker.Text = "Color Picker";
-            // 
-            // toolsMenuItem_Shape
-            // 
-            this.toolsMenuItem_Shape.Name = "toolsMenuItem_Shape";
-            this.toolsMenuItem_Shape.ShortcutKeyDisplayString = "S";
-            this.toolsMenuItem_Shape.Size = new System.Drawing.Size(224, 26);
-            this.toolsMenuItem_Shape.Text = "Shape";
-            // 
-            // toolsMenuItem_Line
-            // 
-            this.toolsMenuItem_Line.Name = "toolsMenuItem_Line";
-            this.toolsMenuItem_Line.ShortcutKeyDisplayString = "L";
-            this.toolsMenuItem_Line.Size = new System.Drawing.Size(224, 26);
-            this.toolsMenuItem_Line.Text = "Line";
-            // 
-            // toolsMenuItem_Bucket
-            // 
-            this.toolsMenuItem_Bucket.Name = "toolsMenuItem_Bucket";
-            this.toolsMenuItem_Bucket.ShortcutKeyDisplayString = "F";
-            this.toolsMenuItem_Bucket.Size = new System.Drawing.Size(224, 26);
-            this.toolsMenuItem_Bucket.Text = "Bucket";
-            // 
-            // toolsMenuItem_AboutPhotoEditor
-            // 
-            this.toolsMenuItem_AboutPhotoEditor.Name = "toolsMenuItem_AboutPhotoEditor";
-            this.toolsMenuItem_AboutPhotoEditor.Size = new System.Drawing.Size(224, 26);
-            this.toolsMenuItem_AboutPhotoEditor.Text = "About Photo Editor";
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(1034, 506);
+            this.ClientSize = new System.Drawing.Size(1920, 1106);
+            this.Controls.Add(this.MinMaxBtn);
+            this.Controls.Add(this.RestoreBtn);
+            this.Controls.Add(this.ExitBtn);
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.leftPanel);
             this.Controls.Add(this.rightPanel);
@@ -1264,13 +826,12 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormMain";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Photo Editor";
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
+            this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.colorSwitch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorWheel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainColorPic)).EndInit();
@@ -1392,58 +953,11 @@
         private System.Windows.Forms.Button centerBtn;
         private System.Windows.Forms.Panel bottomPanel;
         private System.Windows.Forms.ToolStripMenuItem iconToolStripMenuItem;
+        private System.Windows.Forms.Button ExitBtn;
+        private System.Windows.Forms.Button RestoreBtn;
+        private System.Windows.Forms.Button MinMaxBtn;
         private System.Windows.Forms.GroupBox historyGroupBox;
         private System.Windows.Forms.Panel historyPanel;
-        private System.Windows.Forms.ToolStripMenuItem menuStrip_File;
-        private System.Windows.Forms.ToolStripMenuItem fileMenuItem_New;
-        private System.Windows.Forms.ToolStripMenuItem fileMenuItem_Open;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem fileMenuItem_Save;
-        private System.Windows.Forms.ToolStripMenuItem fileMenuItem_SaveAs;
-        private System.Windows.Forms.ToolStripMenuItem fileMenuItem_Close;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem fileMenuItem_Exit;
-        private System.Windows.Forms.ToolStripMenuItem menuStrip_Edit;
-        private System.Windows.Forms.ToolStripMenuItem editMenuItem_Copy;
-        private System.Windows.Forms.ToolStripMenuItem editMenuItem_Paste;
-        private System.Windows.Forms.ToolStripMenuItem editMenuItem_Cut;
-        private System.Windows.Forms.ToolStripMenuItem editMenuItem_Undo;
-        private System.Windows.Forms.ToolStripMenuItem menuStrip_View;
-        private System.Windows.Forms.ToolStripMenuItem viewMenuItem_ZoomIn;
-        private System.Windows.Forms.ToolStripMenuItem viewMenuItem_ZoomOut;
-        private System.Windows.Forms.ToolStripMenuItem viewMenuItem_Center;
-        private System.Windows.Forms.ToolStripMenuItem menuStrip_Layer;
-        private System.Windows.Forms.ToolStripMenuItem layerMenuItem_NewLayer;
-        private System.Windows.Forms.ToolStripMenuItem layerMenuItem_DeleteLayer;
-        private System.Windows.Forms.ToolStripMenuItem menuStrip_Color;
-        private System.Windows.Forms.ToolStripMenuItem menuStrip_Filter;
-        private System.Windows.Forms.ToolStripMenuItem menuStrip_Tools;
-        private System.Windows.Forms.ToolStripMenuItem menuStrip_Help;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripMenuItem layerMenuItem_Clear;
-        private System.Windows.Forms.ToolStripMenuItem layerMenuItem_Rename;
-        private System.Windows.Forms.ToolStripMenuItem layerMenuItem_Duplicate;
-        private System.Windows.Forms.ToolStripMenuItem layerMenuItem_Merge;
-        private System.Windows.Forms.ToolStripMenuItem layerMenuItem_Fill;
-        private System.Windows.Forms.ToolStripMenuItem colorMenuItem_ColorBalance;
-        private System.Windows.Forms.ToolStripMenuItem colorMenuItem_Brightness_Contrast;
-        private System.Windows.Forms.ToolStripMenuItem colorMenuItem_Hue_Saturation;
-        private System.Windows.Forms.ToolStripMenuItem colorMenuItem_Invert;
-        private System.Windows.Forms.ToolStripMenuItem colorMenuItem__Threshold;
-        private System.Windows.Forms.ToolStripMenuItem colorMenuItem_Grayscale;
-        private System.Windows.Forms.ToolStripMenuItem filterMenuItem_Blur;
-        private System.Windows.Forms.ToolStripMenuItem filterMenuItem_Noise;
-        private System.Windows.Forms.ToolStripMenuItem filterMenuItem_Pixelate;
-        private System.Windows.Forms.ToolStripMenuItem toolsMenuItem_Transform;
-        private System.Windows.Forms.ToolStripMenuItem toolsMenuItem_Drag;
-        private System.Windows.Forms.ToolStripMenuItem toolsMenuItem_Select;
-        private System.Windows.Forms.ToolStripMenuItem toolsMenuItem_Pen;
-        private System.Windows.Forms.ToolStripMenuItem toolsMenuItem_Eraser;
-        private System.Windows.Forms.ToolStripMenuItem toolsMenuItem_ColorPicker;
-        private System.Windows.Forms.ToolStripMenuItem toolsMenuItem_Shape;
-        private System.Windows.Forms.ToolStripMenuItem toolsMenuItem_Line;
-        private System.Windows.Forms.ToolStripMenuItem toolsMenuItem_Bucket;
-        private System.Windows.Forms.ToolStripMenuItem toolsMenuItem_AboutPhotoEditor;
     }
 }
  

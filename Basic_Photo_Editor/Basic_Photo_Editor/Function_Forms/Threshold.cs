@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Basic_Photo_Editor
+namespace Basic_Photo_Editor.Function_Forms
 {
-    public partial class FormMain : Form
+    public partial class Threshold : Form
     {
-        public FormMain()
+        public Threshold()
         {
             InitializeComponent();
-        }
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-            //abc
         }
     }
 }

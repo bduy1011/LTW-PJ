@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Basic_Photo_Editor
 {
-    public partial class FormMain : Form
+    public partial class LayerContainer : Form
     {
-        public FormMain()
+        public LayerContainer()
         {
             InitializeComponent();
-        }
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-            //abc
         }
     }
 }
