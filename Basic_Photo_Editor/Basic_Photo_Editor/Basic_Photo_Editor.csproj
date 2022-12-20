@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorTable\ToolStripColorTable.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,10 +96,65 @@
       <DependentUpon>Threshold.cs</DependentUpon>
     </Compile>
     <Compile Include="LayerContainer.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="LayerContainer.Designer.cs">
       <DependentUpon>LayerContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paint_Tools\Drag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Paint_Tools\Drag.Designer.cs">
+      <DependentUpon>Drag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paint_Tools\Picker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Paint_Tools\Picker.Designer.cs">
+      <DependentUpon>Picker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paint_Tools\Line.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Paint_Tools\Line.Designer.cs">
+      <DependentUpon>Line.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paint_Tools\Bucket.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Paint_Tools\Bucket.Designer.cs">
+      <DependentUpon>Bucket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paint_Tools\Eraser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Paint_Tools\Eraser.Designer.cs">
+      <DependentUpon>Eraser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paint_Tools\Select.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Paint_Tools\Select.Designer.cs">
+      <DependentUpon>Select.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paint_Tools\Shape.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Paint_Tools\Shape.Designer.cs">
+      <DependentUpon>Shape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paint_Tools\Tools.cs" />
+    <Compile Include="Paint_Tools\Transform.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Paint_Tools\Transform.Designer.cs">
+      <DependentUpon>Transform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paint_Tools\PenTool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Paint_Tools\PenTool.Designer.cs">
+      <DependentUpon>PenTool.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,7 +187,35 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Paint_Tools\" />
+    <Content Include="Images\bucket.png" />
+    <Content Include="Images\clear_L.png" />
+    <Content Include="Images\color_gradian.jpg" />
+    <Content Include="Images\color_wheel.png" />
+    <Content Include="Images\cross.png" />
+    <Content Include="Images\delete_L.png" />
+    <Content Include="Images\duplicate_L.png" />
+    <Content Include="Images\eraser.png" />
+    <Content Include="Images\hand.png" />
+    <Content Include="Images\icon.png" />
+    <Content Include="Images\line.png" />
+    <Content Include="Images\merge.png" />
+    <Content Include="Images\minus.png" />
+    <Content Include="Images\mouse.png" />
+    <Content Include="Images\move.png" />
+    <Content Include="Images\move_L_down.png" />
+    <Content Include="Images\move_L_up.png" />
+    <Content Include="Images\new_L.png" />
+    <Content Include="Images\not_visible.png" />
+    <Content Include="Images\pen.png" />
+    <Content Include="Images\picker.png" />
+    <Content Include="Images\rectangel.png" />
+    <Content Include="Images\rename_L.png" />
+    <Content Include="Images\select.png" />
+    <Content Include="Images\shape.png" />
+    <Content Include="Images\switch_color.png" />
+    <Content Include="Images\TransparencyBG.png" />
+    <Content Include="Images\visible.png" />
+    <Content Include="Images\zoom.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
