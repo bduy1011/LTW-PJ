@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Basic_Photo_Editor
+namespace Basic_Photo_Editor.Paint_Tools
 {
-    public partial class LayerContainer : UserControl
+    public partial class Transform : UserControl
     {
-        public LayerContainer()
+        public Transform()
         {
             InitializeComponent();
         }

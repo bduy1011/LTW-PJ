@@ -1,6 +1,6 @@
-﻿namespace Basic_Photo_Editor
+﻿namespace Basic_Photo_Editor.Paint_Tools
 {
-    partial class LayerContainer
+    partial class Line
     {
         /// <summary> 
         /// Required designer variable.

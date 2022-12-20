@@ -1,2 +1,2 @@
-#   Basic_Photo_Editor
-Basic_Photo_Editor
+# Media-Player-Project
+Media Player Project
