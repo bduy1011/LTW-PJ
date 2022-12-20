@@ -9,3 +9,12 @@ C:\Workspace\winform\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo
 C:\Workspace\winform\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.CoreCompileInputs.cache
 C:\Workspace\winform\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.exe
 C:\Workspace\winform\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.pdb
+C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.AssemblyReference.cache
+C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.SuggestedBindingRedirects.cache
+C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.FormMain.resources
+C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.Brightness_Contrast.resources
+C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Properties.Resources.resources
+C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.GenerateResource.cache
+C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.CoreCompileInputs.cache
+C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.exe
+C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.pdb
