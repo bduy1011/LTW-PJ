@@ -46,5 +46,33 @@ namespace Basic_Photo_Editor
             }
         }
         #endregion
+        
+        #region Can tao form Newfile
+        private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            
+            using (Forms.NewFileForm nff = new Forms.NewFileForm())
+            {
+                nff.ColorFore = mainColorPic.BackColor;
+                nff.ColorBack = subColorPic.BackColor;
+
+                if (nff.ShowDialog() == DialogResult.OK)
+                {
+                    Bitmap bmp = new Bitmap(nff.ImageSize.Width, nff.ImageSize.Height);
+                    //AddWorkTab(bmp, nff.BGColor);
+                    Current.FileName = nff.FileName;
+                    Current.Parent.Text = Current.FileName;
+                    //DSUpdate();
+                    Current.Saved = true;
+                    Current.Working = true;
+                    saveAsToolStripMenuItem.Enabled = true;
+                    closeToolStripMenuItem.Enabled = true;
+                    bmp.Dispose();
+                }
+            }
+        }
+        #endregion
+
+
     }
 }
