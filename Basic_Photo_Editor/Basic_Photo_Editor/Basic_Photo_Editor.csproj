@@ -158,6 +158,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="workSpace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="workSpace.Designer.cs">
+      <DependentUpon>workSpace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="workTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="workTabControl.Designer.cs">
+      <DependentUpon>workTabControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
