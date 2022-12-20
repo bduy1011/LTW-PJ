@@ -66,9 +66,10 @@ namespace Basic_Photo_Editor.Function_Forms
                     g.DrawImage(adjusted, new Rectangle(0, 0, adjusted.Width, adjusted.Height), 0, 0, origin.Width, origin.Height, GraphicsUnit.Pixel, imageAttributes);
                 }
             }
-
-            layerContainer.ProcessUpdate(adjusted, true);
-            fMain.DSUpdate();
+            #region need to fix
+            //layerContainer.ProcessUpdate(adjusted, true);
+            //fMain.DSUpdate();
+            #endregion
         }
 
         private void TrackBar1_Scroll(object sender, EventArgs e)
@@ -105,9 +106,10 @@ namespace Basic_Photo_Editor.Function_Forms
 
         private void Button1_Click(object sender, EventArgs e)
         {
-
-            layerContainer.ProcessUpdate(origin, true);
-            fMain.DSUpdate();
+            #region need to fix
+            //layerContainer.ProcessUpdate(origin, true);
+            //fMain.DSUpdate();
+            #endregion
         }
     }
 }
