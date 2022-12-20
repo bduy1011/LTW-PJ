@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Nam_2\\HK1\\Lập trình trực quan\\DoAn\\Media-Player-Project\\ZingMp3\\ZingMp3\\ZingMp3.csproj": {}
+    "D:\\Nam_2\\HK1\\Lập trình trực quan\\DoAn\\LTW-PJ\\ZingMp3\\ZingMp3\\ZingMp3.csproj": {}
   },
   "projects": {
-    "D:\\Nam_2\\HK1\\Lập trình trực quan\\DoAn\\Media-Player-Project\\ZingMp3\\ZingMp3\\ZingMp3.csproj": {
+    "D:\\Nam_2\\HK1\\Lập trình trực quan\\DoAn\\LTW-PJ\\ZingMp3\\ZingMp3\\ZingMp3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Nam_2\\HK1\\Lập trình trực quan\\DoAn\\Media-Player-Project\\ZingMp3\\ZingMp3\\ZingMp3.csproj",
+        "projectUniqueName": "D:\\Nam_2\\HK1\\Lập trình trực quan\\DoAn\\LTW-PJ\\ZingMp3\\ZingMp3\\ZingMp3.csproj",
         "projectName": "ZingMp3",
-        "projectPath": "D:\\Nam_2\\HK1\\Lập trình trực quan\\DoAn\\Media-Player-Project\\ZingMp3\\ZingMp3\\ZingMp3.csproj",
+        "projectPath": "D:\\Nam_2\\HK1\\Lập trình trực quan\\DoAn\\LTW-PJ\\ZingMp3\\ZingMp3\\ZingMp3.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "D:\\Nam_2\\HK1\\Lập trình trực quan\\DoAn\\Media-Player-Project\\ZingMp3\\ZingMp3\\obj\\",
+        "outputPath": "D:\\Nam_2\\HK1\\Lập trình trực quan\\DoAn\\LTW-PJ\\ZingMp3\\ZingMp3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
