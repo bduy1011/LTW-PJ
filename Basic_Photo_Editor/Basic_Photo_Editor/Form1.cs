@@ -12,6 +12,7 @@ namespace Basic_Photo_Editor
 {
     public partial class FormMain : Form
     {
+        private workSpace Current;
         public FormMain()
         {
             InitializeComponent();
@@ -21,5 +22,29 @@ namespace Basic_Photo_Editor
         {
 
         }
+        #region Cần thêm hàm add workTab và DSUpdate
+        private void openToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.bmp;*.jpg;*.png|All files (*.*)|*.*";
+                ofd.FilterIndex = 2;
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    Bitmap bmp = new Bitmap(ofd.FileName);
+                    //AddWorkTab();
+                    Current.FilePath = ofd.FileName;
+                    Current.Parent.Text = Current.FileName;
+                    //DSUpdate();
+                    Current.Saved = true;
+                    Current.Stored = true;
+                    Current.Working = true;
+                    saveAsToolStripMenuItem.Enabled = true;
+                    closeToolStripMenuItem.Enabled = true;
+                    bmp.Dispose();
+                }
+            }
+        }
+        #endregion
     }
 }
