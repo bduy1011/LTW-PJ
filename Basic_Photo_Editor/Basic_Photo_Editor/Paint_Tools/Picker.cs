@@ -12,9 +12,16 @@ namespace Basic_Photo_Editor.Paint_Tools
 {
     public partial class Picker : UserControl
     {
+        public Color Color { get; set; }
         public Picker()
         {
             InitializeComponent();
+            Dock = DockStyle.Fill;
+        }
+
+        public void GetColor(Bitmap bmp, PointF p)
+        {
+            Color = bmp.GetPixel((int)p.X, (int)p.Y);
         }
     }
 }

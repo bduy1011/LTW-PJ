@@ -69,7 +69,7 @@ namespace Basic_Photo_Editor
         #endregion
 
         #region  NewButton: Can Tao form New file
-        private void newToolStripMenuItem1_Click(object sender, EventArgs e)
+        /*private void newToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             using (Forms.NewFileForm nff = new Forms.NewFileForm())
             {
@@ -90,7 +90,7 @@ namespace Basic_Photo_Editor
                     bmp.Dispose();
                 }
             }
-        }
+        }*/
         #endregion
     }
 }
