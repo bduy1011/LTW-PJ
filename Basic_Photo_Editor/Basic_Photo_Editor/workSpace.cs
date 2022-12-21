@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Basic_Photo_Editor
 {
-    public partial class workSpace : UserControl
+    public partial class WorkSpace : UserControl
     {
         //public History History { get; set; }
         //public DrawSpace DrawSpace { get; set; }
@@ -50,7 +50,7 @@ namespace Basic_Photo_Editor
         public bool Stored { get; set; }
 
         #region Can sửa contructor
-        public workSpace(LayerContainer lc)
+        public WorkSpace(LayerContainer lc)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;

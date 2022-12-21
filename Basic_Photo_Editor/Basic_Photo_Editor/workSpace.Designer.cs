@@ -1,6 +1,6 @@
 ﻿namespace Basic_Photo_Editor
 {
-    partial class workSpace
+    partial class WorkSpace
     {
         /// <summary> 
         /// Required designer variable.
@@ -17,6 +17,9 @@
             {
                 components.Dispose();
             }
+            //DrawSpace.Dispose();
+            LayerContainer.Dispose();
+            //History.Dispose();
             base.Dispose(disposing);
         }
 
@@ -28,8 +31,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // WorkSpace
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.Name = "WorkSpace";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

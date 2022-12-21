@@ -1,6 +1,6 @@
 ﻿namespace Basic_Photo_Editor.Paint_Tools
 {
-    partial class Drag
+    partial class _1
     {
         /// <summary> 
         /// Required designer variable.
@@ -33,6 +33,5 @@
         }
 
         #endregion
-
     }
 }

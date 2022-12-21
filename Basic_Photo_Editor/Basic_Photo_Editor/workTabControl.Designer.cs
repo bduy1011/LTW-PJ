@@ -1,6 +1,6 @@
 ﻿namespace Basic_Photo_Editor
 {
-    partial class workTabControl
+    partial class WorkTabControl
     {
         /// <summary>
         /// Required designer variable.

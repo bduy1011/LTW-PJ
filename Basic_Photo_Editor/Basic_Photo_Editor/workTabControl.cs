@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Basic_Photo_Editor
 {
-    public partial class workTabControl : Component
+    public partial class WorkTabControl : Component
     {
-        public workTabControl()
+        public WorkTabControl()
         {
             InitializeComponent();
         }
 
-        public workTabControl(IContainer container)
+        public WorkTabControl(IContainer container)
         {
             container.Add(this);
 
