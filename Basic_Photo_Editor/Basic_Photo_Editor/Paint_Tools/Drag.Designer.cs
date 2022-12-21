@@ -1,6 +1,6 @@
 ﻿namespace Basic_Photo_Editor.Paint_Tools
 {
-    partial class _1
+    partial class Drag
     {
         /// <summary> 
         /// Required designer variable.
