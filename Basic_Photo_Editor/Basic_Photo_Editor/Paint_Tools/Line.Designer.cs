@@ -33,5 +33,8 @@
         }
 
         #endregion
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox sizeBar;
+        private System.Windows.Forms.Label label1;
     }
 }
