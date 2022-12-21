@@ -147,7 +147,7 @@ namespace Basic_Photo_Editor.Function_Forms
             this.button3.TabIndex = 3;
             this.button3.Text = "Reset";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            //this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Brightness_Contrast
             // 

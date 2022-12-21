@@ -30,3 +30,15 @@ C:\Users\ACER\Downloads\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\B
 C:\Users\ACER\Downloads\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.CoreCompileInputs.cache
 C:\Users\ACER\Downloads\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.exe
 C:\Users\ACER\Downloads\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.pdb
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.AssemblyReference.cache
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.FormMain.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.Brightness_Contrast.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Properties.Resources.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.exe
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.pdb
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\bin\Debug\Basic_Photo_Editor.exe.config
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\bin\Debug\Basic_Photo_Editor.exe
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\bin\Debug\Basic_Photo_Editor.pdb
