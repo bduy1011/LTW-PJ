@@ -13,12 +13,12 @@ namespace Basic_Photo_Editor.Function_Forms
 {
     public partial class Pixelate : Form
     {
-        private Form1 f;
+        private FormMain f;
         private LayerContainer lc;
         private Bitmap origin;
         private Bitmap adjusted;
 
-        public Pixelate(Form1 f, LayerContainer lc)
+        public Pixelate(FormMain f, LayerContainer lc)
         {
             InitializeComponent();
             this.f = f;

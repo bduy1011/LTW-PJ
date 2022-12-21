@@ -13,14 +13,14 @@ using System.Runtime.InteropServices;
 
 namespace Basic_Photo_Editor
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
         private WorkSpace Current;
         //private Tools.Tools tool;
 
         #region Form
 
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
         }

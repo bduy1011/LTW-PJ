@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorTable\ToolStripColorTable.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Function_Forms\Brightness_Contrast.cs">
       <SubType>Form</SubType>
@@ -170,8 +170,8 @@
     <Compile Include="WorkTabControl.Designer.cs">
       <DependentUpon>WorkTabControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Function_Forms\Brightness_Contrast.resx">
       <DependentUpon>Brightness_Contrast.cs</DependentUpon>

@@ -13,7 +13,7 @@ namespace Basic_Photo_Editor.Function_Forms
 {
     public partial class Noise : Form
     {
-        private Form1 f;
+        private FormMain f;
         private LayerContainer lc;
         private Bitmap origin;
         private Bitmap adjusted;
@@ -21,7 +21,7 @@ namespace Basic_Photo_Editor.Function_Forms
         private byte[] imagePixels;
         private int dataSize;
 
-        public Noise(Form1 f, LayerContainer lc)
+        public Noise(FormMain f, LayerContainer lc)
         {
             InitializeComponent();
             this.f = f;

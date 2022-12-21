@@ -14,14 +14,14 @@ namespace Basic_Photo_Editor.Function_Forms
     public partial class Threshold : Form
     {
         private LayerContainer lc;
-        private Form1 f;
+        private FormMain f;
         private Bitmap origin;
         private Bitmap adjusted;
         private System.Drawing.Imaging.BitmapData bmpData;
         private byte[] imagePixels;
         private int dataSize;
 
-        public Threshold(Form1 f, LayerContainer lc)
+        public Threshold(FormMain f, LayerContainer lc)
         {
             InitializeComponent();
             this.f = f;

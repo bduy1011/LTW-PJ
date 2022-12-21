@@ -13,7 +13,7 @@ namespace Basic_Photo_Editor.Function_Forms
 {
     public partial class Hue_Saturation : Form
     {
-        private Form1 f;
+        private FormMain f;
         private LayerContainer lc;
         private Bitmap origin;
         private Bitmap adjusted;
@@ -21,7 +21,7 @@ namespace Basic_Photo_Editor.Function_Forms
         private byte[] imagePixels;
         private int dataSize;
 
-        public Hue_Saturation(Form1 f, LayerContainer lc)
+        public Hue_Saturation(FormMain f, LayerContainer lc)
         {
             InitializeComponent();
             this.f = f;
