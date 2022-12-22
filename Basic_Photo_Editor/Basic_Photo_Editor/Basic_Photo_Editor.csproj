@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorTable\ToolStripColorTable.cs" />
+    <Compile Include="DrawSpace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrawSpace.Designer.cs">
+      <DependentUpon>DrawSpace.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -40,7 +40,6 @@ namespace Basic_Photo_Editor
             g = Graphics.FromImage(processing);
             gF = Graphics.FromImage(Final);
             InitGraphic();
-
             originalSize = this.Size;
         }
 
@@ -80,7 +79,6 @@ namespace Basic_Photo_Editor
             ScaleMatrix.Reset();
             ScaleMatrix.Scale(scale, scale);
             Invalidate();
-
         }
 
         PointF ScaledPoint(PointF p)
@@ -202,5 +200,7 @@ namespace Basic_Photo_Editor
             gTop.ResetTransform();
             topBox.Invalidate();
         }
+
+
     }
 }
