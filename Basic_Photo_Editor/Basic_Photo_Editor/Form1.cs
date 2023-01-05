@@ -16,10 +16,5 @@ namespace Basic_Photo_Editor
         {
             InitializeComponent();
         }
-
-        private void fToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

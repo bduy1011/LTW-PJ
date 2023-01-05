@@ -165,13 +165,14 @@
       <DependentUpon>Brightness_Contrast.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -196,8 +197,8 @@
     <Content Include="Images\duplicate_L.png" />
     <Content Include="Images\eraser.png" />
     <Content Include="Images\hand.png" />
-    <Content Include="Images\icon.png" />
     <Content Include="Images\line.png" />
+    <None Include="Images\logo.png" />
     <Content Include="Images\merge.png" />
     <Content Include="Images\minus.png" />
     <Content Include="Images\mouse.png" />
