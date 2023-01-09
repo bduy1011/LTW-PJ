@@ -89,8 +89,8 @@ namespace Basic_Photo_Editor.Function_Forms
             adjusted.UnlockBits(bmpData);
             #region bug function ProcessUpdate in Layercontainer
             //lc.ProcessUpdate(adjusted, true);
+            //f.DSUpdate();
             #endregion
-            f.DSUpdate();
         }
 
         private void NoiseTrack_Scroll(object sender, EventArgs e)
@@ -106,8 +106,8 @@ namespace Basic_Photo_Editor.Function_Forms
         {
             #region bug function ProcessUpdate in Layercontainer
             //lc.ProcessUpdate(origin, true);
+            //f.DSUpdate();
             #endregion
-            f.DSUpdate();
         }
     }
 }

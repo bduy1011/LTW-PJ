@@ -79,8 +79,8 @@ namespace Basic_Photo_Editor.Function_Forms
             adjusted.UnlockBits(bmpData);
             #region this is bug and fix bug in LayerContainer
             //lc.ProcessUpdate(adjusted, true);
+            //f.DSUpdate();
             #endregion
-            f.DSUpdate();
         }
 
         private void SetColor(ref Color c)
@@ -214,8 +214,8 @@ namespace Basic_Photo_Editor.Function_Forms
         {
             #region this is bug and fix bug in LayerContainer
             //lc.ProcessUpdate(origin, true);
+            //f.DSUpdate();
             #endregion
-            f.DSUpdate();
         }
 
     }

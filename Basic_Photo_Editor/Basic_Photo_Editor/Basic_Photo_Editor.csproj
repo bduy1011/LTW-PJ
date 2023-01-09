@@ -170,12 +170,6 @@
     <Compile Include="WorkSpace.Designer.cs">
       <DependentUpon>WorkSpace.cs</DependentUpon>
     </Compile>
-    <Compile Include="WorkTabControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WorkTabControl.Designer.cs">
-      <DependentUpon>WorkTabControl.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,6 +184,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -214,8 +209,8 @@
     <Content Include="Images\duplicate_L.png" />
     <Content Include="Images\eraser.png" />
     <Content Include="Images\hand.png" />
-    <Content Include="Images\icon.png" />
     <Content Include="Images\line.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\merge.png" />
     <Content Include="Images\minus.png" />
     <Content Include="Images\mouse.png" />

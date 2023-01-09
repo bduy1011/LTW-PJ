@@ -68,8 +68,8 @@ namespace Basic_Photo_Editor.Function_Forms
             }
             #region bug ProcessUpdate in LayerContainer
             //lc.ProcessUpdate(adjusted, true);
+            //f.DSUpdate();
             #endregion
-            f.DSUpdate();
         }
 
         private void PixelTrack_Scroll(object sender, EventArgs e)
@@ -85,8 +85,8 @@ namespace Basic_Photo_Editor.Function_Forms
         {
             #region bug ProcessUpdate in LayerContainer
             //lc.ProcessUpdate(origin, true);
+            //f.DSUpdate();
             #endregion
-            f.DSUpdate();
         }
     }
 }
