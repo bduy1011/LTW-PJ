@@ -401,6 +401,7 @@
             this.menuStrip.Size = new System.Drawing.Size(1556, 52);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
+            this.menuStrip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip_MouseDown);
             // 
             // logoToolStripMenuItem
             // 
@@ -848,6 +849,7 @@
             this.sToolStrip.Location = new System.Drawing.Point(0, 84);
             this.sToolStrip.Name = "sToolStrip";
             this.sToolStrip.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.sToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.sToolStrip.ShowItemToolTips = false;
             this.sToolStrip.Size = new System.Drawing.Size(240, 42);
             this.sToolStrip.TabIndex = 8;
@@ -888,6 +890,7 @@
             this.pToolStrip.Location = new System.Drawing.Point(0, 42);
             this.pToolStrip.Name = "pToolStrip";
             this.pToolStrip.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.pToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.pToolStrip.ShowItemToolTips = false;
             this.pToolStrip.Size = new System.Drawing.Size(240, 42);
             this.pToolStrip.TabIndex = 7;
@@ -950,6 +953,7 @@
             this.mToolStrip.Location = new System.Drawing.Point(0, 0);
             this.mToolStrip.Name = "mToolStrip";
             this.mToolStrip.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.mToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.mToolStrip.ShowItemToolTips = false;
             this.mToolStrip.Size = new System.Drawing.Size(240, 42);
             this.mToolStrip.TabIndex = 6;
@@ -1048,6 +1052,7 @@
             this.layerToolStrip.Location = new System.Drawing.Point(0, 69);
             this.layerToolStrip.Name = "layerToolStrip";
             this.layerToolStrip.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.layerToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.layerToolStrip.Size = new System.Drawing.Size(248, 31);
             this.layerToolStrip.Stretch = true;
             this.layerToolStrip.TabIndex = 1;
@@ -1276,10 +1281,10 @@
             this.bottomPanel.Controls.Add(this.zoomInBtn);
             this.bottomPanel.Controls.Add(this.zoomOutBtn);
             this.bottomPanel.Controls.Add(this.comboBox1);
-            this.bottomPanel.Location = new System.Drawing.Point(253, 805);
+            this.bottomPanel.Location = new System.Drawing.Point(250, 805);
             this.bottomPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bottomPanel.Name = "bottomPanel";
-            this.bottomPanel.Size = new System.Drawing.Size(1037, 47);
+            this.bottomPanel.Size = new System.Drawing.Size(1040, 47);
             this.bottomPanel.TabIndex = 5;
             // 
             // MinMaxBtn
@@ -1289,13 +1294,14 @@
             this.MinMaxBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.MinMaxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MinMaxBtn.Image = global::Basic_Photo_Editor.Properties.Resources.minus;
-            this.MinMaxBtn.Location = new System.Drawing.Point(1427, 0);
+            this.MinMaxBtn.Location = new System.Drawing.Point(1420, 0);
             this.MinMaxBtn.Margin = new System.Windows.Forms.Padding(4);
             this.MinMaxBtn.Name = "MinMaxBtn";
             this.MinMaxBtn.Size = new System.Drawing.Size(43, 34);
             this.MinMaxBtn.TabIndex = 6;
             this.MinMaxBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MinMaxBtn.UseVisualStyleBackColor = false;
+            this.MinMaxBtn.Click += new System.EventHandler(this.MinMaxBtn_Click);
             // 
             // RestoreBtn
             // 
@@ -1311,6 +1317,7 @@
             this.RestoreBtn.TabIndex = 6;
             this.RestoreBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.RestoreBtn.UseVisualStyleBackColor = false;
+            this.RestoreBtn.Click += new System.EventHandler(this.RestoreBtn_Click);
             // 
             // ExitBtn
             // 
@@ -1326,6 +1333,7 @@
             this.ExitBtn.TabIndex = 6;
             this.ExitBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ExitBtn.UseVisualStyleBackColor = false;
+            this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
             // workSpaceTabControl
             // 
