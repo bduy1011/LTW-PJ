@@ -662,10 +662,11 @@
             this.colorPanel.Controls.Add(this.label9);
             this.colorPanel.Controls.Add(this.label8);
             this.colorPanel.Controls.Add(this.label5);
-            this.colorPanel.Location = new System.Drawing.Point(4, 4);
+            this.colorPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.colorPanel.Location = new System.Drawing.Point(0, 0);
             this.colorPanel.Margin = new System.Windows.Forms.Padding(4);
             this.colorPanel.Name = "colorPanel";
-            this.colorPanel.Size = new System.Drawing.Size(243, 379);
+            this.colorPanel.Size = new System.Drawing.Size(251, 382);
             this.colorPanel.TabIndex = 9;
             // 
             // hexCode
@@ -830,10 +831,12 @@
             // 
             // propertiesPanel
             // 
-            this.propertiesPanel.Location = new System.Drawing.Point(4, 130);
+            this.propertiesPanel.BackColor = System.Drawing.SystemColors.GrayText;
+            this.propertiesPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.propertiesPanel.Location = new System.Drawing.Point(0, 126);
             this.propertiesPanel.Margin = new System.Windows.Forms.Padding(4);
             this.propertiesPanel.Name = "propertiesPanel";
-            this.propertiesPanel.Size = new System.Drawing.Size(232, 281);
+            this.propertiesPanel.Size = new System.Drawing.Size(240, 282);
             this.propertiesPanel.TabIndex = 9;
             // 
             // sToolStrip
@@ -1281,10 +1284,11 @@
             this.bottomPanel.Controls.Add(this.zoomInBtn);
             this.bottomPanel.Controls.Add(this.zoomOutBtn);
             this.bottomPanel.Controls.Add(this.comboBox1);
-            this.bottomPanel.Location = new System.Drawing.Point(250, 805);
+            this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bottomPanel.Location = new System.Drawing.Point(253, 809);
             this.bottomPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bottomPanel.Name = "bottomPanel";
-            this.bottomPanel.Size = new System.Drawing.Size(1040, 47);
+            this.bottomPanel.Size = new System.Drawing.Size(1037, 47);
             this.bottomPanel.TabIndex = 5;
             // 
             // MinMaxBtn
@@ -1294,7 +1298,7 @@
             this.MinMaxBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.MinMaxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MinMaxBtn.Image = global::Basic_Photo_Editor.Properties.Resources.minus;
-            this.MinMaxBtn.Location = new System.Drawing.Point(1420, 0);
+            this.MinMaxBtn.Location = new System.Drawing.Point(1427, 0);
             this.MinMaxBtn.Margin = new System.Windows.Forms.Padding(4);
             this.MinMaxBtn.Name = "MinMaxBtn";
             this.MinMaxBtn.Size = new System.Drawing.Size(43, 34);
@@ -1389,6 +1393,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Photo Editor";
+            this.Resize += new System.EventHandler(this.FormMain_Resize);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.leftPanel.ResumeLayout(false);
