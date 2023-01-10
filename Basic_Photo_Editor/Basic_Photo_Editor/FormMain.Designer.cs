@@ -1236,6 +1236,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(91, 24);
             this.comboBox1.TabIndex = 0;
+            this.comboBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UnableToKeyPress);
             // 
             // zoomOutBtn
             // 
@@ -1393,7 +1394,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Photo Editor";
-            this.Resize += new System.EventHandler(this.FormMain_Resize);
+            this.SizeChanged += new System.EventHandler(this.FormMain_SizeChanged);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.leftPanel.ResumeLayout(false);

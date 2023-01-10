@@ -58,13 +58,18 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
-        private void FormMain_Resize(object sender, EventArgs e)
+        private void FormMain_SizeChanged(object sender, EventArgs e)
         {
             ExitBtn.Left = this.Width - ExitBtn.Width;
             MinMaxBtn.Left = ExitBtn.Location.X - MinMaxBtn.Width;
             RestoreBtn.Left = MinMaxBtn.Location.X - RestoreBtn.Width;
             toolPanel.Height = Size.Height - toolPanel.Location.Y;
             propertiesPanel.Height = this.Height - propertiesPanel.Location.Y - statusStrip1.Height;
+        }
+
+        private void UnableToKeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
