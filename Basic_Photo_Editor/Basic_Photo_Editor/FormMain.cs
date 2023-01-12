@@ -20,7 +20,7 @@ namespace Basic_Photo_Editor
             InitializeComponent();
         }
      
-        private void MinMaxBtn_Click(object sender, EventArgs e)
+        private void MinimizeBtn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
@@ -61,8 +61,8 @@ namespace Basic_Photo_Editor
         private void FormMain_SizeChanged(object sender, EventArgs e)
         {
             ExitBtn.Left = this.Width - ExitBtn.Width;
-            MinMaxBtn.Left = ExitBtn.Location.X - MinMaxBtn.Width;
-            RestoreBtn.Left = MinMaxBtn.Location.X - RestoreBtn.Width;
+            RestoreBtn.Left = ExitBtn.Location.X - RestoreBtn.Width;
+            MinimizeBtn.Left = RestoreBtn.Location.X - MinimizeBtn.Width;
             toolPanel.Height = Size.Height - toolPanel.Location.Y;
             propertiesPanel.Height = this.Height - propertiesPanel.Location.Y - statusStrip1.Height;
         }

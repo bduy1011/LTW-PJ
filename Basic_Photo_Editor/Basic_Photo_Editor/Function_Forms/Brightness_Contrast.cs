@@ -59,10 +59,6 @@ namespace Basic_Photo_Editor.Function_Forms
                     g.DrawImage(adjusted, new Rectangle(0, 0, adjusted.Width, adjusted.Height), 0, 0, origin.Width, origin.Height, GraphicsUnit.Pixel, imageAttributes);
                 }
             }
-            #region need to fix
-            // layerContainer.ProcessUpdate(adjusted, true);
-            //fMain.DSUpdate();
-            #endregion
         }
 
         private void TrackBar1_Scroll(object sender, EventArgs e)
@@ -79,7 +75,12 @@ namespace Basic_Photo_Editor.Function_Forms
             Adjust();
         }
 
-        private void Button3_Click(object sender, EventArgs e)
+        private void Btn_Cancel_Ok_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Btn_Reset_Click(object sender, EventArgs e)
         {
             brightness = brightnessTrack.Value = 0;
             label3.Text = brightnessTrack.Value.ToString();
@@ -87,12 +88,5 @@ namespace Basic_Photo_Editor.Function_Forms
             label4.Text = contrastTrack.Value.ToString();
             Adjust();
         }
-        #region need_to_fix 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            //layerContainer.ProcessUpdate(origin, true);
-            //fMain.DSUpdate();
-        }
-        #endregion
     }
 }

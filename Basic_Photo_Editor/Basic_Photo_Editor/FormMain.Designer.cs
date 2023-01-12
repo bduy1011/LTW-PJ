@@ -134,7 +134,7 @@
             this.zoomInBtn = new System.Windows.Forms.Button();
             this.centerBtn = new System.Windows.Forms.Button();
             this.bottomPanel = new System.Windows.Forms.Panel();
-            this.MinMaxBtn = new System.Windows.Forms.Button();
+            this.MinimizeBtn = new System.Windows.Forms.Button();
             this.RestoreBtn = new System.Windows.Forms.Button();
             this.ExitBtn = new System.Windows.Forms.Button();
             this.workSpaceTabControl = new System.Windows.Forms.TabControl();
@@ -1056,7 +1056,7 @@
             this.layerToolStrip.Name = "layerToolStrip";
             this.layerToolStrip.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.layerToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.layerToolStrip.Size = new System.Drawing.Size(248, 31);
+            this.layerToolStrip.Size = new System.Drawing.Size(248, 25);
             this.layerToolStrip.Stretch = true;
             this.layerToolStrip.TabIndex = 1;
             this.layerToolStrip.Text = "toolStrip2";
@@ -1292,21 +1292,21 @@
             this.bottomPanel.Size = new System.Drawing.Size(1037, 47);
             this.bottomPanel.TabIndex = 5;
             // 
-            // MinMaxBtn
+            // MinimizeBtn
             // 
-            this.MinMaxBtn.BackColor = System.Drawing.Color.DimGray;
-            this.MinMaxBtn.FlatAppearance.BorderSize = 0;
-            this.MinMaxBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.MinMaxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinMaxBtn.Image = global::Basic_Photo_Editor.Properties.Resources.minus;
-            this.MinMaxBtn.Location = new System.Drawing.Point(1427, 0);
-            this.MinMaxBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.MinMaxBtn.Name = "MinMaxBtn";
-            this.MinMaxBtn.Size = new System.Drawing.Size(43, 34);
-            this.MinMaxBtn.TabIndex = 6;
-            this.MinMaxBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.MinMaxBtn.UseVisualStyleBackColor = false;
-            this.MinMaxBtn.Click += new System.EventHandler(this.MinMaxBtn_Click);
+            this.MinimizeBtn.BackColor = System.Drawing.Color.DimGray;
+            this.MinimizeBtn.FlatAppearance.BorderSize = 0;
+            this.MinimizeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.MinimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MinimizeBtn.Image = global::Basic_Photo_Editor.Properties.Resources.minus;
+            this.MinimizeBtn.Location = new System.Drawing.Point(1427, 0);
+            this.MinimizeBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimizeBtn.Name = "MinimizeBtn";
+            this.MinimizeBtn.Size = new System.Drawing.Size(43, 34);
+            this.MinimizeBtn.TabIndex = 6;
+            this.MinimizeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.MinimizeBtn.UseVisualStyleBackColor = false;
+            this.MinimizeBtn.Click += new System.EventHandler(this.MinimizeBtn_Click);
             // 
             // RestoreBtn
             // 
@@ -1377,7 +1377,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1556, 882);
-            this.Controls.Add(this.MinMaxBtn);
+            this.Controls.Add(this.MinimizeBtn);
             this.Controls.Add(this.RestoreBtn);
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.ExitBtn);
@@ -1536,7 +1536,7 @@
         private System.Windows.Forms.ToolStripMenuItem logoToolStripMenuItem;
         private System.Windows.Forms.Button ExitBtn;
         private System.Windows.Forms.Button RestoreBtn;
-        private System.Windows.Forms.Button MinMaxBtn;
+        private System.Windows.Forms.Button MinimizeBtn;
         private System.Windows.Forms.GroupBox historyGroupBox;
         private System.Windows.Forms.Panel historyPanel;
         private System.Windows.Forms.ToolStripStatusLabel mouseLocation;
