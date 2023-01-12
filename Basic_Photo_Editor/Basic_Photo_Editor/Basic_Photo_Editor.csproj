@@ -101,6 +101,7 @@
     <Compile Include="Function_Forms\Threshold.Designer.cs">
       <DependentUpon>Threshold.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layer.cs" />
     <Compile Include="LayerContainer.cs">
       <SubType>UserControl</SubType>
     </Compile>
