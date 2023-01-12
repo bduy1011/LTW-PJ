@@ -15,6 +15,8 @@ namespace Basic_Photo_Editor
 {
     public partial class FormMain : Form
     {
+        private WorkSpace Current;
+
         public FormMain()
         {
             InitializeComponent();
@@ -70,6 +72,6 @@ namespace Basic_Photo_Editor
         private void UnableToKeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
-        }
+        } 
     }
 }

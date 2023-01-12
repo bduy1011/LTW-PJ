@@ -24,7 +24,7 @@ namespace Basic_Photo_Editor
         float zoom;
         public float Zoom { get => zoom; }
         public Matrix ScaleMatrix { get; set; }
-        public Tools Tools { get; set; }
+        public Paint_Tools.Tools Tools { get; set; }
 
         public DrawSpace()
         {
@@ -40,6 +40,7 @@ namespace Basic_Photo_Editor
             g = Graphics.FromImage(processing);
             gF = Graphics.FromImage(Final);
             InitGraphic();
+
             originalSize = this.Size;
         }
 
@@ -79,6 +80,11 @@ namespace Basic_Photo_Editor
             ScaleMatrix.Reset();
             ScaleMatrix.Scale(scale, scale);
             Invalidate();
+            if (Tools.Select.Selected)
+            {
+                if (Tools.Tool == Basic_Photo_Editor.Paint_Tools.Tool.Transform) TransformRectDisplay();
+                else SelectRectDisplay();
+            }
         }
 
         PointF ScaledPoint(PointF p)
@@ -201,6 +207,241 @@ namespace Basic_Photo_Editor
             topBox.Invalidate();
         }
 
+        public void TransformRectDisplay()
+        {
+            gProcess.Clear(Color.Transparent);
+            gProcess.MultiplyTransform(ScaleMatrix);
+            Tools.Transform.DrawImg(gProcess);
+            gProcess.ResetTransform();
+            processBox.Invalidate();
 
+            gTop.Clear(Color.Transparent);
+            gTop.MultiplyTransform(ScaleMatrix);
+            Tools.Transform.DrawRect(gTop);
+            gTop.ResetTransform();
+            topBox.Invalidate();
+        }
+
+        public void TransformForceDraw()
+        {
+            Tools.Select.Selected = false;
+            Tools.Transform.Done = true;
+            Tools.Transform.DrawImg(g);
+            gProcess.Clear(Color.Transparent);
+        }
+
+        public void Mouse_Down(object sender, MouseEventArgs e)
+        {
+            switch (Tools.Tool)
+            {
+                case Basic_Photo_Editor.Paint_Tools.Tool.Pen:
+                    {
+                        p1 = ScaledPoint(e.Location);
+                        Tools.Pen.GetLocation(ScaledPoint(e.Location));
+                    }
+                    break;
+                case Basic_Photo_Editor.Paint_Tools.Tool.Picker:
+                    {
+                        Tools.Picker.GetColor(Final, ScaledPoint(e.Location));
+                    }
+                    break;
+                #region Bug WorkSpace.LayerContainer
+                /*case Basic_Photo_Editor.Paint_Tools.Tool.Eraser:
+                    {
+                        p1 = ScaledPoint(e.Location);
+                        Tools.Eraser.GetLocation(ScaledPoint(e.Location));
+                        using (Bitmap bmp = (Bitmap)(Parent as WorkSpace).LayerContainer.Current.Layer.Image.Clone())
+                            g.DrawImageUnscaled(bmp, 0, 0);
+                        gFinal.Clear(Color.Transparent);
+                    }
+                    break;*/
+                #endregion
+                case Basic_Photo_Editor.Paint_Tools.Tool.Drag:
+                    {
+                        Tools.Drag.GetLocation(ref e);
+                    }
+                    break;
+                case Basic_Photo_Editor.Paint_Tools.Tool.Select:
+                    {
+                        if (!Tools.Select.Selected || !Tools.Select.CheckInRect(ScaledPoint(e.Location)))
+                        {
+                            Tools.Select.GetLocation(ScaledPoint(e.Location));
+                            Tools.Select.Selected = false;
+                        }
+                        else
+                        {
+                            Tools.Select.GetLocation(ScaledPoint(e.Location));
+                            Tools.Select.Movable = true;
+                        }
+                    }
+                    break;
+                case Basic_Photo_Editor.Paint_Tools.Tool.Transform:
+                    {
+                        if (Tools.Select.Selected)
+                        {
+                            PointF p = Tools.Transform.RotatedPoint(ScaledPoint(e.Location));
+
+                            Tools.Transform.GetLocation(p, this);
+
+                            if (Tools.Transform.InSmallRect(p)) Tools.Transform.Resizing = true;
+                            else if (Tools.Transform.InRotateRect(p)) Tools.Transform.Rotating = true;
+                            else if (Tools.Transform.InRect(p)) Tools.Transform.Moving = true;
+                            else
+                            {
+                                TransformForceDraw();
+                            }
+                        }
+                    }
+                    break;
+                case Basic_Photo_Editor.Paint_Tools.Tool.Shape:
+                    {
+                        Tools.Shape.GetLocation(ScaledPoint(e.Location));
+                    }
+                    break;
+                case Basic_Photo_Editor.Paint_Tools.Tool.Line:
+                    {
+                        Tools.Line.GetLocation(ScaledPoint(e.Location));
+                    }
+                    break;
+                #region bug WorkSpace.LayerContainer
+                /*case Basic_Photo_Editor.Paint_Tools.Tool.Bucket:
+                    {
+                        Bitmap bmp;
+
+                        if (Tools.Select.Selected)
+                        {
+                            bmp = (Parent as WorkSpace).LayerContainer.Current.Layer.Image.Clone(Tools.Select.FixedRect, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+                            Tools.Bucket.Fill(ScaledPoint(e.Location), bmp, Tools.Select.Rect.X, Tools.Select.Rect.Y);
+                        }
+                        else
+                        {
+                            bmp = (Bitmap)(Parent as WorkSpace).LayerContainer.Current.Layer.Image.Clone();
+                            Tools.Bucket.Fill(ScaledPoint(e.Location), bmp);
+                        }
+
+                        bmp.Dispose();
+                    }
+                    break;*/
+                #endregion
+                default:
+                    break;
+            }
+
+        }
+
+        public void Mouse_Move(object sender, MouseEventArgs e)
+        {
+            if (processing == null)
+                return;
+
+            if (e.Button == MouseButtons.Left)
+            {
+                switch (Tools.Tool)
+                {
+                    case Basic_Photo_Editor.Paint_Tools.Tool.Pen:
+                        {
+                            p2 = ScaledPoint(e.Location);
+                            Tools.Pen.Draw(g, ScaledPoint(e.Location));
+                            if (CurrentVisible)
+                                ProcessDisplay();
+                            p1 = p2;
+                        }
+                        break;
+                    case Basic_Photo_Editor.Paint_Tools.Tool.Eraser:
+                        {
+                            p2 = ScaledPoint(e.Location);
+                            Tools.Eraser.Draw(g, ScaledPoint(e.Location));
+                            if (CurrentVisible)
+                            {
+                                gProcess.Clear(Color.Transparent);
+                                gProcess.MultiplyTransform(ScaleMatrix);
+                                gProcess.DrawImageUnscaled(processing, 0, 0);
+                                gProcess.ResetTransform();
+                            }
+                            p1 = p2;
+                        }
+                        break;
+                    case Basic_Photo_Editor.Paint_Tools.Tool.Drag:
+                        {
+                            Tools.Drag.Dragging(this, e);
+                        }
+                        break;
+                    case Basic_Photo_Editor.Paint_Tools.Tool.Select:
+                        {
+                            if (!Tools.Select.Selected || !Tools.Select.CheckInRect(ScaledPoint(e.Location)))
+                            {
+                                Tools.Select.Selecting(ScaledPoint(e.Location), (Parent as WorkSpace).Rect);
+                                if (Tools.Select.Rect.Width != 0 && Tools.Select.Rect.Height != 0)
+                                    Tools.Select.Selected = true;
+                                SelectRectDisplay();
+                            }
+                            else
+                            {
+                                Tools.Select.Moving(ScaledPoint(e.Location), (Parent as WorkSpace).Rect);
+                                SelectRectDisplay();
+                            }
+                        }
+                        break;
+                    case Basic_Photo_Editor.Paint_Tools.Tool.Transform:
+                        {
+                            if (Tools.Select.Selected)
+                            {
+                                PointF p = Tools.Transform.RotatedPoint(ScaledPoint(e.Location));
+
+                                Tools.Transform.Resize(p);
+                                Tools.Transform.Rotate(p);
+                                Tools.Transform.Translate(p);
+                                TransformRectDisplay();
+                            }
+                        }
+                        break;
+                    case Basic_Photo_Editor.Paint_Tools.Tool.Shape:
+                        {
+                            gProcess.Clear(Color.Transparent);
+                            gProcess.MultiplyTransform(ScaleMatrix);
+                            Tools.Shape.DrawRect(gProcess, ScaledPoint(e.Location));
+                            gProcess.ResetTransform();
+                        }
+                        break;
+                    case Basic_Photo_Editor.Paint_Tools.Tool.Line:
+                        {
+                            gProcess.Clear(Color.Transparent);
+                            gProcess.MultiplyTransform(ScaleMatrix);
+                            Tools.Line.DrawLine(gProcess, ScaledPoint(e.Location));
+                            gProcess.ResetTransform();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            Invalidate();
+        }
+
+        public void Mouse_Up(object sender, MouseEventArgs e)
+        {
+            if (!Tools.Select.Selected)
+                gTop.Clear(Color.Transparent);
+            else Tools.Select.Movable = false;
+
+            if (Tools.Tool == Basic_Photo_Editor.Paint_Tools.Tool.Transform)
+                Tools.Transform.StartPoint = Tools.Transform.Rect.Location;
+
+            if (Tools.Tool == Basic_Photo_Editor.Paint_Tools.Tool.Shape)
+                Tools.Shape.Draw(g);
+
+            if (Tools.Tool == Basic_Photo_Editor.Paint_Tools.Tool.Line)
+                Tools.Line.Draw(g);
+
+            if (Tools.Tool == Basic_Photo_Editor.Paint_Tools.Tool.Bucket)
+            {
+                if (Tools.Select.Selected)
+                    Tools.Bucket.DrawFill(g, Tools.Select.Rect.X, Tools.Select.Rect.Y);
+                else Tools.Bucket.DrawFill(g);
+            }
+
+            if (Tools.Tool != Basic_Photo_Editor.Paint_Tools.Tool.Transform || !Tools.Select.Selected)
+                gProcess.Clear(Color.Transparent);
+        }
     }
 }
