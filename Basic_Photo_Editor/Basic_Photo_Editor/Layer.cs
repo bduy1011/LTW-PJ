@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Basic_Photo_Editor
 {
-    internal class Layer
+    public class Layer:IDisposable
     {
         private Bitmap image;
         private Bitmap imageWithOpacity;

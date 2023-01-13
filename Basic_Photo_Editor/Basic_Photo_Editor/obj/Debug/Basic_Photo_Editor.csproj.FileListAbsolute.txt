@@ -38,3 +38,6 @@ C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo
 C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.exe
 C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.pdb
+C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.DrawSpace.resources
+C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.NewFile_Form.resources
+C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.LayerRow.resources
