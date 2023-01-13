@@ -24,3 +24,17 @@ C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Edi
 C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.pdb
 D:\Nam_2\HK1\Lập trình trực quan\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.DrawSpace.resources
 D:\Nam_2\HK1\Lập trình trực quan\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.NewFile_Form.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\bin\Debug\Basic_Photo_Editor.exe.config
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\bin\Debug\Basic_Photo_Editor.exe
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\bin\Debug\Basic_Photo_Editor.pdb
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.AssemblyReference.cache
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.DrawSpace.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.FormMain.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.Brightness_Contrast.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.NewFile_Form.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Properties.Resources.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.exe
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.pdb
