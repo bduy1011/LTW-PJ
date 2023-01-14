@@ -42,3 +42,4 @@ C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Edi
 C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.NewFile_Form.resources
 C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.LayerRow.resources
 D:\Nam_2\HK1\Lập trình trực quan\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.LayerRow.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.LayerRow.resources

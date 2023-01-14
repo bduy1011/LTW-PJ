@@ -448,6 +448,7 @@
             this.openToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl O";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
