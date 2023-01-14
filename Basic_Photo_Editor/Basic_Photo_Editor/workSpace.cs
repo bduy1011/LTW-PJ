@@ -12,8 +12,8 @@ namespace Basic_Photo_Editor
 {
     public partial class WorkSpace : UserControl
     {
-        //public History History { get; set; }
-        //public DrawSpace DrawSpace { get; set; }
+        public History History { get; set; }
+        public DrawSpace DrawSpace { get; set; }
         public LayerContainer LayerContainer { get; set; }
         public Rectangle Rect { get; set; }
         public Size BmpSize { get; set; }
@@ -49,21 +49,19 @@ namespace Basic_Photo_Editor
         public bool Saved { get; set; }
         public bool Stored { get; set; }
 
-        #region Can sửa contructor
-        public WorkSpace(LayerContainer lc)
+        public WorkSpace(DrawSpace ds, LayerContainer lc, History h)
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
             AutoScroll = true;
-            //DrawSpace = ds;
+            DrawSpace = ds;
             LayerContainer = lc;
-            //History = h;
+            History = h;
             Working = false;
             Saved = true;
             Stored = false;
             filepath = filename = "";
-            //this.Controls.Add(DrawSpace);
+            this.Controls.Add(DrawSpace);
         }
-        #endregion
     }
 }
