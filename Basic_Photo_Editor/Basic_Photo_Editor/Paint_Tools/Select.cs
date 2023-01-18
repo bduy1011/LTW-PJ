@@ -74,6 +74,5 @@ namespace Basic_Photo_Editor.Paint_Tools
         {
             g.DrawRectangle(Pen, Rect);
         }
-
     }
 }

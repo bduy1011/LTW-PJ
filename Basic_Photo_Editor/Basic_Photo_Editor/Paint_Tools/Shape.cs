@@ -8,9 +8,6 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ScrollBar;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Basic_Photo_Editor.Paint_Tools
 {

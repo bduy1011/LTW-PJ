@@ -26,7 +26,7 @@ namespace Basic_Photo_Editor
         
         private void FormMain_Load(object sender, EventArgs e)
         {
-            /*ToolStripManager.Renderer = new Basic_Photo_Editor.ColorTable.MyToolStripRender(new ColorTable.ToolStripColorTable());
+            ToolStripManager.Renderer = new Basic_Photo_Editor.ColorTable.MyToolStripRender(new ColorTable.ToolStripColorTable());
             LayerMenuStripEnable(false);
             ColorMenuStripEnable(false);
             FilterMenuStripEnable(false);
@@ -34,9 +34,9 @@ namespace Basic_Photo_Editor
             saveToolStripMenuItem.Enabled = false;
             saveAsToolStripMenuItem.Enabled = false;
             closeToolStripMenuItem.Enabled = false;
-            tools = new Paint_Tools.Tools();
-            propertiesPanel.Controls.Add(tools.Current);
-            hexCode.Text = ColorTranslator.ToHtml(mainColorPic.BackColor);*/
+            //tools = new Paint_Tools.Tools();
+            //propertiesPanel.Controls.Add(tools.Current);
+            hexCode.Text = ColorTranslator.ToHtml(mainColorPic.BackColor);
         }
         private void FormMain_SizeChanged(object sender, EventArgs e)
         {
@@ -84,8 +84,6 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
-
-
         private void UnableToKeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
@@ -121,13 +119,6 @@ namespace Basic_Photo_Editor
                 item.Enabled = enable;
             }
             bottomPanel.Enabled = enable;
-        }
-        public void DrawSpaceUpdate()
-        {
-            Current.LayerContainer.FinalUpdate(Current.DrawSpace.Final_Graphics, Current.DrawSpace.Final);
-            Current.DrawSpace.FinalDisplay();
-            Current.DrawSpace.CurrentVisible = Current.LayerContainer.Current.Layer.Visible;
-            Current.DrawSpace.Invalidate();
         }
         private void AddWorkTab(Bitmap bmp, Color color)
         {
@@ -166,7 +157,6 @@ namespace Basic_Photo_Editor
             Current.Rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
             Current.BmpPixelFormat = bmp.PixelFormat;
             DrawSpaceInit();
-            LayerContainerInit();
             Current.DrawSpace.BGGenerator(color);
             workSpaceTabControl.SelectedIndex = workSpaceTabControl.TabPages.IndexOf(tab);
         }
@@ -199,7 +189,6 @@ namespace Basic_Photo_Editor
         #endregion
 
         #region DrawSpace
-
         private void DrawSpaceInit()
         {
             Current.DrawSpace.Location = new System.Drawing.Point(0, 0);
@@ -210,6 +199,40 @@ namespace Basic_Photo_Editor
             Current.DrawSpace.Event.MouseDown += DS_MouseDown;
             Current.DrawSpace.Event.MouseLeave += DS_MouseLeave;
             Current.DrawSpace.Event.MouseMove += DS_MouseMove;
+            Current.DrawSpace.Event.MouseUp += DS_MouseUp;
+        }
+
+        public void DrawSpaceUpdate()
+        {
+            Current.LayerContainer.FinalUpdate(Current.DrawSpace.Final_Graphics, Current.DrawSpace.Final);
+            Current.DrawSpace.FinalDisplay();
+            Current.DrawSpace.CurrentVisible = Current.LayerContainer.Current.Layer.Visible;
+            Current.DrawSpace.Invalidate();
+        }
+
+        public void DrawSpaceProcessUpdate(HistoryEvent e)
+        {
+            Current.Saved = false;
+            Current.Parent.Text = Current.FileName + "*";
+            saveToolStripMenuItem.Enabled = true;
+
+            Bitmap bmp;
+            if (!tools.Select.Selected) bmp = (Bitmap)Current.DrawSpace.ProcessBoxImage.Clone();
+            else bmp = (Current.DrawSpace.ProcessBoxImage as Bitmap).Clone(tools.Select.FixedRect, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            if (e == HistoryEvent.Draw || e == HistoryEvent.Transform || e == HistoryEvent.Fill || e == HistoryEvent.Erase)
+            {
+                Current.LayerContainer.ProcessUpdate(bmp);
+            }
+            else if (e == HistoryEvent.DrawFilter || e == HistoryEvent.Clear)
+            {
+                Current.LayerContainer.ProcessUpdate(bmp, filter: true);
+            }
+
+            Current.DrawSpace.ClearProcess();
+            bmp.Dispose();
+
+            Current.History.Add(e, Current.LayerContainer.Current);
         }
 
         private void DS_MouseDown(object sender, MouseEventArgs e)
@@ -230,6 +253,39 @@ namespace Basic_Photo_Editor
             mouseLocation.Text = "";
         }
 
+        private void DS_MouseUp(object sender, MouseEventArgs e)
+        {
+            switch (tools.Tool)
+            {
+                case Basic_Photo_Editor.Paint_Tools.Tool.Pen:
+                    DrawSpaceProcessUpdate(HistoryEvent.Draw);
+                    break;
+                case Basic_Photo_Editor.Paint_Tools.Tool.Eraser:
+                    DrawSpaceProcessUpdate(HistoryEvent.Erase);
+                    break;
+                case Basic_Photo_Editor.Paint_Tools.Tool.Transform:
+                    if (!tools.Select.Selected && tools.Transform.Done)
+                    {
+                        DrawSpaceProcessUpdate(HistoryEvent.Transform);
+                        tools.Transform.Reset();
+                        tools.Transform.Done = false;
+                    }
+                    break;
+                case Basic_Photo_Editor.Paint_Tools.Tool.Shape:
+                    if (tools.Shape.Drawed)
+                        DrawSpaceProcessUpdate(HistoryEvent.Draw);
+                    break;
+                case Basic_Photo_Editor.Paint_Tools.Tool.Line:
+                    if (tools.Line.Drawed)
+                        DrawSpaceProcessUpdate(HistoryEvent.Draw);
+                    break;
+                case Basic_Photo_Editor.Paint_Tools.Tool.Bucket:
+                    DrawSpaceProcessUpdate(HistoryEvent.Draw);
+                    break;
+            }
+
+            DrawSpaceUpdate();
+        }
         #endregion
     }
 }
