@@ -16,11 +16,82 @@ namespace Basic_Photo_Editor
     public partial class FormMain : Form
     {
         private WorkSpace Current;
+        private Paint_Tools.Tools tools;
 
+        #region Main Form
         public FormMain()
         {
             InitializeComponent();
         }
+        
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            /*ToolStripManager.Renderer = new Basic_Photo_Editor.ColorTable.MyToolStripRender(new ColorTable.ToolStripColorTable());
+            LayerMenuStripEnable(false);
+            ColorMenuStripEnable(false);
+            FilterMenuStripEnable(false);
+            ViewMenuStripEnable(false);
+            saveToolStripMenuItem.Enabled = false;
+            saveAsToolStripMenuItem.Enabled = false;
+            closeToolStripMenuItem.Enabled = false;
+            tools = new Paint_Tools.Tools();
+            propertiesPanel.Controls.Add(tools.Current);
+            hexCode.Text = ColorTranslator.ToHtml(mainColorPic.BackColor);*/
+        }
+        private void FormMain_SizeChanged(object sender, EventArgs e)
+        {
+            ExitBtn.Left = this.Width - ExitBtn.Width;
+            RestoreBtn.Left = ExitBtn.Location.X - RestoreBtn.Width;
+            MinimizeBtn.Left = RestoreBtn.Location.X - MinimizeBtn.Width;
+            toolPanel.Height = Size.Height - toolPanel.Location.Y;
+            propertiesPanel.Height = this.Height - propertiesPanel.Location.Y - statusStrip1.Height;
+        }
+        private void MinimizeBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void RestoreBtn_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void ExitBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        #region Move form when click into menu
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void menuStrip_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+        #endregion
+
+
+
+        private void UnableToKeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+        #endregion 
+
         private void LayerMenuStripEnable(bool enable)
         {
             foreach (ToolStripMenuItem item in layerToolStripMenuItem.DropDownItems)
@@ -94,60 +165,12 @@ namespace Basic_Photo_Editor
             Current.BmpSize = bmp.Size;
             Current.Rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
             Current.BmpPixelFormat = bmp.PixelFormat;
+            DrawSpaceInit();
+            LayerContainerInit();
             Current.DrawSpace.BGGenerator(color);
             workSpaceTabControl.SelectedIndex = workSpaceTabControl.TabPages.IndexOf(tab);
         }
-        private void MinimizeBtn_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void RestoreBtn_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-            else this.WindowState = FormWindowState.Maximized;
-        }
-
-        private void ExitBtn_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        #region Move form when click into menu
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-
-        [DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImportAttribute("user32.dll")]
-        public static extern bool ReleaseCapture();
-
-        private void menuStrip_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-        #endregion
-
-        private void FormMain_SizeChanged(object sender, EventArgs e)
-        {
-            ExitBtn.Left = this.Width - ExitBtn.Width;
-            RestoreBtn.Left = ExitBtn.Location.X - RestoreBtn.Width;
-            MinimizeBtn.Left = RestoreBtn.Location.X - MinimizeBtn.Width;
-            toolPanel.Height = Size.Height - toolPanel.Location.Y;
-            propertiesPanel.Height = this.Height - propertiesPanel.Location.Y - statusStrip1.Height;
-        }
-
-        private void UnableToKeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = true;
-        }
+        
         #region File
         //Open Button
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -175,5 +198,38 @@ namespace Basic_Photo_Editor
 
         #endregion
 
+        #region DrawSpace
+
+        private void DrawSpaceInit()
+        {
+            Current.DrawSpace.Location = new System.Drawing.Point(0, 0);
+            Current.DrawSpace.Name = "workspace";
+            Current.DrawSpace.Size = Current.BmpSize;
+            Current.DrawSpace.Tools = tools;
+            Current.DrawSpace.Init();
+            Current.DrawSpace.Event.MouseDown += DS_MouseDown;
+            Current.DrawSpace.Event.MouseLeave += DS_MouseLeave;
+            Current.DrawSpace.Event.MouseMove += DS_MouseMove;
+        }
+
+        private void DS_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (tools.Tool == Basic_Photo_Editor.Paint_Tools.Tool.Picker)
+            {
+                mainColorPic.BackColor = tools.Picker.Color;
+            }
+        }
+
+        private void DS_MouseMove(object sender, MouseEventArgs e)
+        {
+            mouseLocation.Text = e.Location.ToString();
+        }
+
+        private void DS_MouseLeave(object sender, EventArgs e)
+        {
+            mouseLocation.Text = "";
+        }
+
+        #endregion
     }
 }

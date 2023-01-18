@@ -1,5 +1,4 @@
-﻿using Basic_Photo_Editor.Paint_Tools;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -245,8 +244,7 @@ namespace Basic_Photo_Editor
                         Tools.Picker.GetColor(Final, ScaledPoint(e.Location));
                     }
                     break;
-                #region Bug WorkSpace.LayerContainer
-                /*case Basic_Photo_Editor.Paint_Tools.Tool.Eraser:
+                case Basic_Photo_Editor.Paint_Tools.Tool.Eraser:
                     {
                         p1 = ScaledPoint(e.Location);
                         Tools.Eraser.GetLocation(ScaledPoint(e.Location));
@@ -254,8 +252,7 @@ namespace Basic_Photo_Editor
                             g.DrawImageUnscaled(bmp, 0, 0);
                         gFinal.Clear(Color.Transparent);
                     }
-                    break;*/
-                #endregion
+                    break;
                 case Basic_Photo_Editor.Paint_Tools.Tool.Drag:
                     {
                         Tools.Drag.GetLocation(ref e);
@@ -303,8 +300,7 @@ namespace Basic_Photo_Editor
                         Tools.Line.GetLocation(ScaledPoint(e.Location));
                     }
                     break;
-                #region bug WorkSpace.LayerContainer
-                /*case Basic_Photo_Editor.Paint_Tools.Tool.Bucket:
+                case Basic_Photo_Editor.Paint_Tools.Tool.Bucket:
                     {
                         Bitmap bmp;
 
@@ -321,8 +317,7 @@ namespace Basic_Photo_Editor
 
                         bmp.Dispose();
                     }
-                    break;*/
-                #endregion
+                    break;
                 default:
                     break;
             }
