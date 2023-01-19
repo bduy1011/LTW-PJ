@@ -17,6 +17,7 @@ namespace Basic_Photo_Editor
     {
         private WorkSpace Current;
         private Paint_Tools.Tools tools;
+        
         public float opacityVal;
 
         #region Main Form
@@ -302,6 +303,54 @@ namespace Basic_Photo_Editor
             blendModeBox.SelectedIndex = 0;
             opacityVal = 100f;
             OpacityBarUpdate();
+            LayerButtonCheck();
+        }
+
+        public void LayerButtonCheck()
+        {
+            if (Current.LayerContainer.CurrentIndex == Current.LayerContainer.Count - 1)
+            {
+                mergeLStripButton.Enabled = true;
+                downLStripButton.Enabled = true;
+                upLStripButton.Enabled = false;
+
+                mergeToolStripMenuItem.Enabled = true;
+            }
+            else if (Current.LayerContainer.CurrentIndex == 0)
+            {
+                downLStripButton.Enabled = false;
+                mergeLStripButton.Enabled = false;
+                upLStripButton.Enabled = true;
+
+                mergeToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                mergeLStripButton.Enabled = true;
+                downLStripButton.Enabled = true;
+                upLStripButton.Enabled = true;
+
+                mergeToolStripMenuItem.Enabled = true;
+            }
+
+            if (Current.LayerContainer.Count > 1)
+            {
+                deleteLStripButton.Enabled = true;
+                duplicateLStripButton.Enabled = true;
+
+                deleteLayerToolStripMenuItem.Enabled = true;
+                duplicateToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                deleteLStripButton.Enabled = false;
+                upLStripButton.Enabled = false;
+                downLStripButton.Enabled = false;
+                mergeLStripButton.Enabled = false;
+
+                deleteLayerToolStripMenuItem.Enabled = false;
+                mergeToolStripMenuItem.Enabled = false;
+            }
         }
 
         public void OpacityBarUpdate()

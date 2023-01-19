@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
@@ -27,7 +28,7 @@ namespace Basic_Photo_Editor.Paint_Tools
             InitializeComponent();
             color = Color.Black;
             pen = new Pen(color, 10);
-            pen.SetLineCap(System.Drawing.Drawing2D.LineCap.Round, System.Drawing.Drawing2D.LineCap.Round, System.Drawing.Drawing2D.DashCap.Round);
+            pen.SetLineCap(LineCap.Round, LineCap.Round, DashCap.Round);
             this.Dock = DockStyle.Fill;
             size = 10;
             opacity = 100;
