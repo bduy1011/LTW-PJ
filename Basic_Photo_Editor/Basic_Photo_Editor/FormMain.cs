@@ -1,6 +1,4 @@
-﻿using Basic_Photo_Editor.Paint_Tools;
-using Basic_Photo_Editor;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +15,7 @@ namespace Basic_Photo_Editor
     {
         private WorkSpace Current;
         private Paint_Tools.Tools tools;
-        
+
         public float opacityVal;
 
         #region Main Form
@@ -36,8 +34,8 @@ namespace Basic_Photo_Editor
             saveToolStripMenuItem.Enabled = false;
             saveAsToolStripMenuItem.Enabled = false;
             closeToolStripMenuItem.Enabled = false;
-            //tools = new Paint_Tools.Tools();
-            //propertiesPanel.Controls.Add(tools.Current);
+            tools = new Paint_Tools.Tools();
+            propertiesPanel.Controls.Add(tools.Current);
             hexCode.Text = ColorTranslator.ToHtml(mainColorPic.BackColor);
         }
         private void FormMain_SizeChanged(object sender, EventArgs e)
@@ -295,9 +293,9 @@ namespace Basic_Photo_Editor
         private void LayerContainerInit()
         {
             Current.LayerContainer.AutoScroll = true;
-            Current.LayerContainer.Location = new System.Drawing.Point(3, 85);
+            Current.LayerContainer.Location = new Point(3, 85);
             Current.LayerContainer.Name = "Current.LayerContainer";
-            Current.LayerContainer.Size = new System.Drawing.Size(layerPanel.Width - 6, layerPanel.Height - 87);
+            Current.LayerContainer.Size = new Size(layerPanel.Width - 6, layerPanel.Height - 87);
             Current.LayerContainer.Tool = tools;
             layerPanel.Controls.Add(Current.LayerContainer);
             blendModeBox.SelectedIndex = 0;

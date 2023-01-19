@@ -59,6 +59,9 @@ namespace Basic_Photo_Editor.Function_Forms
                     g.DrawImage(adjusted, new Rectangle(0, 0, adjusted.Width, adjusted.Height), 0, 0, origin.Width, origin.Height, GraphicsUnit.Pixel, imageAttributes);
                 }
             }
+
+            layerContainer.ProcessUpdate(adjusted, true);
+            fMain.DrawSpaceUpdate();
         }
 
         private void TrackBar1_Scroll(object sender, EventArgs e)
@@ -77,7 +80,8 @@ namespace Basic_Photo_Editor.Function_Forms
 
         private void Btn_Cancel_Ok_Click(object sender, EventArgs e)
         {
-            
+            layerContainer.ProcessUpdate(origin, true);
+            fMain.DrawSpaceUpdate();
         }
 
         private void Btn_Reset_Click(object sender, EventArgs e)

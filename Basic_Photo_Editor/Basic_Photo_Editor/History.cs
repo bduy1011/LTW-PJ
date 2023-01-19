@@ -99,16 +99,16 @@ namespace Basic_Photo_Editor
                 case HistoryEvent.NewL:
                 case HistoryEvent.DuplicateL:
                     container.DeleteRowAt(events.Peek().Value);
-                    //form.LayerButtonCheck();
+                    form.LayerButtonCheck();
                     break;
                 case HistoryEvent.DeleteL:
                     container.RestoreRow();
-                    //form.LayerButtonCheck();
+                    form.LayerButtonCheck();
                     break;
                 case HistoryEvent.MergeL:
                     events.Peek().Value.Layer.UnStacking();
                     container.RestoreRow();
-                    //form.LayerButtonCheck();
+                    form.LayerButtonCheck();
                     break;
                 case HistoryEvent.Lup:
                     container.MoveBack(events.Peek().Value, false);
@@ -118,15 +118,15 @@ namespace Basic_Photo_Editor
                     break;
                 case HistoryEvent.Opacity:
                     events.Peek().Value.Layer.RestoreOpacity();
-                    //form.opacityVal = events.Peek().Value.Layer.Opacity;
+                    form.opacityVal = events.Peek().Value.Layer.Opacity;
                     events.Peek().Value.Opacity = events.Peek().Value.Layer.Opacity;
-                    //form.OpacityBarUpdate();
-                    //form.DSUpdate();
+                    form.OpacityBarUpdate();
+                    form.DrawSpaceUpdate();
                     break;
                 case HistoryEvent.Blend:
                     events.Peek().Value.RestoreBlend();
                     //form.BlendModeBoxUpdate(events.Peek().Value.Blend);
-                    //form.DSUpdate();
+                    form.DrawSpaceUpdate();
                     break;
                 default:
                     break;

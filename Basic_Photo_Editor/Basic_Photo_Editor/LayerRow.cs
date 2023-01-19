@@ -96,7 +96,7 @@ namespace Basic_Photo_Editor
                 pictureBox1.Image = Properties.Resources.not_visible;
 
             FormMain form = (FormMain)Parent.Parent.Parent.Parent.Parent;
-           //form.DSUpdate();
+           form.DrawSpaceUpdate();
         }
 
         private void LayerRow_Click(object sender, EventArgs e)
@@ -104,10 +104,10 @@ namespace Basic_Photo_Editor
             LayerContainer layCon = (LayerContainer)Parent.Parent;
             layCon.CurrentRow = this;
             FormMain form = (FormMain)Parent.Parent.Parent.Parent.Parent;
-            /*form.LayerButtonCheck();
+            form.LayerButtonCheck();
             form.opacityVal = layer.Opacity;
             form.OpacityBarUpdate();
-            form.BlendModeBoxUpdate(Blend);*/
+            //form.BlendModeBoxUpdate(Blend);
         }
     }
 }
