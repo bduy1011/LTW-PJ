@@ -17,6 +17,7 @@ namespace Basic_Photo_Editor
     {
         private WorkSpace Current;
         private Paint_Tools.Tools tools;
+        public float opacityVal;
 
         #region Main Form
         public FormMain()
@@ -88,7 +89,7 @@ namespace Basic_Photo_Editor
         {
             e.Handled = true;
         }
-        #endregion 
+        #endregion
 
         private void LayerMenuStripEnable(bool enable)
         {
@@ -157,6 +158,7 @@ namespace Basic_Photo_Editor
             Current.Rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
             Current.BmpPixelFormat = bmp.PixelFormat;
             DrawSpaceInit();
+            LayerContainerInit();
             Current.DrawSpace.BGGenerator(color);
             workSpaceTabControl.SelectedIndex = workSpaceTabControl.TabPages.IndexOf(tab);
         }
@@ -285,6 +287,32 @@ namespace Basic_Photo_Editor
             }
 
             DrawSpaceUpdate();
+        }
+        #endregion
+
+        #region Layer
+        private void LayerContainerInit()
+        {
+            Current.LayerContainer.AutoScroll = true;
+            Current.LayerContainer.Location = new System.Drawing.Point(3, 85);
+            Current.LayerContainer.Name = "Current.LayerContainer";
+            Current.LayerContainer.Size = new System.Drawing.Size(layerPanel.Width - 6, layerPanel.Height - 87);
+            Current.LayerContainer.Tool = tools;
+            layerPanel.Controls.Add(Current.LayerContainer);
+            blendModeBox.SelectedIndex = 0;
+            opacityVal = 100f;
+            OpacityBarUpdate();
+        }
+
+        public void OpacityBarUpdate()
+        {
+            using (Graphics g = opacityBar.CreateGraphics())
+            {
+                label10.Text = ((int)opacityVal).ToString();
+                int w = (int)Math.Ceiling(((float)opacityVal / 100) * opacityBar.Width);
+                g.Clear(opacityBar.BackColor);
+                g.FillRectangle(Brushes.Gainsboro, new Rectangle(0, 0, w, opacityBar.Height));
+            }
         }
         #endregion
     }
