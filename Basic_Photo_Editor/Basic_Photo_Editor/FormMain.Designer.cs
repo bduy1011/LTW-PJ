@@ -693,6 +693,7 @@
             this.colorSwitch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.colorSwitch.TabIndex = 5;
             this.colorSwitch.TabStop = false;
+            this.colorSwitch.Click += new System.EventHandler(this.ColorSwitch_Click);
             // 
             // colorWheel
             // 

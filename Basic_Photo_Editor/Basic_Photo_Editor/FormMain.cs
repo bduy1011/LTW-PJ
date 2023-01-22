@@ -400,6 +400,13 @@ namespace Basic_Photo_Editor
                     mainColorPic.BackColor = c;
             }
         }
+
+        private void ColorSwitch_Click(object sender, EventArgs e)
+        {
+            Color tmp = mainColorPic.BackColor;
+            mainColorPic.BackColor = subColorPic.BackColor;
+            subColorPic.BackColor = tmp;
+        }
         #endregion
     }
 }
