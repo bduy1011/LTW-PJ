@@ -362,5 +362,44 @@ namespace Basic_Photo_Editor
             }
         }
         #endregion
+
+        #region ColorPanel
+        private bool colorIsPicking = false;
+        private void ColorWheel_MouseDown(object sender, MouseEventArgs e)
+        {
+            colorIsPicking = true;
+        }
+
+        private void ColorWheel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (colorIsPicking)
+            {
+                using (Bitmap bmp = new Bitmap(colorWheel.Image))
+                {
+                    if (e.X > 0 && e.Y > 0 && e.X < colorWheel.Width && e.Y < colorWheel.Height)
+                    {
+                        Color c = bmp.GetPixel(e.X, e.Y);
+                        if (c.A == 255)
+                            mainColorPic.BackColor = c;
+                    }
+                }
+            }
+        }
+
+        private void ColorWheel_MouseUp(object sender, MouseEventArgs e)
+        {
+            colorIsPicking = false;
+        }
+
+        private void ColorWheel_MouseClick(object sender, MouseEventArgs e)
+        {
+            using (Bitmap bmp = new Bitmap(colorWheel.Image))
+            {
+                Color c = bmp.GetPixel(e.X, e.Y);
+                if (c.A == 255)
+                    mainColorPic.BackColor = c;
+            }
+        }
+        #endregion
     }
 }
