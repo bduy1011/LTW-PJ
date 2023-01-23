@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Basic_Photo_Editor.Function_Forms;
 
 namespace Basic_Photo_Editor
 {
@@ -161,8 +162,31 @@ namespace Basic_Photo_Editor
             Current.DrawSpace.BGGenerator(color);
             workSpaceTabControl.SelectedIndex = workSpaceTabControl.TabPages.IndexOf(tab);
         }
-        
+
         #region File
+        //New File Button 
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Function_Forms.NewFile_Form newFileForm = new Function_Forms.NewFile_Form())
+            {
+                newFileForm.ColorFore = mainColorPic.BackColor;
+                newFileForm.ColorBack = subColorPic.BackColor;
+
+                if (newFileForm.ShowDialog() == DialogResult.OK)
+                {
+                    Bitmap bmp = new Bitmap(newFileForm.ImageSize.Width, newFileForm.ImageSize.Height);
+                    AddWorkTab(bmp, newFileForm.BGColor);
+                    Current.FileName = newFileForm.FileName;
+                    Current.Parent.Text = Current.FileName;
+                    // DSUpdate();
+                    Current.Saved = true;
+                    Current.Working = true;
+                    saveAsToolStripMenuItem.Enabled = true;
+                    closeToolStripMenuItem.Enabled = true;
+                    bmp.Dispose();
+                }
+            }
+        }
         //Open Button
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -186,7 +210,101 @@ namespace Basic_Photo_Editor
                 }
             }
         }
+        //Save As Button 
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current.Working)
+            {
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.FileName = Current.FileName;
+                    saveFileDialog.Filter = "Image (*.BMP)|*.bmp|JPEG Image (*.JPEG)|*.jpeg|PNG Image (*.PNG)|*.png";
+                    saveFileDialog.DefaultExt = "png";
+                    saveFileDialog.FilterIndex = 3;
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        Current.DrawSpace.Final.Save(saveFileDialog.FileName);
+                        Current.FilePath = saveFileDialog.FileName;
+                        Current.Saved = true;
+                        saveToolStripMenuItem.Enabled = false;
+                        Current.Stored = true;
+                    }
+                }
+            }
+        }
+        //Save Button
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current.Working)
+            {
+                if (Current.Stored)
+                {
+                    Current.DrawSpace.Final.Save(Current.FilePath);
+                    Current.Saved = true;
+                    saveToolStripMenuItem.Enabled = false;
+                }
+                else
+                {
+                    saveAsToolStripMenuItem_Click(this, e);
+                }
+                Current.Parent.Text = Current.FileName;
+            }
+        }
+        //Close Button
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current.Working)
+            {
+                if (Current.Saved)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Your work haven't saved yet.\nDo you want to save it", "Photo Editor",
+                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        saveToolStripMenuItem_Click(sender, e);
+                    }
+                    else if (dialogResult == DialogResult.Cancel)
 
+                    {
+                        return;
+                    }
+                }
+
+                tools.Select.Selected = false;
+
+                workSpaceTabControl.SelectedTab.Controls.Remove(Current);
+                Current.LayerContainer.Dispose();
+                Current.History.Dispose();
+                Current.Dispose();
+                workSpaceTabControl.SelectedTab.Dispose();
+
+                if (workSpaceTabControl.TabCount == 0)
+                {
+                    LayerMenuStripEnable(false);
+                    ColorMenuStripEnable(false);
+                    FilterMenuStripEnable(false);
+                    ViewMenuStripEnable(false);
+                    Current.Working = false;
+                    closeToolStripMenuItem.Enabled = false;
+                    saveToolStripMenuItem.Enabled = false;
+                    saveAsToolStripMenuItem.Enabled = false;
+                    Current.FileName = Current.FilePath = "";
+                    workSpaceTabControl.Visible = false;
+                    Current = null;
+                }
+                else Current = (WorkSpace)workSpaceTabControl.SelectedTab.Controls[0];
+            }
+        }
+        //Exit Button 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int tabcount = workSpaceTabControl.TabPages.Count;
+            for (int i = 0; i < tabcount; i++)
+            {
+                closeToolStripMenuItem_Click(null, null);
+            }
+            this.Close();
+        }
         #endregion
 
         #region DrawSpace
@@ -407,6 +525,9 @@ namespace Basic_Photo_Editor
             mainColorPic.BackColor = subColorPic.BackColor;
             subColorPic.BackColor = tmp;
         }
+
+
         #endregion
+       
     }
 }
