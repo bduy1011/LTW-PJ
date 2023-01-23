@@ -46,6 +46,13 @@ namespace Basic_Photo_Editor
             MinimizeBtn.Left = RestoreBtn.Location.X - MinimizeBtn.Width;
             toolPanel.Height = Size.Height - toolPanel.Location.Y;
             propertiesPanel.Height = this.Height - propertiesPanel.Location.Y - statusStrip1.Height;
+            layerPanel.Height = this.Height - layerPanel.Location.Y - statusStrip1.Height;
+            workSpaceTabControl.Width = this.Width - rightPanel.Width - leftPanel.Width;
+            workSpaceTabControl.Height = this.Height - bottomPanel.Height - statusStrip1.Height - menuStrip.Height;
+            if (Current != null)
+            {
+                Current.LayerContainer.Height = layerPanel.Height - blendPanel.Height - layerToolStrip.Height - statusStrip1.Height;
+            }
         }
         private void MinimizeBtn_Click(object sender, EventArgs e)
         {
@@ -188,7 +195,7 @@ namespace Basic_Photo_Editor
             }
         }
         //Open Button
-        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
