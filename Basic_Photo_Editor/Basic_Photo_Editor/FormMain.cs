@@ -178,7 +178,7 @@ namespace Basic_Photo_Editor
                     AddWorkTab(bmp, newFileForm.BGColor);
                     Current.FileName = newFileForm.FileName;
                     Current.Parent.Text = Current.FileName;
-                    // DSUpdate();
+                    DrawSpaceUpdate();
                     Current.Saved = true;
                     Current.Working = true;
                     saveAsToolStripMenuItem.Enabled = true;
@@ -319,6 +319,8 @@ namespace Basic_Photo_Editor
             Current.DrawSpace.Event.MouseLeave += DS_MouseLeave;
             Current.DrawSpace.Event.MouseMove += DS_MouseMove;
             Current.DrawSpace.Event.MouseUp += DS_MouseUp;
+
+            CenterBtn_Click(centerBtn, null);
         }
 
         public void DrawSpaceUpdate()
@@ -528,6 +530,12 @@ namespace Basic_Photo_Editor
 
 
         #endregion
-       
+
+        private void CenterBtn_Click(object sender, EventArgs e)
+        {
+            Current.DrawSpace.SetCenter();
+            comboBox1.Text = ((int)(Current.DrawSpace.Zoom * 100)).ToString() + '%';
+            DrawSpaceUpdate();
+        }
     }
 }
