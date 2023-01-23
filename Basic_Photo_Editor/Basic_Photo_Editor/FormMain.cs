@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using Basic_Photo_Editor.Function_Forms;
 
 namespace Basic_Photo_Editor
 {
@@ -538,11 +537,60 @@ namespace Basic_Photo_Editor
 
         #endregion
 
+        #region BottomPanel
+        private void ZoomOutBtn_Click(object sender, EventArgs e)
+        {
+            float zoom = float.Parse(comboBox1.Text.Substring(0, comboBox1.Text.Length - 1));
+            if (zoom <= 50) return;
+
+            float n;
+            float m = zoom;
+            foreach (string text in comboBox1.Items)
+            {
+                n = float.Parse(text.Substring(0, text.Length - 1));
+                if (n < zoom)
+                {
+                    m = n;
+                }
+                else
+                {
+                    zoom = m;
+                    break;
+                }
+            }
+
+            Current.DrawSpace.Scaling(zoom / 100);
+            comboBox1.Text = ((int)(Current.DrawSpace.Zoom * 100)).ToString() + '%';
+            DrawSpaceUpdate();
+        }
+
+        private void ZoomInBtn_Click(object sender, EventArgs e)
+        {
+            float zoom = float.Parse(comboBox1.Text.Substring(0, comboBox1.Text.Length - 1));
+            if (zoom >= 400) return;
+
+            float n;
+            foreach (string text in comboBox1.Items)
+            {
+                n = float.Parse(text.Substring(0, text.Length - 1));
+                if (zoom < n)
+                {
+                    zoom = n;
+                    break;
+                }
+            }
+
+            Current.DrawSpace.Scaling(zoom / 100);
+            comboBox1.Text = ((int)(Current.DrawSpace.Zoom * 100)).ToString() + '%';
+            DrawSpaceUpdate();
+        }
+
         private void CenterBtn_Click(object sender, EventArgs e)
         {
             Current.DrawSpace.SetCenter();
             comboBox1.Text = ((int)(Current.DrawSpace.Zoom * 100)).ToString() + '%';
             DrawSpaceUpdate();
         }
+        #endregion
     }
 }

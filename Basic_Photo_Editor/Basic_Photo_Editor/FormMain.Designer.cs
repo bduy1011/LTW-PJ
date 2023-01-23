@@ -447,7 +447,7 @@
             this.openToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl O";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -1066,7 +1066,7 @@
             this.layerToolStrip.Name = "layerToolStrip";
             this.layerToolStrip.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.layerToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.layerToolStrip.Size = new System.Drawing.Size(248, 31);
+            this.layerToolStrip.Size = new System.Drawing.Size(248, 25);
             this.layerToolStrip.Stretch = true;
             this.layerToolStrip.TabIndex = 1;
             this.layerToolStrip.Text = "toolStrip2";
@@ -1260,6 +1260,7 @@
             this.zoomOutBtn.TabIndex = 1;
             this.zoomOutBtn.Text = "-";
             this.zoomOutBtn.UseVisualStyleBackColor = true;
+            this.zoomOutBtn.Click += new System.EventHandler(this.ZoomOutBtn_Click);
             // 
             // zoomInBtn
             // 
@@ -1273,6 +1274,7 @@
             this.zoomInBtn.TabIndex = 2;
             this.zoomInBtn.Text = "+";
             this.zoomInBtn.UseVisualStyleBackColor = true;
+            this.zoomInBtn.Click += new System.EventHandler(this.ZoomInBtn_Click);
             // 
             // centerBtn
             // 
