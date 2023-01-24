@@ -97,14 +97,6 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
-        private void LayerMenuStripEnable(bool enable)
-        {
-            foreach (ToolStripMenuItem item in layerToolStripMenuItem.DropDownItems)
-            {
-                item.Enabled = enable;
-            }
-            layerPanel.Enabled = enable;
-        }
         private void ColorMenuStripEnable(bool enable)
         {
             foreach (ToolStripMenuItem item in colorToolStripMenuItem.DropDownItems)
@@ -119,7 +111,8 @@ namespace Basic_Photo_Editor
                 item.Enabled = enable;
             }
         }
-        
+
+        #region WorkSpace
         private void AddWorkTab(Bitmap bmp, Color color)
         {
             LayerMenuStripEnable(true);
@@ -161,6 +154,26 @@ namespace Basic_Photo_Editor
             Current.DrawSpace.BGGenerator(color);
             workSpaceTabControl.SelectedIndex = workSpaceTabControl.TabPages.IndexOf(tab);
         }
+
+        private void WorkSpaceTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (workSpaceTabControl.TabCount == 0)
+                return;
+
+            layerPanel.Controls.Remove(Current.LayerContainer);
+            historyPanel.Controls.Remove(Current.History);
+            Current = (WorkSpace)workSpaceTabControl.SelectedTab.Controls[0];
+            layerPanel.Controls.Add(Current.LayerContainer);
+            LayerButtonCheck();
+            opacityVal = Current.LayerContainer.Current.Layer.Opacity;
+            OpacityBarUpdate();
+            historyPanel.Controls.Add(Current.History);
+            saveToolStripMenuItem.Enabled = !Current.Saved;
+            BlendModeBoxUpdate(Current.LayerContainer.Current.Blend);
+        }
+        #endregion
+
+        #region Menu
 
         #region File
         //New File Button 
@@ -306,6 +319,15 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
+        #region Help
+        private void AboutPhotoEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Nothing to see here", "Notice");
+        }
+        #endregion
+
+        #endregion
+
         #region DrawSpace
         private void DrawSpaceInit()
         {
@@ -423,6 +445,15 @@ namespace Basic_Photo_Editor
             LayerButtonCheck();
         }
 
+        private void LayerMenuStripEnable(bool enable)
+        {
+            foreach (ToolStripMenuItem item in layerToolStripMenuItem.DropDownItems)
+            {
+                item.Enabled = enable;
+            }
+            layerPanel.Enabled = enable;
+        }
+
         public void LayerButtonCheck()
         {
             if (Current.LayerContainer.CurrentIndex == Current.LayerContainer.Count - 1)
@@ -480,6 +511,14 @@ namespace Basic_Photo_Editor
                 g.FillRectangle(Brushes.Gainsboro, new Rectangle(0, 0, w, opacityBar.Height));
             }
         }
+
+        bool blendboxupdate = false;
+        public void BlendModeBoxUpdate(Blend mode)
+        {
+            blendboxupdate = true;
+            blendModeBox.Text = mode.ToString("G");
+            blendboxupdate = false;
+        }
         #endregion
 
         #region ColorPanel
@@ -526,7 +565,6 @@ namespace Basic_Photo_Editor
             mainColorPic.BackColor = subColorPic.BackColor;
             subColorPic.BackColor = tmp;
         }
-
 
         #endregion
 
@@ -636,6 +674,7 @@ namespace Basic_Photo_Editor
             comboBox1.Text = ((int)(Current.DrawSpace.Zoom * 100)).ToString() + '%';
             DrawSpaceUpdate();
         }
+
         #endregion
     }
 }
