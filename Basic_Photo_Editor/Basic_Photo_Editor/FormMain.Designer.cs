@@ -1246,6 +1246,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(91, 24);
             this.comboBox1.TabIndex = 0;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             this.comboBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UnableToKeyPress);
             // 
             // zoomOutBtn

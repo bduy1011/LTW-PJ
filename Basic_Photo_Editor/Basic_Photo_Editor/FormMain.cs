@@ -119,14 +119,7 @@ namespace Basic_Photo_Editor
                 item.Enabled = enable;
             }
         }
-        private void ViewMenuStripEnable(bool enable)
-        {
-            foreach (ToolStripMenuItem item in viewToolStripMenuItem.DropDownItems)
-            {
-                item.Enabled = enable;
-            }
-            bottomPanel.Enabled = enable;
-        }
+        
         private void AddWorkTab(Bitmap bmp, Color color)
         {
             LayerMenuStripEnable(true);
@@ -538,6 +531,58 @@ namespace Basic_Photo_Editor
         #endregion
 
         #region BottomPanel
+
+        private void ViewMenuStripEnable(bool enable)
+        {
+            foreach (ToolStripMenuItem item in viewToolStripMenuItem.DropDownItems)
+            {
+                item.Enabled = enable;
+            }
+            bottomPanel.Enabled = enable;
+        }
+
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Current == null) return;
+
+            float zoom = 0;
+            switch (comboBox1.SelectedIndex)
+            {
+                //50%
+                case 0:
+                    zoom = 50;
+                    break;
+                //75%
+                case 1:
+                    zoom = 75;
+                    break;
+                //100%
+                case 2:
+                    zoom = 100;
+                    break;
+                //150%
+                case 3:
+                    zoom = 150;
+                    break;
+                //200%
+                case 4:
+                    zoom = 200;
+                    break;
+                //200%
+                case 5:
+                    zoom = 300;
+                    break;
+                //200%
+                case 6:
+                    zoom = 400;
+                    break;
+            }
+
+            Current.DrawSpace.Scaling(zoom / 100);
+            comboBox1.Text = ((int)(Current.DrawSpace.Zoom * 100)).ToString() + '%';
+            DrawSpaceUpdate();
+        }
+
         private void ZoomOutBtn_Click(object sender, EventArgs e)
         {
             float zoom = float.Parse(comboBox1.Text.Substring(0, comboBox1.Text.Length - 1));
