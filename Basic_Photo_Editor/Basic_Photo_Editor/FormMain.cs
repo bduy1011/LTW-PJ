@@ -676,5 +676,152 @@ namespace Basic_Photo_Editor
         }
 
         #endregion
+
+        #region Tool_Panel
+        //Ham Kiem Tra
+        private void UncheckAll()
+        {
+            foreach (ToolStripButton button in mToolStrip.Items)
+            {
+                button.Checked = false;
+                button.CheckState = CheckState.Unchecked;
+            }
+            foreach (ToolStripButton button in pToolStrip.Items)
+            {
+                button.Checked = false;
+                button.CheckState = CheckState.Unchecked;
+            }
+            foreach (ToolStripButton button in sToolStrip.Items)
+            {
+                button.Checked = false;
+                button.CheckState = CheckState.Unchecked;
+            }
+            if (tools.Tool == Basic_Photo_Editor.Paint_Tools.Tool.Transform)
+            {
+                if (Current != null)
+                {
+                    LayerMenuStripEnable(true);
+                    ColorMenuStripEnable(true);
+                    FilterMenuStripEnable(true);
+                }
+
+                if (tools.Select.Selected)
+                {
+                    Current.DrawSpace.TransformForceDraw();
+                    tools.Transform.Image.Dispose();
+                    Current.DrawSpace.ClearTop();
+                    tools.Transform.Reset();
+                    DS_MouseUp(null, null);
+                }
+            }
+        }
+        //Thay Doi Cong Cu
+        private void ChangeTool()
+        {
+            if (propertiesPanel.Controls.Count != 0)
+            {
+                propertiesPanel.Controls.Remove(propertiesPanel.Controls[0]);
+                propertiesPanel.Controls.Add(tools.Current);
+            }
+            else propertiesPanel.Controls.Add(tools.Current);
+        }
+        //Di chuyen 
+        private void transformStripButton_Click(object sender, EventArgs e)
+        {
+            UncheckAll();
+            (sender as ToolStripButton).Checked = true;
+            (sender as ToolStripButton).CheckState = CheckState.Checked;
+            if (tools.Select.Selected)
+            {
+                //Kiem tra
+                tools.Transform.Done = false;
+                tools.Transform.Rect = tools.Select.Rect;
+                tools.Transform.StartPoint = tools.Select.Rect.Location;
+                tools.Transform.Image = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+                Current.LayerContainer.Current.Layer.Stacking();
+                tools.Eraser.MakeTransparent(Current.LayerContainer.Current.Layer.Image, tools.Select.FixedRect);
+                DrawSpaceUpdate();
+                Current.DrawSpace.TransformRectDisplay();
+            }
+            LayerMenuStripEnable(false);
+            ColorMenuStripEnable(false);
+            FilterMenuStripEnable(false);
+            tools.Tool = Paint_Tools.Tool.Transform;
+
+            ChangeTool();
+        }
+        //Pen Tool Event
+        private void penStripButton_Click(object sender, EventArgs e)
+        {
+            UncheckAll();
+            (sender as ToolStripButton).Checked = true;
+            (sender as ToolStripButton).CheckState = CheckState.Checked;
+            tools.Tool = Paint_Tools.Tool.Pen;
+            ChangeTool();
+        }
+        //Select Tool
+        private void selectStripButton_Click(object sender, EventArgs e)
+        {
+            UncheckAll();
+            (sender as ToolStripButton).Checked = true;
+            (sender as ToolStripButton).CheckState = CheckState.Checked;
+            tools.Tool = Paint_Tools.Tool.Select;
+            ChangeTool();
+        }
+        //Drag (move) tool
+        private void dragStripButton_Click(object sender, EventArgs e)
+        {
+            UncheckAll();
+            (sender as ToolStripButton).Checked = true;
+            (sender as ToolStripButton).CheckState = CheckState.Checked;
+            tools.Tool = Paint_Tools.Tool.Drag;
+            ChangeTool();
+        }
+        //Eraser tool
+        private void eraserStripButton_Click(object sender, EventArgs e)
+        {
+            UncheckAll();
+            (sender as ToolStripButton).Checked = true;
+            (sender as ToolStripButton).CheckState = CheckState.Checked;
+            tools.Tool = Paint_Tools.Tool.Eraser;
+            ChangeTool();
+        }
+        //picker color tool
+        private void pickerStripButton_Click(object sender, EventArgs e)
+        {
+            UncheckAll();
+            (sender as ToolStripButton).Checked = true;
+            (sender as ToolStripButton).CheckState = CheckState.Checked;
+            tools.Tool = Paint_Tools.Tool.Picker;
+            ChangeTool();
+        }
+        //bucket color tool
+        private void bucketStripButton_Click(object sender, EventArgs e)
+        {
+            UncheckAll();
+            (sender as ToolStripButton).Checked = true;
+            (sender as ToolStripButton).CheckState = CheckState.Checked;
+            tools.Tool = Paint_Tools.Tool.Bucket;
+            ChangeTool();
+        }
+        //DrawShape Tool
+        private void shapeStripButton_Click(object sender, EventArgs e)
+        {
+            UncheckAll();
+            (sender as ToolStripButton).Checked = true;
+            (sender as ToolStripButton).CheckState = CheckState.Checked;
+            tools.Tool = Paint_Tools.Tool.Shape;
+            ChangeTool();
+        }
+        //DrawLine Tool
+        private void lineStripButton_Click(object sender, EventArgs e)
+        {
+            UncheckAll();
+            (sender as ToolStripButton).Checked = true;
+            (sender as ToolStripButton).CheckState = CheckState.Checked;
+            tools.Tool = Paint_Tools.Tool.Line;
+            ChangeTool();
+        }
+        #endregion
     }
 }
