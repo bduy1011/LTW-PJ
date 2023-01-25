@@ -384,6 +384,28 @@ namespace Basic_Photo_Editor
             transformStripButton.CheckState = CheckState.Checked;
             ChangeTool();
         }
+        //Cut
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current == null) return;
+            if (tools.Select.Selected)
+            {
+                Bitmap bmp;
+                bmp = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+                Clipboard.SetImage(bmp);
+                Current.LayerContainer.Current.Layer.Stacking();
+                tools.Eraser.MakeTransparent(Current.LayerContainer.Current.Layer.Image, tools.Select.FixedRect);
+                DrawSpaceUpdate();
+                Current.History.Add(HistoryEvent.Erase, Current.LayerContainer.Current);
+            }
+        }
+        //Undo
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current == null) return;
+            if (Current.History.Remove())
+                DrawSpaceUpdate();
+        }
         #endregion
 
         #region Help

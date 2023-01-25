@@ -541,6 +541,7 @@
             this.cutToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl X";
             this.cutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.cutToolStripMenuItem.Text = "Cut";
+            this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
             // undoToolStripMenuItem
             // 
@@ -549,6 +550,7 @@
             this.undoToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl Z";
             this.undoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.undoToolStripMenuItem.Text = "Undo";
+            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // toolToolStripMenuItem
             // 
