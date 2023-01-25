@@ -318,6 +318,96 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
+        #region Edit
+        //Copy 
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current == null) return;
+            if (tools.Select.Selected)
+            {
+                Bitmap bmp;
+                bmp = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+                Clipboard.SetImage(bmp);
+            }
+        }
+        //Lay anh tu ClipBoard
+        private Image GetImageFromClipboard()
+        {
+            if (Clipboard.GetDataObject() == null) return null;
+            if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Dib))
+            {
+                var dib = ((System.IO.MemoryStream)Clipboard.GetData(DataFormats.Dib)).ToArray();
+                var width = BitConverter.ToInt32(dib, 4);
+                var height = BitConverter.ToInt32(dib, 8);
+                var bpp = BitConverter.ToInt16(dib, 14);
+                if (bpp == 32)
+                {
+                    var gch = System.Runtime.InteropServices.GCHandle.Alloc(dib, System.Runtime.InteropServices.GCHandleType.Pinned);
+                    Bitmap bmp = null;
+                    try
+                    {
+                        var ptr = new IntPtr((long)gch.AddrOfPinnedObject() + 52);
+                        bmp = new Bitmap(width, height, width * 4, System.Drawing.Imaging.PixelFormat.Format32bppArgb, ptr);
+                        return new Bitmap(bmp);
+                    }
+                    finally
+                    {
+                        gch.Free();
+                        if (bmp != null) bmp.Dispose();
+                    }
+                }
+            }
+            return Clipboard.ContainsImage() ? Clipboard.GetImage() : null;
+        }
+        //Paste
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current == null) return;
+            Bitmap bmp = (Bitmap)GetImageFromClipboard();
+            if (bmp == null) return;
+            bmp.RotateFlip(RotateFlipType.Rotate180FlipX);
+            UncheckAll();
+            tools.Select.Selected = true;
+            tools.Select.Rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+            tools.Select.Fix(Current.Rect);
+            tools.Transform.Done = false;
+            tools.Transform.Rect = tools.Select.Rect;
+            tools.Transform.StartPoint = tools.Select.Rect.Location;
+            Current.LayerContainer.Current.Layer.Stacking();
+            tools.Transform.Image = bmp;
+            Current.DrawSpace.TransformRectDisplay();
+            LayerMenuStripEnable(false);
+            ColorMenuStripEnable(false);
+            FilterMenuStripEnable(false);
+            tools.Tool = Basic_Photo_Editor.Paint_Tools.Tool.Transform;
+            transformStripButton.Checked = true;
+            transformStripButton.CheckState = CheckState.Checked;
+            ChangeTool();
+        }
+        //Cut
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current == null) return;
+            if (tools.Select.Selected)
+            {
+                Bitmap bmp;
+                bmp = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+                Clipboard.SetImage(bmp);
+                Current.LayerContainer.Current.Layer.Stacking();
+                tools.Eraser.MakeTransparent(Current.LayerContainer.Current.Layer.Image, tools.Select.FixedRect);
+                DrawSpaceUpdate();
+                Current.History.Add(HistoryEvent.Erase, Current.LayerContainer.Current);
+            }
+        }
+        //Undo
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current == null) return;
+            if (Current.History.Remove())
+                DrawSpaceUpdate();
+        }
+        #endregion
+
         #region Help
         private void AboutPhotoEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -534,6 +624,31 @@ namespace Basic_Photo_Editor
 
                 deleteLayerToolStripMenuItem.Enabled = false;
                 mergeToolStripMenuItem.Enabled = false;
+            }
+        }
+
+        private void NewLStripButton_Click(object sender, EventArgs e)
+        {
+            using (Function_Forms.NewLayer nlf = new Function_Forms.NewLayer())
+            {
+                nlf.SetDefaultName(Current.LayerContainer.Count);
+                if (nlf.ShowDialog() == DialogResult.OK)
+                {
+                    string name = nlf.LayerName;
+                    bool visible = nlf.IsVisible;
+                    using (Bitmap newBmp = new Bitmap(Current.BmpSize.Width, Current.BmpSize.Height))
+                    {
+                        newBmp.MakeTransparent();
+                        Layer layer = new Layer(newBmp, name, visible);
+                        Current.LayerContainer.AddLayerRow(ref layer);
+                        LayerButtonCheck();
+                        blendModeBox.SelectedIndex = 0;
+                        opacityVal = Current.LayerContainer.Current.Layer.Opacity;
+                        OpacityBarUpdate();
+                        DrawSpaceProcessUpdate(HistoryEvent.NewL);
+                        DrawSpaceUpdate();
+                    }
+                }
             }
         }
 
@@ -859,5 +974,6 @@ namespace Basic_Photo_Editor
             ChangeTool();
         }
         #endregion
+
     }
 }

@@ -90,6 +90,12 @@
     <Compile Include="Function_Forms\NewFile.Designer.cs">
       <DependentUpon>NewFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Function_Forms\NewLayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function_Forms\NewLayer.Designer.cs">
+      <DependentUpon>NewLayer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Function_Forms\Noise.cs">
       <SubType>Form</SubType>
     </Compile>
