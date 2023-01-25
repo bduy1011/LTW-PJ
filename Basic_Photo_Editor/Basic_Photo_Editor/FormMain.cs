@@ -157,8 +157,7 @@ namespace Basic_Photo_Editor
 
         private void WorkSpaceTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (workSpaceTabControl.TabCount == 0)
-                return;
+            if (workSpaceTabControl.TabCount == 0) return;
 
             layerPanel.Controls.Remove(Current.LayerContainer);
             historyPanel.Controls.Remove(Current.History);
@@ -323,6 +322,43 @@ namespace Basic_Photo_Editor
         private void AboutPhotoEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Nothing to see here", "Notice");
+        }
+        #endregion
+
+        #region Tool
+        private void toolsToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            ToolStripItem item = e.ClickedItem;
+            switch (item.Text)
+            {
+                case "Transform":
+                    transformStripButton_Click(transformStripButton, null);
+                    break;
+                case "Select":
+                    selectStripButton_Click(selectStripButton, null);
+                    break;
+                case "Drag":
+                    dragStripButton_Click(dragStripButton, null);
+                    break;
+                case "Pen":
+                    penStripButton_Click(penStripButton, null);
+                    break;
+                case "Eraser":
+                    eraserStripButton_Click(eraserStripButton, null);
+                    break;
+                case "Color Picker":
+                    pickerStripButton_Click(pickerStripButton, null);
+                    break;
+                case "Shape":
+                    shapeStripButton_Click(shapeStripButton, null);
+                    break;
+                case "Line":
+                    lineStripButton_Click(lineStripButton, null);
+                    break;
+                case "Bucket":
+                    bucketStripButton_Click(bucketStripButton, null);
+                    break;
+            }
         }
         #endregion
 
