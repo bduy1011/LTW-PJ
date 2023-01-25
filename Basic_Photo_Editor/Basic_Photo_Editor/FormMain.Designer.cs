@@ -521,23 +521,25 @@
             this.copyToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             this.copyToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl C";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             this.pasteToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl V";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.pasteToolStripMenuItem.Text = "Paste";
+            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // cutToolStripMenuItem
             // 
             this.cutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
             this.cutToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl X";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.cutToolStripMenuItem.Text = "Cut";
             // 
             // undoToolStripMenuItem
@@ -545,7 +547,7 @@
             this.undoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl Z";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.undoToolStripMenuItem.Text = "Undo";
             // 
             // toolToolStripMenuItem
@@ -572,7 +574,7 @@
             this.transformToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.transformToolStripMenuItem.Name = "transformToolStripMenuItem";
             this.transformToolStripMenuItem.ShortcutKeyDisplayString = "T";
-            this.transformToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.transformToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.transformToolStripMenuItem.Text = "Transform";
             // 
             // dragToolStripMenuItem
@@ -580,7 +582,7 @@
             this.dragToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.dragToolStripMenuItem.Name = "dragToolStripMenuItem";
             this.dragToolStripMenuItem.ShortcutKeyDisplayString = "H";
-            this.dragToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dragToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.dragToolStripMenuItem.Text = "Drag";
             // 
             // selectToolStripMenuItem
@@ -588,7 +590,7 @@
             this.selectToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.selectToolStripMenuItem.Name = "selectToolStripMenuItem";
             this.selectToolStripMenuItem.ShortcutKeyDisplayString = "A";
-            this.selectToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.selectToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.selectToolStripMenuItem.Text = "Select";
             // 
             // penToolStripMenuItem
@@ -596,7 +598,7 @@
             this.penToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.penToolStripMenuItem.Name = "penToolStripMenuItem";
             this.penToolStripMenuItem.ShortcutKeyDisplayString = "B";
-            this.penToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.penToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.penToolStripMenuItem.Text = "Pen";
             // 
             // eraserToolStripMenuItem
@@ -604,7 +606,7 @@
             this.eraserToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.eraserToolStripMenuItem.Name = "eraserToolStripMenuItem";
             this.eraserToolStripMenuItem.ShortcutKeyDisplayString = "E";
-            this.eraserToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.eraserToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.eraserToolStripMenuItem.Text = "Eraser";
             // 
             // colorPickerToolStripMenuItem
@@ -612,7 +614,7 @@
             this.colorPickerToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.colorPickerToolStripMenuItem.Name = "colorPickerToolStripMenuItem";
             this.colorPickerToolStripMenuItem.ShortcutKeyDisplayString = "P";
-            this.colorPickerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.colorPickerToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.colorPickerToolStripMenuItem.Text = "Color Picker";
             // 
             // shapeToolStripMenuItem
@@ -620,7 +622,7 @@
             this.shapeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.shapeToolStripMenuItem.Name = "shapeToolStripMenuItem";
             this.shapeToolStripMenuItem.ShortcutKeyDisplayString = "S";
-            this.shapeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.shapeToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.shapeToolStripMenuItem.Text = "Shape";
             // 
             // lineToolStripMenuItem
@@ -628,7 +630,7 @@
             this.lineToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.lineToolStripMenuItem.Name = "lineToolStripMenuItem";
             this.lineToolStripMenuItem.ShortcutKeyDisplayString = "L";
-            this.lineToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.lineToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.lineToolStripMenuItem.Text = "Line";
             // 
             // bucketToolStripMenuItem
@@ -636,7 +638,7 @@
             this.bucketToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.bucketToolStripMenuItem.Name = "bucketToolStripMenuItem";
             this.bucketToolStripMenuItem.ShortcutKeyDisplayString = "F";
-            this.bucketToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bucketToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.bucketToolStripMenuItem.Text = "Bucket";
             // 
             // leftPanel
@@ -648,7 +650,7 @@
             this.leftPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.leftPanel.Location = new System.Drawing.Point(0, 52);
-            this.leftPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.leftPanel.Margin = new System.Windows.Forms.Padding(4);
             this.leftPanel.Name = "leftPanel";
             this.leftPanel.Size = new System.Drawing.Size(253, 804);
             this.leftPanel.TabIndex = 1;
@@ -671,7 +673,7 @@
             this.colorPanel.Controls.Add(this.label5);
             this.colorPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.colorPanel.Location = new System.Drawing.Point(0, 0);
-            this.colorPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.colorPanel.Margin = new System.Windows.Forms.Padding(4);
             this.colorPanel.Name = "colorPanel";
             this.colorPanel.Size = new System.Drawing.Size(251, 382);
             this.colorPanel.TabIndex = 9;
@@ -683,7 +685,7 @@
             this.hexCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hexCode.ForeColor = System.Drawing.Color.White;
             this.hexCode.Location = new System.Drawing.Point(125, 242);
-            this.hexCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hexCode.Margin = new System.Windows.Forms.Padding(4);
             this.hexCode.Name = "hexCode";
             this.hexCode.ReadOnly = true;
             this.hexCode.Size = new System.Drawing.Size(91, 25);
@@ -693,7 +695,7 @@
             // 
             this.colorSwitch.Image = ((System.Drawing.Image)(resources.GetObject("colorSwitch.Image")));
             this.colorSwitch.Location = new System.Drawing.Point(61, 217);
-            this.colorSwitch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.colorSwitch.Margin = new System.Windows.Forms.Padding(4);
             this.colorSwitch.Name = "colorSwitch";
             this.colorSwitch.Size = new System.Drawing.Size(19, 14);
             this.colorSwitch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -705,7 +707,7 @@
             // 
             this.colorWheel.Image = ((System.Drawing.Image)(resources.GetObject("colorWheel.Image")));
             this.colorWheel.Location = new System.Drawing.Point(13, 7);
-            this.colorWheel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.colorWheel.Margin = new System.Windows.Forms.Padding(4);
             this.colorWheel.Name = "colorWheel";
             this.colorWheel.Size = new System.Drawing.Size(213, 197);
             this.colorWheel.TabIndex = 0;
@@ -719,7 +721,7 @@
             this.mainColorPic.BackColor = System.Drawing.Color.Black;
             this.mainColorPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainColorPic.Location = new System.Drawing.Point(12, 212);
-            this.mainColorPic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mainColorPic.Margin = new System.Windows.Forms.Padding(4);
             this.mainColorPic.Name = "mainColorPic";
             this.mainColorPic.Size = new System.Drawing.Size(46, 41);
             this.mainColorPic.TabIndex = 1;
@@ -730,7 +732,7 @@
             this.subColorPic.BackColor = System.Drawing.Color.White;
             this.subColorPic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.subColorPic.Location = new System.Drawing.Point(37, 234);
-            this.subColorPic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.subColorPic.Margin = new System.Windows.Forms.Padding(4);
             this.subColorPic.Name = "subColorPic";
             this.subColorPic.Size = new System.Drawing.Size(46, 41);
             this.subColorPic.TabIndex = 1;
@@ -740,7 +742,7 @@
             // 
             this.blueBar.BackColor = System.Drawing.Color.CornflowerBlue;
             this.blueBar.Location = new System.Drawing.Point(32, 346);
-            this.blueBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.blueBar.Margin = new System.Windows.Forms.Padding(4);
             this.blueBar.Name = "blueBar";
             this.blueBar.Size = new System.Drawing.Size(171, 12);
             this.blueBar.TabIndex = 4;
@@ -760,7 +762,7 @@
             // 
             this.greenBar.BackColor = System.Drawing.Color.LimeGreen;
             this.greenBar.Location = new System.Drawing.Point(32, 316);
-            this.greenBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.greenBar.Margin = new System.Windows.Forms.Padding(4);
             this.greenBar.Name = "greenBar";
             this.greenBar.Size = new System.Drawing.Size(171, 12);
             this.greenBar.TabIndex = 4;
@@ -780,7 +782,7 @@
             // 
             this.redBar.BackColor = System.Drawing.Color.PaleVioletRed;
             this.redBar.Location = new System.Drawing.Point(32, 286);
-            this.redBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.redBar.Margin = new System.Windows.Forms.Padding(4);
             this.redBar.Name = "redBar";
             this.redBar.Size = new System.Drawing.Size(171, 12);
             this.redBar.TabIndex = 4;
@@ -835,7 +837,7 @@
             this.toolPanel.Controls.Add(this.pToolStrip);
             this.toolPanel.Controls.Add(this.mToolStrip);
             this.toolPanel.Location = new System.Drawing.Point(4, 390);
-            this.toolPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.toolPanel.Margin = new System.Windows.Forms.Padding(4);
             this.toolPanel.Name = "toolPanel";
             this.toolPanel.Size = new System.Drawing.Size(242, 436);
             this.toolPanel.TabIndex = 7;
@@ -845,7 +847,7 @@
             this.propertiesPanel.BackColor = System.Drawing.SystemColors.GrayText;
             this.propertiesPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.propertiesPanel.Location = new System.Drawing.Point(0, 126);
-            this.propertiesPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.propertiesPanel.Margin = new System.Windows.Forms.Padding(4);
             this.propertiesPanel.Name = "propertiesPanel";
             this.propertiesPanel.Size = new System.Drawing.Size(240, 282);
             this.propertiesPanel.TabIndex = 9;
@@ -1020,7 +1022,7 @@
             this.rightPanel.Controls.Add(this.layerPanel);
             this.rightPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.rightPanel.Location = new System.Drawing.Point(1290, 52);
-            this.rightPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rightPanel.Margin = new System.Windows.Forms.Padding(4);
             this.rightPanel.Name = "rightPanel";
             this.rightPanel.Size = new System.Drawing.Size(266, 804);
             this.rightPanel.TabIndex = 3;
@@ -1031,9 +1033,9 @@
             this.historyGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.historyGroupBox.ForeColor = System.Drawing.Color.White;
             this.historyGroupBox.Location = new System.Drawing.Point(9, 2);
-            this.historyGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.historyGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.historyGroupBox.Name = "historyGroupBox";
-            this.historyGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.historyGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.historyGroupBox.Size = new System.Drawing.Size(247, 254);
             this.historyGroupBox.TabIndex = 3;
             this.historyGroupBox.TabStop = false;
@@ -1042,7 +1044,7 @@
             // historyPanel
             // 
             this.historyPanel.Location = new System.Drawing.Point(9, 26);
-            this.historyPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.historyPanel.Margin = new System.Windows.Forms.Padding(4);
             this.historyPanel.Name = "historyPanel";
             this.historyPanel.Size = new System.Drawing.Size(229, 222);
             this.historyPanel.TabIndex = 0;
@@ -1053,7 +1055,7 @@
             this.layerPanel.Controls.Add(this.layerToolStrip);
             this.layerPanel.Controls.Add(this.blendPanel);
             this.layerPanel.Location = new System.Drawing.Point(9, 265);
-            this.layerPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.layerPanel.Margin = new System.Windows.Forms.Padding(4);
             this.layerPanel.Name = "layerPanel";
             this.layerPanel.Size = new System.Drawing.Size(248, 538);
             this.layerPanel.TabIndex = 2;
@@ -1176,7 +1178,7 @@
             this.blendPanel.Controls.Add(this.label10);
             this.blendPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.blendPanel.Location = new System.Drawing.Point(0, 0);
-            this.blendPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.blendPanel.Margin = new System.Windows.Forms.Padding(4);
             this.blendPanel.Name = "blendPanel";
             this.blendPanel.Size = new System.Drawing.Size(248, 69);
             this.blendPanel.TabIndex = 0;
@@ -1223,7 +1225,7 @@
             // 
             this.opacityBar.BackColor = System.Drawing.Color.Gray;
             this.opacityBar.Location = new System.Drawing.Point(67, 42);
-            this.opacityBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.opacityBar.Margin = new System.Windows.Forms.Padding(4);
             this.opacityBar.Name = "opacityBar";
             this.opacityBar.Size = new System.Drawing.Size(139, 12);
             this.opacityBar.TabIndex = 4;
@@ -1324,7 +1326,7 @@
             this.MinimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MinimizeBtn.Image = global::Basic_Photo_Editor.Properties.Resources.minus;
             this.MinimizeBtn.Location = new System.Drawing.Point(1427, 0);
-            this.MinimizeBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimizeBtn.Margin = new System.Windows.Forms.Padding(4);
             this.MinimizeBtn.Name = "MinimizeBtn";
             this.MinimizeBtn.Size = new System.Drawing.Size(43, 34);
             this.MinimizeBtn.TabIndex = 6;
@@ -1340,7 +1342,7 @@
             this.RestoreBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RestoreBtn.Image = global::Basic_Photo_Editor.Properties.Resources.rectangel;
             this.RestoreBtn.Location = new System.Drawing.Point(1470, 0);
-            this.RestoreBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RestoreBtn.Margin = new System.Windows.Forms.Padding(4);
             this.RestoreBtn.Name = "RestoreBtn";
             this.RestoreBtn.Size = new System.Drawing.Size(43, 34);
             this.RestoreBtn.TabIndex = 6;
@@ -1356,7 +1358,7 @@
             this.ExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExitBtn.Image = global::Basic_Photo_Editor.Properties.Resources.cross;
             this.ExitBtn.Location = new System.Drawing.Point(1513, 0);
-            this.ExitBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ExitBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ExitBtn.Name = "ExitBtn";
             this.ExitBtn.Size = new System.Drawing.Size(43, 34);
             this.ExitBtn.TabIndex = 6;
@@ -1368,7 +1370,7 @@
             // 
             this.workSpaceTabControl.ItemSize = new System.Drawing.Size(58, 28);
             this.workSpaceTabControl.Location = new System.Drawing.Point(253, 52);
-            this.workSpaceTabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.workSpaceTabControl.Margin = new System.Windows.Forms.Padding(4);
             this.workSpaceTabControl.Multiline = true;
             this.workSpaceTabControl.Name = "workSpaceTabControl";
             this.workSpaceTabControl.SelectedIndex = 0;
@@ -1413,7 +1415,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
