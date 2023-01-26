@@ -408,6 +408,23 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
+        #region View
+        private void zoomInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ZoomInBtn_Click(zoomInBtn, null);
+        }
+
+        private void zoomOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ZoomOutBtn_Click(zoomOutBtn, null);
+        }
+
+        private void centerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CenterBtn_Click(centerBtn, null);
+        }
+        #endregion
+
         #region Help
         private void AboutPhotoEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -449,6 +466,171 @@ namespace Basic_Photo_Editor
                     bucketStripButton_Click(bucketStripButton, null);
                     break;
             }
+        }
+        #endregion
+
+        #region Color
+
+        private void colorBalanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Function_Forms.ColorBalance colorBalance = new Function_Forms.ColorBalance(this, Current.LayerContainer))
+            {
+                if (!tools.Select.Selected)
+                {
+                    colorBalance.Image = Current.LayerContainer.Current.Layer.Image;
+                }
+                else
+                {
+                    colorBalance.Image = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+                }
+                if (colorBalance.ShowDialog() == DialogResult.OK)
+                {
+                    Current.DrawSpace.ProcessBoxImage = colorBalance.Image;
+                    DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
+                    DrawSpaceUpdate();
+                }
+            }
+        }
+
+        private void brightnessAndContrastToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Function_Forms.Brightness_Contrast brightnessContrast = new Function_Forms.Brightness_Contrast(this, Current.LayerContainer))
+            {
+                if (!tools.Select.Selected)
+                    brightnessContrast.Image = Current.LayerContainer.Current.Layer.Image;
+                else
+                    brightnessContrast.Image = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+
+                if (brightnessContrast.ShowDialog() == DialogResult.OK)
+                {
+                    Current.DrawSpace.ProcessBoxImage = brightnessContrast.Image;
+                    DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
+                    DrawSpaceUpdate();
+                }
+            }
+        }
+
+        private void hueAndSaturationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Function_Forms.Hue_Saturation hue_Saturation = new Function_Forms.Hue_Saturation(this, Current.LayerContainer))
+            {
+                if (!tools.Select.Selected)
+                    hue_Saturation.Image = Current.LayerContainer.Current.Layer.Image;
+                else
+                    hue_Saturation.Image = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+
+                hue_Saturation.Initialize();
+
+                if (hue_Saturation.ShowDialog() == DialogResult.OK)
+                {
+                    Current.DrawSpace.ProcessBoxImage = hue_Saturation.Image;
+                    DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
+                    DrawSpaceUpdate();
+                }
+            }
+        }
+
+        private void invertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new bitmap to hold the inverted image
+            Bitmap bitmap;
+            float x, y;
+            if (!tools.Select.Selected)
+            {
+                // If no selection, clone the entire current image
+                bitmap = (Bitmap)Current.DrawSpace.ProcessBoxImage.Clone();
+                x = y = 0;
+            }
+            else
+            {
+                // If selection, clone the portion of the current image specified by the selection tool's fixed rectangle
+                bitmap = (Current.DrawSpace.ProcessBoxImage as Bitmap).Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+                x = tools.Select.FixedRect.X;
+                y = tools.Select.FixedRect.Y;
+            }
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                // Create a color matrix to invert the colors of the image
+                System.Drawing.Imaging.ColorMatrix matrix = new System.Drawing.Imaging.ColorMatrix();
+                matrix.Matrix00 = matrix.Matrix11 = matrix.Matrix22 = -1f;
+                matrix.Matrix33 = matrix.Matrix40 = matrix.Matrix41 = matrix.Matrix42 = matrix.Matrix44 = 1f;
+
+                using (System.Drawing.Imaging.ImageAttributes attributes = new System.Drawing.Imaging.ImageAttributes())
+                {
+                    attributes.SetColorMatrix(matrix);
+                    g.DrawImage(Current.LayerContainer.Current.Layer.Image, new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                        x, y, bitmap.Width, bitmap.Height, GraphicsUnit.Pixel, attributes);
+                }
+                // Set the inverted image as the current image
+                Current.DrawSpace.ProcessBoxImage = new Bitmap(bitmap);
+            }
+            bitmap.Dispose();
+            DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
+            DrawSpaceUpdate();
+        }
+
+        private void thresholdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Function_Forms.Threshold threshold = new Function_Forms.Threshold(this, Current.LayerContainer))
+            {
+                if (!tools.Select.Selected)
+                    threshold.Image = Current.LayerContainer.Current.Layer.Image;
+                else
+                    threshold.Image = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+
+                threshold.Initialize();
+
+                if (threshold.ShowDialog() == DialogResult.OK)
+                {
+                    Current.DrawSpace.ProcessBoxImage = threshold.Image;
+                    DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
+                    DrawSpaceUpdate();
+                }
+            }
+        }
+
+        private void grayscaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap bitmap;
+            float x, y;
+            if (!tools.Select.Selected)
+            {
+                bitmap = (Bitmap)Current.DrawSpace.ProcessBoxImage.Clone();
+                x = y = 0;
+            }
+            else
+            {
+                bitmap = (Current.DrawSpace.ProcessBoxImage as Bitmap).Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+                x = tools.Select.FixedRect.X;
+                y = tools.Select.FixedRect.Y;
+            }
+
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                System.Drawing.Imaging.ColorMatrix matrix = new System.Drawing.Imaging.ColorMatrix(
+                   new float[][]
+                   {
+                         new float[] {.3f, .3f, .3f, 0, 0},
+                         new float[] {.59f, .59f, .59f, 0, 0},
+                         new float[] {.11f, .11f, .11f, 0, 0},
+                         new float[] {0, 0, 0, 1, 0},
+                         new float[] {0, 0, 0, 0, 1}
+                   });
+
+                using (System.Drawing.Imaging.ImageAttributes attributes = new System.Drawing.Imaging.ImageAttributes())
+                {
+                    attributes.SetColorMatrix(matrix);
+                    g.DrawImage(Current.LayerContainer.Current.Layer.Image, new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                        x, y, bitmap.Width, bitmap.Height, GraphicsUnit.Pixel, attributes);
+                }
+
+                Current.DrawSpace.ProcessBoxImage = new Bitmap(bitmap);
+            }
+
+            bitmap.Dispose();
+
+            DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
+            DrawSpaceUpdate();
         }
         #endregion
 
@@ -973,7 +1155,9 @@ namespace Basic_Photo_Editor
             tools.Tool = Paint_Tools.Tool.Line;
             ChangeTool();
         }
+
         #endregion
 
+        
     }
 }
