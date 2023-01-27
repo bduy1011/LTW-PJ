@@ -753,16 +753,7 @@ namespace Basic_Photo_Editor
             OpacityBarUpdate();
             LayerButtonCheck();
         }
-
-        private void LayerMenuStripEnable(bool enable)
-        {
-            foreach (ToolStripMenuItem item in layerToolStripMenuItem.DropDownItems)
-            {
-                item.Enabled = enable;
-            }
-            layerPanel.Enabled = enable;
-        }
-
+        
         public void LayerButtonCheck()
         {
             if (Current.LayerContainer.CurrentIndex == Current.LayerContainer.Count - 1)
@@ -810,6 +801,15 @@ namespace Basic_Photo_Editor
             }
         }
 
+        private void LayerMenuStripEnable(bool enable)
+        {
+            foreach (ToolStripMenuItem item in layerToolStripMenuItem.DropDownItems)
+            {
+                item.Enabled = enable;
+            }
+            layerPanel.Enabled = enable;
+        }
+
         private void NewLStripButton_Click(object sender, EventArgs e)
         {
             using (Function_Forms.NewLayer nlf = new Function_Forms.NewLayer())
@@ -835,6 +835,89 @@ namespace Basic_Photo_Editor
             }
         }
 
+        private void DeleteLStripButton_Click(object sender, EventArgs e)
+        {
+            Current.LayerContainer.RemoveLayerRow();
+            LayerButtonCheck();
+            DrawSpaceProcessUpdate(HistoryEvent.DeleteL);
+            DrawSpaceUpdate();
+        }
+
+        private void DownLStripButton_Click(object sender, EventArgs e)
+        {
+            Current.LayerContainer.MoveDown();
+            LayerButtonCheck();
+            DrawSpaceProcessUpdate(HistoryEvent.Ldown);
+            DrawSpaceUpdate();
+        }
+
+        private void UpLStripButton_Click(object sender, EventArgs e)
+        {
+            Current.LayerContainer.MoveUp();
+            LayerButtonCheck();
+            DrawSpaceProcessUpdate(HistoryEvent.Lup);
+            DrawSpaceUpdate();
+        }
+
+        private void ClearLStripButton_Click(object sender, EventArgs e)
+        {
+            Bitmap bmp = new Bitmap(Current.BmpSize.Width, Current.BmpSize.Height);
+            Current.DrawSpace.ProcessBoxImage = bmp;
+            DrawSpaceProcessUpdate(HistoryEvent.Clear);
+            DrawSpaceUpdate();
+        }
+
+        private void RenameLStripButton_Click(object sender, EventArgs e)
+        {
+            using (Function_Forms.LayerRename lr = new Function_Forms.LayerRename())
+            {
+                lr.DefaultName = Current.LayerContainer.Current.Text;
+                if (lr.ShowDialog() == DialogResult.OK)
+                {
+                    if (lr.NewName != "")
+                    {
+                        Current.LayerContainer.Current.Text = lr.NewName;
+                        Current.LayerContainer.UpdateName();
+                    }
+                }
+            }
+        }
+
+        private void MergeLStripButton_Click(object sender, EventArgs e)
+        {
+            Current.LayerContainer.Merge();
+            LayerButtonCheck();
+            DrawSpaceProcessUpdate(HistoryEvent.MergeL);
+            DrawSpaceUpdate();
+        }
+
+        private void DuplicateLStripButton_Click(object sender, EventArgs e)
+        {
+            Current.LayerContainer.Duplicate();
+            LayerButtonCheck();
+            DrawSpaceProcessUpdate(HistoryEvent.DuplicateL);
+            DrawSpaceUpdate();
+        }
+
+        private void OpacityBar_MouseMoveOrDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                opacityVal = (float)e.Location.X / opacityBar.Width * 100;
+                if (opacityVal > 100) opacityVal = 100;
+                if (opacityVal < 0) opacityVal = 0;
+                OpacityBarUpdate();
+            }
+        }
+
+        private void OpacityBar_MouseUp(object sender, MouseEventArgs e)
+        {
+            Current.LayerContainer.Current.Opacity = opacityVal;
+            Current.LayerContainer.Current.Layer.Opacity = opacityVal;
+            DrawSpaceProcessUpdate(HistoryEvent.Opacity);
+            DrawSpaceUpdate();
+        }
+
         public void OpacityBarUpdate()
         {
             using (Graphics g = opacityBar.CreateGraphics())
@@ -843,6 +926,19 @@ namespace Basic_Photo_Editor
                 int w = (int)Math.Ceiling(((float)opacityVal / 100) * opacityBar.Width);
                 g.Clear(opacityBar.BackColor);
                 g.FillRectangle(Brushes.Gainsboro, new Rectangle(0, 0, w, opacityBar.Height));
+            }
+        }
+
+        private void BlendModeBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!blendboxupdate)
+            {
+                Current.LayerContainer.Current.Blend = (Blend)blendModeBox.SelectedIndex;
+                DrawSpaceUpdate();
+                if (Current.LayerContainer.Current.BlendCount == 1)
+                    return;
+
+                Current.History.Add(HistoryEvent.Blend, Current.LayerContainer.Current);
             }
         }
 

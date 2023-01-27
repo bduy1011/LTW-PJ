@@ -1122,6 +1122,7 @@
             this.deleteLStripButton.Name = "deleteLStripButton";
             this.deleteLStripButton.Size = new System.Drawing.Size(21, 20);
             this.deleteLStripButton.Text = "delete layer";
+            this.deleteLStripButton.Click += new System.EventHandler(this.DeleteLStripButton_Click);
             // 
             // downLStripButton
             // 
@@ -1133,6 +1134,7 @@
             this.downLStripButton.Name = "downLStripButton";
             this.downLStripButton.Size = new System.Drawing.Size(21, 20);
             this.downLStripButton.Text = "move down";
+            this.downLStripButton.Click += new System.EventHandler(this.DownLStripButton_Click);
             // 
             // upLStripButton
             // 
@@ -1144,6 +1146,7 @@
             this.upLStripButton.Name = "upLStripButton";
             this.upLStripButton.Size = new System.Drawing.Size(21, 20);
             this.upLStripButton.Text = "move up";
+            this.upLStripButton.Click += new System.EventHandler(this.UpLStripButton_Click);
             // 
             // clearLStripButton
             // 
@@ -1154,6 +1157,7 @@
             this.clearLStripButton.Name = "clearLStripButton";
             this.clearLStripButton.Size = new System.Drawing.Size(21, 20);
             this.clearLStripButton.Text = "clean";
+            this.clearLStripButton.Click += new System.EventHandler(this.ClearLStripButton_Click);
             // 
             // renameLStripButton
             // 
@@ -1164,6 +1168,7 @@
             this.renameLStripButton.Name = "renameLStripButton";
             this.renameLStripButton.Size = new System.Drawing.Size(21, 20);
             this.renameLStripButton.Text = "rename";
+            this.renameLStripButton.Click += new System.EventHandler(this.RenameLStripButton_Click);
             // 
             // mergeLStripButton
             // 
@@ -1175,6 +1180,7 @@
             this.mergeLStripButton.Name = "mergeLStripButton";
             this.mergeLStripButton.Size = new System.Drawing.Size(21, 20);
             this.mergeLStripButton.Text = "merge";
+            this.mergeLStripButton.Click += new System.EventHandler(this.MergeLStripButton_Click);
             // 
             // duplicateLStripButton
             // 
@@ -1186,6 +1192,7 @@
             this.duplicateLStripButton.Size = new System.Drawing.Size(21, 20);
             this.duplicateLStripButton.Text = "toolStripButton2";
             this.duplicateLStripButton.ToolTipText = "duplicate";
+            this.duplicateLStripButton.Click += new System.EventHandler(this.DuplicateLStripButton_Click);
             // 
             // blendPanel
             // 
@@ -1229,6 +1236,7 @@
             this.blendModeBox.Name = "blendModeBox";
             this.blendModeBox.Size = new System.Drawing.Size(145, 24);
             this.blendModeBox.TabIndex = 5;
+            this.blendModeBox.SelectedIndexChanged += new System.EventHandler(this.BlendModeBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -1249,6 +1257,9 @@
             this.opacityBar.Size = new System.Drawing.Size(139, 12);
             this.opacityBar.TabIndex = 4;
             this.opacityBar.TabStop = false;
+            this.opacityBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpacityBar_MouseMoveOrDown);
+            this.opacityBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OpacityBar_MouseMoveOrDown);
+            this.opacityBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OpacityBar_MouseUp);
             // 
             // label10
             // 

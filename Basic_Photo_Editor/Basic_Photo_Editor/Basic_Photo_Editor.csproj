@@ -84,6 +84,12 @@
     <Compile Include="Function_Forms\Hue_Saturation.Designer.cs">
       <DependentUpon>Hue_Saturation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Function_Forms\LayerRename.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function_Forms\LayerRename.Designer.cs">
+      <DependentUpon>LayerRename.cs</DependentUpon>
+    </Compile>
     <Compile Include="Function_Forms\NewFile.cs">
       <SubType>Form</SubType>
     </Compile>
