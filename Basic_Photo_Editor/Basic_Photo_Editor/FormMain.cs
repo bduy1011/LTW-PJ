@@ -97,13 +97,7 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
-        private void ColorMenuStripEnable(bool enable)
-        {
-            foreach (ToolStripMenuItem item in colorToolStripMenuItem.DropDownItems)
-            {
-                item.Enabled = enable;
-            }
-        }
+        
         private void FilterMenuStripEnable(bool enable)
         {
             foreach (ToolStripMenuItem item in filterToolStripMenuItem.DropDownItems)
@@ -408,6 +402,23 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
+        #region View
+        private void zoomInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ZoomInBtn_Click(zoomInBtn, null);
+        }
+
+        private void zoomOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ZoomOutBtn_Click(zoomOutBtn, null);
+        }
+
+        private void centerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CenterBtn_Click(centerBtn, null);
+        }
+        #endregion
+
         #region Help
         private void AboutPhotoEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -449,6 +460,178 @@ namespace Basic_Photo_Editor
                     bucketStripButton_Click(bucketStripButton, null);
                     break;
             }
+        }
+        #endregion
+
+        #region Color
+        private void ColorMenuStripEnable(bool enable)
+        {
+            foreach (ToolStripMenuItem item in colorToolStripMenuItem.DropDownItems)
+            {
+                item.Enabled = enable;
+            }
+        }
+
+        private void colorBalanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Function_Forms.ColorBalance colorBalance = new Function_Forms.ColorBalance(this, Current.LayerContainer))
+            {
+                if (!tools.Select.Selected)
+                {
+                    colorBalance.Image = Current.LayerContainer.Current.Layer.Image;
+                }
+                else
+                {
+                    colorBalance.Image = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+                }
+                if (colorBalance.ShowDialog() == DialogResult.OK)
+                {
+                    Current.DrawSpace.ProcessBoxImage = colorBalance.Image;
+                    DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
+                    DrawSpaceUpdate();
+                }
+            }
+        }
+
+        private void brightnessAndContrastToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Function_Forms.Brightness_Contrast brightnessContrast = new Function_Forms.Brightness_Contrast(this, Current.LayerContainer))
+            {
+                if (!tools.Select.Selected)
+                    brightnessContrast.Image = Current.LayerContainer.Current.Layer.Image;
+                else
+                    brightnessContrast.Image = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+
+                if (brightnessContrast.ShowDialog() == DialogResult.OK)
+                {
+                    Current.DrawSpace.ProcessBoxImage = brightnessContrast.Image;
+                    DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
+                    DrawSpaceUpdate();
+                }
+            }
+        }
+
+        private void hueAndSaturationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Function_Forms.Hue_Saturation hue_Saturation = new Function_Forms.Hue_Saturation(this, Current.LayerContainer))
+            {
+                if (!tools.Select.Selected)
+                    hue_Saturation.Image = Current.LayerContainer.Current.Layer.Image;
+                else
+                    hue_Saturation.Image = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+
+                hue_Saturation.Initialize();
+
+                if (hue_Saturation.ShowDialog() == DialogResult.OK)
+                {
+                    Current.DrawSpace.ProcessBoxImage = hue_Saturation.Image;
+                    DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
+                    DrawSpaceUpdate();
+                }
+            }
+        }
+
+        private void invertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new bitmap to hold the inverted image
+            Bitmap bitmap;
+            float x, y;
+            if (!tools.Select.Selected)
+            {
+                // If no selection, clone the entire current image
+                bitmap = (Bitmap)Current.DrawSpace.ProcessBoxImage.Clone();
+                x = y = 0;
+            }
+            else
+            {
+                // If selection, clone the portion of the current image specified by the selection tool's fixed rectangle
+                bitmap = (Current.DrawSpace.ProcessBoxImage as Bitmap).Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+                x = tools.Select.FixedRect.X;
+                y = tools.Select.FixedRect.Y;
+            }
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                // Create a color matrix to invert the colors of the image
+                System.Drawing.Imaging.ColorMatrix matrix = new System.Drawing.Imaging.ColorMatrix();
+                matrix.Matrix00 = matrix.Matrix11 = matrix.Matrix22 = -1f;
+                matrix.Matrix33 = matrix.Matrix40 = matrix.Matrix41 = matrix.Matrix42 = matrix.Matrix44 = 1f;
+
+                using (System.Drawing.Imaging.ImageAttributes attributes = new System.Drawing.Imaging.ImageAttributes())
+                {
+                    attributes.SetColorMatrix(matrix);
+                    g.DrawImage(Current.LayerContainer.Current.Layer.Image, new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                        x, y, bitmap.Width, bitmap.Height, GraphicsUnit.Pixel, attributes);
+                }
+                // Set the inverted image as the current image
+                Current.DrawSpace.ProcessBoxImage = new Bitmap(bitmap);
+            }
+            bitmap.Dispose();
+            DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
+            DrawSpaceUpdate();
+        }
+
+        private void thresholdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Function_Forms.Threshold threshold = new Function_Forms.Threshold(this, Current.LayerContainer))
+            {
+                if (!tools.Select.Selected)
+                    threshold.Image = Current.LayerContainer.Current.Layer.Image;
+                else
+                    threshold.Image = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+
+                threshold.Initialize();
+
+                if (threshold.ShowDialog() == DialogResult.OK)
+                {
+                    Current.DrawSpace.ProcessBoxImage = threshold.Image;
+                    DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
+                    DrawSpaceUpdate();
+                }
+            }
+        }
+
+        private void grayscaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap bitmap;
+            float x, y;
+            if (!tools.Select.Selected)
+            {
+                bitmap = (Bitmap)Current.DrawSpace.ProcessBoxImage.Clone();
+                x = y = 0;
+            }
+            else
+            {
+                bitmap = (Current.DrawSpace.ProcessBoxImage as Bitmap).Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+                x = tools.Select.FixedRect.X;
+                y = tools.Select.FixedRect.Y;
+            }
+
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                System.Drawing.Imaging.ColorMatrix matrix = new System.Drawing.Imaging.ColorMatrix(
+                   new float[][]
+                   {
+                         new float[] {.3f, .3f, .3f, 0, 0},
+                         new float[] {.59f, .59f, .59f, 0, 0},
+                         new float[] {.11f, .11f, .11f, 0, 0},
+                         new float[] {0, 0, 0, 1, 0},
+                         new float[] {0, 0, 0, 0, 1}
+                   });
+
+                using (System.Drawing.Imaging.ImageAttributes attributes = new System.Drawing.Imaging.ImageAttributes())
+                {
+                    attributes.SetColorMatrix(matrix);
+                    g.DrawImage(Current.LayerContainer.Current.Layer.Image, new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                        x, y, bitmap.Width, bitmap.Height, GraphicsUnit.Pixel, attributes);
+                }
+
+                Current.DrawSpace.ProcessBoxImage = new Bitmap(bitmap);
+            }
+
+            bitmap.Dispose();
+
+            DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
+            DrawSpaceUpdate();
         }
         #endregion
 
@@ -672,7 +855,9 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
-        #region ColorPanel
+        #region LeftPanel
+
+        #region Color_Panel
         private bool colorIsPicking = false;
         private void ColorWheel_MouseDown(object sender, MouseEventArgs e)
         {
@@ -717,115 +902,83 @@ namespace Basic_Photo_Editor
             subColorPic.BackColor = tmp;
         }
 
-        #endregion
+        private int redVal = 0;
+        private int blueVal = 0;
+        private int greenVal = 0;
 
-        #region BottomPanel
-
-        private void ViewMenuStripEnable(bool enable)
+        // When MainColorPic change color -> Update color bar (R,G,B)
+        private void MainColorPic_BackColorChanged(object sender, EventArgs e)
         {
-            foreach (ToolStripMenuItem item in viewToolStripMenuItem.DropDownItems)
-            {
-                item.Enabled = enable;
-            }
-            bottomPanel.Enabled = enable;
+            redVal = mainColorPic.BackColor.R;
+            greenVal = mainColorPic.BackColor.G;
+            blueVal = mainColorPic.BackColor.B;
+
+            BarUpdate(ref redBar, Color.Pink, redVal);
+            BarUpdate(ref greenBar, Color.PaleGreen, greenVal);
+            BarUpdate(ref blueBar, Color.LightSteelBlue, blueVal);
+
+            label7.Text = redVal.ToString();
+            label8.Text = greenVal.ToString();
+            label9.Text = blueVal.ToString();
+
+            hexCode.Text = ColorTranslator.ToHtml(mainColorPic.BackColor);
+            tools.Color = mainColorPic.BackColor;
         }
 
-        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        // Update -> Fill color for bar 
+        private void BarUpdate(ref PictureBox bar, Color c, int val)
         {
-            if (Current == null) return;
-
-            float zoom = 0;
-            switch (comboBox1.SelectedIndex)
+            using (SolidBrush b = new SolidBrush(c))
             {
-                //50%
-                case 0:
-                    zoom = 50;
-                    break;
-                //75%
-                case 1:
-                    zoom = 75;
-                    break;
-                //100%
-                case 2:
-                    zoom = 100;
-                    break;
-                //150%
-                case 3:
-                    zoom = 150;
-                    break;
-                //200%
-                case 4:
-                    zoom = 200;
-                    break;
-                //200%
-                case 5:
-                    zoom = 300;
-                    break;
-                //200%
-                case 6:
-                    zoom = 400;
-                    break;
-            }
-
-            Current.DrawSpace.Scaling(zoom / 100);
-            comboBox1.Text = ((int)(Current.DrawSpace.Zoom * 100)).ToString() + '%';
-            DrawSpaceUpdate();
-        }
-
-        private void ZoomOutBtn_Click(object sender, EventArgs e)
-        {
-            float zoom = float.Parse(comboBox1.Text.Substring(0, comboBox1.Text.Length - 1));
-            if (zoom <= 50) return;
-
-            float n;
-            float m = zoom;
-            foreach (string text in comboBox1.Items)
-            {
-                n = float.Parse(text.Substring(0, text.Length - 1));
-                if (n < zoom)
+                using (Graphics g = bar.CreateGraphics())
                 {
-                    m = n;
-                }
-                else
-                {
-                    zoom = m;
-                    break;
+                    g.Clear(bar.BackColor);
+                    g.FillRectangle(b, new Rectangle(0, 0, val / 2, bar.Height));
                 }
             }
-
-            Current.DrawSpace.Scaling(zoom / 100);
-            comboBox1.Text = ((int)(Current.DrawSpace.Zoom * 100)).ToString() + '%';
-            DrawSpaceUpdate();
         }
 
-        private void ZoomInBtn_Click(object sender, EventArgs e)
+        // Check and set value of bar 
+        private void ValCheck(ref int n)
         {
-            float zoom = float.Parse(comboBox1.Text.Substring(0, comboBox1.Text.Length - 1));
-            if (zoom >= 400) return;
+            if (n > 255) n = 255;
+            if (n < 0) n = 0;
+        }
 
-            float n;
-            foreach (string text in comboBox1.Items)
+        // Change color of mainColorPic
+        private void BarVal(ref int val, ref PictureBox bar, ref MouseEventArgs e)
+        {
+            val = (int)(((double)e.Location.X / bar.Width) * 255);
+            ValCheck(ref val);
+            mainColorPic.BackColor = Color.FromArgb(redVal, greenVal, blueVal);
+        }
+
+        // When move bar -> change mainColorPic by function BarVal
+        private void RedBar_MouseMoveOrDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
             {
-                n = float.Parse(text.Substring(0, text.Length - 1));
-                if (zoom < n)
-                {
-                    zoom = n;
-                    break;
-                }
+                BarVal(ref redVal, ref redBar, ref e);
             }
-
-            Current.DrawSpace.Scaling(zoom / 100);
-            comboBox1.Text = ((int)(Current.DrawSpace.Zoom * 100)).ToString() + '%';
-            DrawSpaceUpdate();
         }
 
-        private void CenterBtn_Click(object sender, EventArgs e)
+        // When move bar -> change mainColorPic by function BarVal
+        private void GreenBar_MouseMoveOrDown(object sender, MouseEventArgs e)
         {
-            Current.DrawSpace.SetCenter();
-            comboBox1.Text = ((int)(Current.DrawSpace.Zoom * 100)).ToString() + '%';
-            DrawSpaceUpdate();
+            if (e.Button == MouseButtons.Left)
+            {
+                BarVal(ref greenVal, ref greenBar, ref e);
+            }
         }
 
+        // When move bar -> change mainColorPic by function BarVal
+        private void BlueBar_MouseMoveOrDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                BarVal(ref blueVal, ref blueBar, ref e);
+            }
+        }
         #endregion
 
         #region Tool_Panel
@@ -973,6 +1126,118 @@ namespace Basic_Photo_Editor
             tools.Tool = Paint_Tools.Tool.Line;
             ChangeTool();
         }
+
+        #endregion
+
+        #endregion
+
+        #region BottomPanel
+
+        private void ViewMenuStripEnable(bool enable)
+        {
+            foreach (ToolStripMenuItem item in viewToolStripMenuItem.DropDownItems)
+            {
+                item.Enabled = enable;
+            }
+            bottomPanel.Enabled = enable;
+        }
+
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Current == null) return;
+
+            float zoom = 0;
+            switch (comboBox1.SelectedIndex)
+            {
+                //50%
+                case 0:
+                    zoom = 50;
+                    break;
+                //75%
+                case 1:
+                    zoom = 75;
+                    break;
+                //100%
+                case 2:
+                    zoom = 100;
+                    break;
+                //150%
+                case 3:
+                    zoom = 150;
+                    break;
+                //200%
+                case 4:
+                    zoom = 200;
+                    break;
+                //200%
+                case 5:
+                    zoom = 300;
+                    break;
+                //200%
+                case 6:
+                    zoom = 400;
+                    break;
+            }
+
+            Current.DrawSpace.Scaling(zoom / 100);
+            comboBox1.Text = ((int)(Current.DrawSpace.Zoom * 100)).ToString() + '%';
+            DrawSpaceUpdate();
+        }
+
+        private void ZoomOutBtn_Click(object sender, EventArgs e)
+        {
+            float zoom = float.Parse(comboBox1.Text.Substring(0, comboBox1.Text.Length - 1));
+            if (zoom <= 50) return;
+
+            float n;
+            float m = zoom;
+            foreach (string text in comboBox1.Items)
+            {
+                n = float.Parse(text.Substring(0, text.Length - 1));
+                if (n < zoom)
+                {
+                    m = n;
+                }
+                else
+                {
+                    zoom = m;
+                    break;
+                }
+            }
+
+            Current.DrawSpace.Scaling(zoom / 100);
+            comboBox1.Text = ((int)(Current.DrawSpace.Zoom * 100)).ToString() + '%';
+            DrawSpaceUpdate();
+        }
+
+        private void ZoomInBtn_Click(object sender, EventArgs e)
+        {
+            float zoom = float.Parse(comboBox1.Text.Substring(0, comboBox1.Text.Length - 1));
+            if (zoom >= 400) return;
+
+            float n;
+            foreach (string text in comboBox1.Items)
+            {
+                n = float.Parse(text.Substring(0, text.Length - 1));
+                if (zoom < n)
+                {
+                    zoom = n;
+                    break;
+                }
+            }
+
+            Current.DrawSpace.Scaling(zoom / 100);
+            comboBox1.Text = ((int)(Current.DrawSpace.Zoom * 100)).ToString() + '%';
+            DrawSpaceUpdate();
+        }
+
+        private void CenterBtn_Click(object sender, EventArgs e)
+        {
+            Current.DrawSpace.SetCenter();
+            comboBox1.Text = ((int)(Current.DrawSpace.Zoom * 100)).ToString() + '%';
+            DrawSpaceUpdate();
+        }
+
         #endregion
 
     }
