@@ -71,6 +71,7 @@
             this.comboBox1.Size = new System.Drawing.Size(279, 24);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.Text = "Default";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // numericUpDown1
             // 
@@ -200,6 +201,7 @@
             this.comboBox2.Size = new System.Drawing.Size(180, 24);
             this.comboBox2.TabIndex = 6;
             this.comboBox2.Text = "Transparent";
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.ComboBox2_SelectedIndexChanged);
             // 
             // NewFile_Form
             // 

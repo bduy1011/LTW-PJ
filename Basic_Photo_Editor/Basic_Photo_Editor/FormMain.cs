@@ -419,10 +419,56 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
-        #region Help
-        private void AboutPhotoEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        #region Layer  
+        private void NewLayerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Nothing to see here", "Notice");
+            if (Current != null)
+                NewLStripButton_Click(sender, e);
+        }
+
+        private void DeleteLayerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current != null && deleteLStripButton.Enabled)
+                DeleteLStripButton_Click(sender, e);
+        }
+
+        private void ClearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current != null)
+                ClearLStripButton_Click(sender, e);
+        }
+
+        private void RenameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current != null)
+                RenameLStripButton_Click(sender, e);
+        }
+
+        private void DuplicateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current != null && duplicateLStripButton.Enabled)
+                DuplicateLStripButton_Click(sender, e);
+        }
+
+        private void MergeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current != null && mergeLStripButton.Enabled)
+                MergeLStripButton_Click(sender, e);
+        }
+
+        private void FillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current == null) return;
+
+            Bitmap bmp = new Bitmap(Current.BmpSize.Width, Current.BmpSize.Height);
+            using (Graphics g = Graphics.FromImage(bmp))
+            using (SolidBrush brush = new SolidBrush(mainColorPic.BackColor))
+            {
+                g.FillRectangle(brush, 0, 0, Current.BmpSize.Width, Current.BmpSize.Height);
+            }
+            Current.DrawSpace.ProcessBoxImage = bmp;
+            DrawSpaceProcessUpdate(HistoryEvent.Fill);
+            DrawSpaceUpdate();
         }
         #endregion
 
@@ -632,6 +678,13 @@ namespace Basic_Photo_Editor
 
             DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
             DrawSpaceUpdate();
+        }
+        #endregion
+
+        #region Help
+        private void AboutPhotoEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Nothing to see here", "Notice");
         }
         #endregion
 
@@ -1222,7 +1275,6 @@ namespace Basic_Photo_Editor
             tools.Tool = Paint_Tools.Tool.Line;
             ChangeTool();
         }
-
         #endregion
 
         #endregion
