@@ -140,6 +140,64 @@ namespace Basic_Photo_Editor
                 case (Keys.Control | Keys.Z):
                     undoToolStripMenuItem_Click(undoToolStripMenuItem, null);
                     return true;
+                //Tools
+                case Keys.T:
+                    transformStripButton_Click(transformStripButton, null);
+                    return true;
+                case Keys.A:
+                    selectStripButton_Click(selectStripButton, null);
+                    return true;
+                case Keys.H:
+                    dragStripButton_Click(dragStripButton, null);
+                    return true;
+                case Keys.B:
+                    penStripButton_Click(penStripButton, null);
+                    return true;
+                case Keys.E:
+                    eraserStripButton_Click(eraserStripButton, null);
+                    return true;
+                case Keys.P:
+                    pickerStripButton_Click(pickerStripButton, null);
+                    return true;
+                case Keys.S:
+                    shapeStripButton_Click(shapeStripButton, null);
+                    return true;
+                case Keys.L:
+                    lineStripButton_Click(lineStripButton, null);
+                    return true;
+                case Keys.F:
+                    bucketStripButton_Click(bucketStripButton, null);
+                    return true;
+                //layer
+                case (Keys.Control | Keys.Shift | Keys.N):
+                    if (layerPanel.Enabled)
+                        NewLayerToolStripMenuItem_Click(newLayerToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Shift | Keys.D):
+                    if (layerPanel.Enabled)
+                        DeleteLayerToolStripMenuItem_Click(deleteLayerToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Shift | Keys.Delete):
+                    if (layerPanel.Enabled)
+                        DeleteLayerToolStripMenuItem_Click(deleteLayerToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Shift | Keys.R):
+                    if (layerPanel.Enabled)
+                        RenameToolStripMenuItem_Click(renameToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Shift | Keys.J):
+                    if (layerPanel.Enabled)
+                        DuplicateToolStripMenuItem_Click(duplicateToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Shift | Keys.K):
+                    if (layerPanel.Enabled)
+                        MergeToolStripMenuItem_Click(mergeToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Shift | Keys.F):
+                    if (layerPanel.Enabled)
+                        FillToolStripMenuItem_Click(fillToolStripMenuItem, null);
+                    return true;
+
                 default:
                     return base.ProcessCmdKey(ref msg, keyData);
             }
@@ -147,7 +205,7 @@ namespace Basic_Photo_Editor
         #endregion
 
         #region WorkSpace
-                    private void AddWorkTab(Bitmap bmp, Color color)
+        private void AddWorkTab(Bitmap bmp, Color color)
         {
             LayerMenuStripEnable(true);
             ColorMenuStripEnable(true);
