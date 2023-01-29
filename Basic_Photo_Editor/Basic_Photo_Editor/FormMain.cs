@@ -105,9 +105,49 @@ namespace Basic_Photo_Editor
                 item.Enabled = enable;
             }
         }
+        #region ShortCut Keys
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                //File
+                case (Keys.Control | Keys.N):
+                    newToolStripMenuItem_Click(newToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.O):
+                    openToolStripMenuItem_Click(openToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.S):
+                    if (saveToolStripMenuItem.Enabled)
+                        saveToolStripMenuItem_Click(saveToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.W):
+                    if (closeToolStripMenuItem.Enabled)
+                        closeToolStripMenuItem_Click(closeToolStripMenuItem, null);
+                    return true;
+
+                //Edit
+                case (Keys.Control | Keys.C):
+                    copyToolStripMenuItem_Click(copyToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.V):
+                    pasteToolStripMenuItem_Click(pasteToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.X):
+                    cutToolStripMenuItem_Click(cutToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Z):
+                    undoToolStripMenuItem_Click(undoToolStripMenuItem, null);
+                    return true;
+                default:
+                    return base.ProcessCmdKey(ref msg, keyData);
+            }
+        }
+        #endregion
 
         #region WorkSpace
-        private void AddWorkTab(Bitmap bmp, Color color)
+                    private void AddWorkTab(Bitmap bmp, Color color)
         {
             LayerMenuStripEnable(true);
             ColorMenuStripEnable(true);
