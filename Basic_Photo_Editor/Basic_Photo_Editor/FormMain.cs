@@ -69,7 +69,7 @@ namespace Basic_Photo_Editor
 
         private void ExitBtn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            exitToolStripMenuItem_Click(null, null);
         }
 
         #region Move form when click into menu
@@ -197,7 +197,14 @@ namespace Basic_Photo_Editor
                     if (layerPanel.Enabled)
                         FillToolStripMenuItem_Click(fillToolStripMenuItem, null);
                     return true;
-
+                case (Keys.Up):
+                    if (upLStripButton.Enabled && layerPanel.Enabled)
+                        UpLStripButton_Click(upLStripButton, null);
+                    return true;
+                case (Keys.Down):
+                    if (downLStripButton.Enabled && layerPanel.Enabled)
+                        DownLStripButton_Click(downLStripButton, null);
+                    return true;
                 default:
                     return base.ProcessCmdKey(ref msg, keyData);
             }
