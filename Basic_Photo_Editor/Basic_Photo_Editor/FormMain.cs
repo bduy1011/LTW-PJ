@@ -16,8 +16,6 @@ namespace Basic_Photo_Editor
         private WorkSpace Current;
         private Paint_Tools.Tools tools;
 
-        public float opacityVal;
-
         #region Main Form
         public FormMain()
         {
@@ -27,6 +25,7 @@ namespace Basic_Photo_Editor
         private void FormMain_Load(object sender, EventArgs e)
         {
             ToolStripManager.Renderer = new Basic_Photo_Editor.ColorTable.MyToolStripRender(new ColorTable.ToolStripColorTable());
+            
             LayerMenuStripEnable(false);
             ColorMenuStripEnable(false);
             FilterMenuStripEnable(false);
@@ -38,6 +37,7 @@ namespace Basic_Photo_Editor
             propertiesPanel.Controls.Add(tools.Current);
             hexCode.Text = ColorTranslator.ToHtml(mainColorPic.BackColor);
         }
+
         private void FormMain_SizeChanged(object sender, EventArgs e)
         {
             ExitBtn.Left = this.Width - ExitBtn.Width;
@@ -53,6 +53,7 @@ namespace Basic_Photo_Editor
                 Current.LayerContainer.Height = layerPanel.Height - blendPanel.Height - layerToolStrip.Height - statusStrip1.Height;
             }
         }
+
         private void MinimizeBtn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -69,7 +70,7 @@ namespace Basic_Photo_Editor
 
         private void ExitBtn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            ExitToolStripMenuItem_Click(null, null);
         }
 
         #region Move form when click into menu
@@ -97,14 +98,119 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
-        
-        private void FilterMenuStripEnable(bool enable)
+        #region ShortCut Keys
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            foreach (ToolStripMenuItem item in filterToolStripMenuItem.DropDownItems)
+            switch (keyData)
             {
-                item.Enabled = enable;
+                //File
+                case (Keys.Control | Keys.N):
+                    NewToolStripMenuItem_Click(newToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.O):
+                    OpenToolStripMenuItem_Click(openToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.S):
+                    if (saveToolStripMenuItem.Enabled)
+                        SaveToolStripMenuItem_Click(saveToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.W):
+                    if (closeToolStripMenuItem.Enabled)
+                        CloseToolStripMenuItem_Click(closeToolStripMenuItem, null);
+                    return true;
+                //Edit
+                case (Keys.Control | Keys.C):
+                    CopyToolStripMenuItem_Click(copyToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.V):
+                    PasteToolStripMenuItem_Click(pasteToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.X):
+                    CutToolStripMenuItem_Click(cutToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Z):
+                    UndoToolStripMenuItem_Click(undoToolStripMenuItem, null);
+                    return true;
+                //View
+                case (Keys.Control | Keys.Add):
+                    ZoomInToolStripMenuItem_Click(zoomInToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Subtract):
+                    ZoomOutToolStripMenuItem_Click(zoomOutToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Shift | Keys.C):
+                    CenterToolStripMenuItem_Click(centerToolStripMenuItem, null);
+                    return true;
+                //Tools
+                case Keys.T:
+                    TransformStripButton_Click(transformStripButton, null);
+                    return true;
+                case Keys.A:
+                    SelectStripButton_Click(selectStripButton, null);
+                    return true;
+                case Keys.H:
+                    DragStripButton_Click(dragStripButton, null);
+                    return true;
+                case Keys.B:
+                    PenStripButton_Click(penStripButton, null);
+                    return true;
+                case Keys.E:
+                    EraserStripButton_Click(eraserStripButton, null);
+                    return true;
+                case Keys.P:
+                    PickerStripButton_Click(pickerStripButton, null);
+                    return true;
+                case Keys.S:
+                    ShapeStripButton_Click(shapeStripButton, null);
+                    return true;
+                case Keys.L:
+                    LineStripButton_Click(lineStripButton, null);
+                    return true;
+                case Keys.F:
+                    BucketStripButton_Click(bucketStripButton, null);
+                    return true;
+                //layer
+                case (Keys.Control | Keys.Shift | Keys.N):
+                    if (layerPanel.Enabled)
+                        NewLayerToolStripMenuItem_Click(newLayerToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Shift | Keys.D):
+                    if (layerPanel.Enabled)
+                        DeleteLayerToolStripMenuItem_Click(deleteLayerToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Shift | Keys.Delete):
+                    if (layerPanel.Enabled)
+                        DeleteLayerToolStripMenuItem_Click(deleteLayerToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Shift | Keys.R):
+                    if (layerPanel.Enabled)
+                        RenameToolStripMenuItem_Click(renameToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Shift | Keys.J):
+                    if (layerPanel.Enabled)
+                        DuplicateToolStripMenuItem_Click(duplicateToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Shift | Keys.K):
+                    if (layerPanel.Enabled)
+                        MergeToolStripMenuItem_Click(mergeToolStripMenuItem, null);
+                    return true;
+                case (Keys.Control | Keys.Shift | Keys.F):
+                    if (layerPanel.Enabled)
+                        FillToolStripMenuItem_Click(fillToolStripMenuItem, null);
+                    return true;
+                case (Keys.Up):
+                    if (upLStripButton.Enabled && layerPanel.Enabled)
+                        UpLStripButton_Click(upLStripButton, null);
+                    return true;
+                case (Keys.Down):
+                    if (downLStripButton.Enabled && layerPanel.Enabled)
+                        DownLStripButton_Click(downLStripButton, null);
+                    return true;
+                default:
+                    return base.ProcessCmdKey(ref msg, keyData);
             }
         }
+        #endregion
 
         #region WorkSpace
         private void AddWorkTab(Bitmap bmp, Color color)
@@ -170,7 +276,7 @@ namespace Basic_Photo_Editor
 
         #region File
         //New File Button 
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (Function_Forms.NewFile_Form newFileForm = new Function_Forms.NewFile_Form())
             {
@@ -193,7 +299,7 @@ namespace Basic_Photo_Editor
             }
         }
         //Open Button
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -216,7 +322,7 @@ namespace Basic_Photo_Editor
             }
         }
         //Save As Button 
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Current.Working)
             {
@@ -238,7 +344,7 @@ namespace Basic_Photo_Editor
             }
         }
         //Save Button
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Current.Working)
             {
@@ -250,26 +356,25 @@ namespace Basic_Photo_Editor
                 }
                 else
                 {
-                    saveAsToolStripMenuItem_Click(this, e);
+                    SaveAsToolStripMenuItem_Click(this, e);
                 }
                 Current.Parent.Text = Current.FileName;
             }
         }
         //Close Button
-        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CloseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Current.Working)
             {
-                if (Current.Saved)
+                if (!Current.Saved)
                 {
                     DialogResult dialogResult = MessageBox.Show("Your work haven't saved yet.\nDo you want to save it", "Photo Editor",
-                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                        MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        saveToolStripMenuItem_Click(sender, e);
+                        SaveToolStripMenuItem_Click(sender, e);
                     }
                     else if (dialogResult == DialogResult.Cancel)
-
                     {
                         return;
                     }
@@ -301,29 +406,18 @@ namespace Basic_Photo_Editor
             }
         }
         //Exit Button 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int tabcount = workSpaceTabControl.TabPages.Count;
             for (int i = 0; i < tabcount; i++)
             {
-                closeToolStripMenuItem_Click(null, null);
+                CloseToolStripMenuItem_Click(null, null);
             }
             this.Close();
         }
         #endregion
 
         #region Edit
-        //Copy 
-        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Current == null) return;
-            if (tools.Select.Selected)
-            {
-                Bitmap bmp;
-                bmp = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
-                Clipboard.SetImage(bmp);
-            }
-        }
         //Lay anh tu ClipBoard
         private Image GetImageFromClipboard()
         {
@@ -353,8 +447,19 @@ namespace Basic_Photo_Editor
             }
             return Clipboard.ContainsImage() ? Clipboard.GetImage() : null;
         }
+        //Copy 
+        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Current == null) return;
+            if (tools.Select.Selected)
+            {
+                Bitmap bmp;
+                bmp = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+                Clipboard.SetImage(bmp);
+            }
+        }
         //Paste
-        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Current == null) return;
             Bitmap bmp = (Bitmap)GetImageFromClipboard();
@@ -379,7 +484,7 @@ namespace Basic_Photo_Editor
             ChangeTool();
         }
         //Cut
-        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Current == null) return;
             if (tools.Select.Selected)
@@ -394,7 +499,7 @@ namespace Basic_Photo_Editor
             }
         }
         //Undo
-        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UndoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Current == null) return;
             if (Current.History.Remove())
@@ -402,18 +507,55 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
+        #region Tool
+        private void ToolsToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            ToolStripItem item = e.ClickedItem;
+            switch (item.Text)
+            {
+                case "Transform":
+                    TransformStripButton_Click(transformStripButton, null);
+                    break;
+                case "Select":
+                    SelectStripButton_Click(selectStripButton, null);
+                    break;
+                case "Drag":
+                    DragStripButton_Click(dragStripButton, null);
+                    break;
+                case "Pen":
+                    PenStripButton_Click(penStripButton, null);
+                    break;
+                case "Eraser":
+                    EraserStripButton_Click(eraserStripButton, null);
+                    break;
+                case "Color Picker":
+                    PickerStripButton_Click(pickerStripButton, null);
+                    break;
+                case "Shape":
+                    ShapeStripButton_Click(shapeStripButton, null);
+                    break;
+                case "Line":
+                    LineStripButton_Click(lineStripButton, null);
+                    break;
+                case "Bucket":
+                    BucketStripButton_Click(bucketStripButton, null);
+                    break;
+            }
+        }
+        #endregion
+
         #region View
-        private void zoomInToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ZoomInToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ZoomInBtn_Click(zoomInBtn, null);
         }
 
-        private void zoomOutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ZoomOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ZoomOutBtn_Click(zoomOutBtn, null);
         }
 
-        private void centerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CenterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CenterBtn_Click(centerBtn, null);
         }
@@ -472,43 +614,6 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
-        #region Tool
-        private void toolsToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            ToolStripItem item = e.ClickedItem;
-            switch (item.Text)
-            {
-                case "Transform":
-                    transformStripButton_Click(transformStripButton, null);
-                    break;
-                case "Select":
-                    selectStripButton_Click(selectStripButton, null);
-                    break;
-                case "Drag":
-                    dragStripButton_Click(dragStripButton, null);
-                    break;
-                case "Pen":
-                    penStripButton_Click(penStripButton, null);
-                    break;
-                case "Eraser":
-                    eraserStripButton_Click(eraserStripButton, null);
-                    break;
-                case "Color Picker":
-                    pickerStripButton_Click(pickerStripButton, null);
-                    break;
-                case "Shape":
-                    shapeStripButton_Click(shapeStripButton, null);
-                    break;
-                case "Line":
-                    lineStripButton_Click(lineStripButton, null);
-                    break;
-                case "Bucket":
-                    bucketStripButton_Click(bucketStripButton, null);
-                    break;
-            }
-        }
-        #endregion
-
         #region Color
         private void ColorMenuStripEnable(bool enable)
         {
@@ -518,7 +623,7 @@ namespace Basic_Photo_Editor
             }
         }
 
-        private void colorBalanceToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ColorBalanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (Function_Forms.ColorBalance colorBalance = new Function_Forms.ColorBalance(this, Current.LayerContainer))
             {
@@ -539,7 +644,7 @@ namespace Basic_Photo_Editor
             }
         }
 
-        private void brightnessAndContrastToolStripMenuItem_Click(object sender, EventArgs e)
+        private void BrightnessAndContrastToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (Function_Forms.Brightness_Contrast brightnessContrast = new Function_Forms.Brightness_Contrast(this, Current.LayerContainer))
             {
@@ -557,7 +662,7 @@ namespace Basic_Photo_Editor
             }
         }
 
-        private void hueAndSaturationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void HueAndSaturationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (Function_Forms.Hue_Saturation hue_Saturation = new Function_Forms.Hue_Saturation(this, Current.LayerContainer))
             {
@@ -577,7 +682,7 @@ namespace Basic_Photo_Editor
             }
         }
 
-        private void invertToolStripMenuItem_Click(object sender, EventArgs e)
+        private void InvertToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Create a new bitmap to hold the inverted image
             Bitmap bitmap;
@@ -595,6 +700,7 @@ namespace Basic_Photo_Editor
                 x = tools.Select.FixedRect.X;
                 y = tools.Select.FixedRect.Y;
             }
+
             using (Graphics g = Graphics.FromImage(bitmap))
             {
                 // Create a color matrix to invert the colors of the image
@@ -611,12 +717,13 @@ namespace Basic_Photo_Editor
                 // Set the inverted image as the current image
                 Current.DrawSpace.ProcessBoxImage = new Bitmap(bitmap);
             }
+
             bitmap.Dispose();
             DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
             DrawSpaceUpdate();
         }
 
-        private void thresholdToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ThresholdToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (Function_Forms.Threshold threshold = new Function_Forms.Threshold(this, Current.LayerContainer))
             {
@@ -636,7 +743,7 @@ namespace Basic_Photo_Editor
             }
         }
 
-        private void grayscaleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void GrayscaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Bitmap bitmap;
             float x, y;
@@ -681,6 +788,74 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
+        #region Filter
+        private void FilterMenuStripEnable(bool enable)
+        {
+            foreach (ToolStripMenuItem item in filterToolStripMenuItem.DropDownItems)
+            {
+                item.Enabled = enable;
+            }
+        }
+
+        private void BlurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Function_Forms.GaussianBlur gb = new Function_Forms.GaussianBlur(this, Current.LayerContainer))
+            {
+                if (!tools.Select.Selected)
+                    gb.Image = Current.LayerContainer.Current.Layer.Image;
+                else
+                    gb.Image = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+
+                gb.Initialize();
+
+                if (gb.ShowDialog() == DialogResult.OK)
+                {
+                    Current.DrawSpace.ProcessBoxImage = gb.Image;
+                    DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
+                    DrawSpaceUpdate();
+                }
+            }
+        }
+
+        private void NoiseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Function_Forms.Noise ns = new Function_Forms.Noise(this, Current.LayerContainer))
+            {
+                if (!tools.Select.Selected)
+                    ns.Image = Current.LayerContainer.Current.Layer.Image;
+                else
+                    ns.Image = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+
+                ns.Initialize();
+
+                if (ns.ShowDialog() == DialogResult.OK)
+                {
+                    Current.DrawSpace.ProcessBoxImage = ns.Image;
+                    DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
+                    DrawSpaceUpdate();
+                }
+            }
+        }
+
+        private void PixelateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Function_Forms.Pixelate px = new Function_Forms.Pixelate(this, Current.LayerContainer))
+            {
+                if (!tools.Select.Selected)
+                    px.Image = Current.LayerContainer.Current.Layer.Image;
+                else
+                    px.Image = Current.LayerContainer.Current.Layer.Image.Clone(tools.Select.FixedRect, Current.BmpPixelFormat);
+
+                if (px.ShowDialog() == DialogResult.OK)
+                {
+                    Current.DrawSpace.ProcessBoxImage = px.Image;
+                    DrawSpaceProcessUpdate(HistoryEvent.DrawFilter);
+                    DrawSpaceUpdate();
+                }
+            }
+        }
+        #endregion
+        
         #region Help
         private void AboutPhotoEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -792,7 +967,7 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
-        #region Layer
+        #region RightPanel
         private void LayerContainerInit()
         {
             Current.LayerContainer.AutoScroll = true;
@@ -952,6 +1127,7 @@ namespace Basic_Photo_Editor
             DrawSpaceUpdate();
         }
 
+        public float opacityVal;
         private void OpacityBar_MouseMoveOrDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -1073,7 +1249,6 @@ namespace Basic_Photo_Editor
             hexCode.Text = ColorTranslator.ToHtml(mainColorPic.BackColor);
             tools.Color = mainColorPic.BackColor;
         }
-
         // Update -> Fill color for bar 
         private void BarUpdate(ref PictureBox bar, Color c, int val)
         {
@@ -1086,14 +1261,12 @@ namespace Basic_Photo_Editor
                 }
             }
         }
-
         // Check and set value of bar 
         private void ValCheck(ref int n)
         {
             if (n > 255) n = 255;
             if (n < 0) n = 0;
         }
-
         // Change color of mainColorPic
         private void BarVal(ref int val, ref PictureBox bar, ref MouseEventArgs e)
         {
@@ -1101,7 +1274,6 @@ namespace Basic_Photo_Editor
             ValCheck(ref val);
             mainColorPic.BackColor = Color.FromArgb(redVal, greenVal, blueVal);
         }
-
         // When move bar -> change mainColorPic by function BarVal
         private void RedBar_MouseMoveOrDown(object sender, MouseEventArgs e)
         {
@@ -1110,7 +1282,6 @@ namespace Basic_Photo_Editor
                 BarVal(ref redVal, ref redBar, ref e);
             }
         }
-
         // When move bar -> change mainColorPic by function BarVal
         private void GreenBar_MouseMoveOrDown(object sender, MouseEventArgs e)
         {
@@ -1119,7 +1290,6 @@ namespace Basic_Photo_Editor
                 BarVal(ref greenVal, ref greenBar, ref e);
             }
         }
-
         // When move bar -> change mainColorPic by function BarVal
         private void BlueBar_MouseMoveOrDown(object sender, MouseEventArgs e)
         {
@@ -1179,14 +1349,14 @@ namespace Basic_Photo_Editor
             else propertiesPanel.Controls.Add(tools.Current);
         }
         //Di chuyen 
-        private void transformStripButton_Click(object sender, EventArgs e)
+        private void TransformStripButton_Click(object sender, EventArgs e)
         {
             UncheckAll();
             (sender as ToolStripButton).Checked = true;
             (sender as ToolStripButton).CheckState = CheckState.Checked;
+
             if (tools.Select.Selected)
             {
-                //Kiem tra
                 tools.Transform.Done = false;
                 tools.Transform.Rect = tools.Select.Rect;
                 tools.Transform.StartPoint = tools.Select.Rect.Location;
@@ -1196,83 +1366,85 @@ namespace Basic_Photo_Editor
                 DrawSpaceUpdate();
                 Current.DrawSpace.TransformRectDisplay();
             }
+
             LayerMenuStripEnable(false);
             ColorMenuStripEnable(false);
             FilterMenuStripEnable(false);
-            tools.Tool = Paint_Tools.Tool.Transform;
+
+            tools.Tool = Basic_Photo_Editor.Paint_Tools.Tool.Transform;
 
             ChangeTool();
         }
         //Pen Tool Event
-        private void penStripButton_Click(object sender, EventArgs e)
+        private void PenStripButton_Click(object sender, EventArgs e)
         {
             UncheckAll();
             (sender as ToolStripButton).Checked = true;
             (sender as ToolStripButton).CheckState = CheckState.Checked;
-            tools.Tool = Paint_Tools.Tool.Pen;
+            tools.Tool = Basic_Photo_Editor.Paint_Tools.Tool.Pen;
             ChangeTool();
         }
         //Select Tool
-        private void selectStripButton_Click(object sender, EventArgs e)
+        private void SelectStripButton_Click(object sender, EventArgs e)
         {
             UncheckAll();
             (sender as ToolStripButton).Checked = true;
             (sender as ToolStripButton).CheckState = CheckState.Checked;
-            tools.Tool = Paint_Tools.Tool.Select;
+            tools.Tool = Basic_Photo_Editor.Paint_Tools.Tool.Select;
             ChangeTool();
         }
         //Drag (move) tool
-        private void dragStripButton_Click(object sender, EventArgs e)
+        private void DragStripButton_Click(object sender, EventArgs e)
         {
             UncheckAll();
             (sender as ToolStripButton).Checked = true;
             (sender as ToolStripButton).CheckState = CheckState.Checked;
-            tools.Tool = Paint_Tools.Tool.Drag;
+            tools.Tool = Basic_Photo_Editor.Paint_Tools.Tool.Drag;
             ChangeTool();
         }
         //Eraser tool
-        private void eraserStripButton_Click(object sender, EventArgs e)
+        private void EraserStripButton_Click(object sender, EventArgs e)
         {
             UncheckAll();
             (sender as ToolStripButton).Checked = true;
             (sender as ToolStripButton).CheckState = CheckState.Checked;
-            tools.Tool = Paint_Tools.Tool.Eraser;
+            tools.Tool = Basic_Photo_Editor.Paint_Tools.Tool.Eraser;
             ChangeTool();
         }
         //picker color tool
-        private void pickerStripButton_Click(object sender, EventArgs e)
+        private void PickerStripButton_Click(object sender, EventArgs e)
         {
             UncheckAll();
             (sender as ToolStripButton).Checked = true;
             (sender as ToolStripButton).CheckState = CheckState.Checked;
-            tools.Tool = Paint_Tools.Tool.Picker;
+            tools.Tool = Basic_Photo_Editor.Paint_Tools.Tool.Picker;
             ChangeTool();
         }
         //bucket color tool
-        private void bucketStripButton_Click(object sender, EventArgs e)
+        private void BucketStripButton_Click(object sender, EventArgs e)
         {
             UncheckAll();
             (sender as ToolStripButton).Checked = true;
             (sender as ToolStripButton).CheckState = CheckState.Checked;
-            tools.Tool = Paint_Tools.Tool.Bucket;
+            tools.Tool = Basic_Photo_Editor.Paint_Tools.Tool.Bucket;
             ChangeTool();
         }
         //DrawShape Tool
-        private void shapeStripButton_Click(object sender, EventArgs e)
+        private void ShapeStripButton_Click(object sender, EventArgs e)
         {
             UncheckAll();
             (sender as ToolStripButton).Checked = true;
             (sender as ToolStripButton).CheckState = CheckState.Checked;
-            tools.Tool = Paint_Tools.Tool.Shape;
+            tools.Tool = Basic_Photo_Editor.Paint_Tools.Tool.Shape;
             ChangeTool();
         }
         //DrawLine Tool
-        private void lineStripButton_Click(object sender, EventArgs e)
+        private void LineStripButton_Click(object sender, EventArgs e)
         {
             UncheckAll();
             (sender as ToolStripButton).Checked = true;
             (sender as ToolStripButton).CheckState = CheckState.Checked;
-            tools.Tool = Paint_Tools.Tool.Line;
+            tools.Tool = Basic_Photo_Editor.Paint_Tools.Tool.Line;
             ChangeTool();
         }
         #endregion
@@ -1387,6 +1559,5 @@ namespace Basic_Photo_Editor
         }
 
         #endregion
-
     }
 }
