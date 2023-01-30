@@ -365,7 +365,7 @@ namespace Basic_Photo_Editor
         {
             if (Current.Working)
             {
-                if (Current.Saved)
+                if (!Current.Saved)
                 {
                     DialogResult dialogResult = MessageBox.Show("Your work haven't saved yet.\nDo you want to save it", "Photo Editor",
                     MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
