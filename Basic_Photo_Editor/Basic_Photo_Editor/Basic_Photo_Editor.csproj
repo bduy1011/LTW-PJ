@@ -217,8 +217,32 @@
     <EmbeddedResource Include="Function_Forms\Brightness_Contrast.resx">
       <DependentUpon>Brightness_Contrast.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Function_Forms\ColorBalance.resx">
+      <DependentUpon>ColorBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function_Forms\GaussianBlur.resx">
+      <DependentUpon>GaussianBlur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function_Forms\Hue_Saturation.resx">
+      <DependentUpon>Hue_Saturation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function_Forms\LayerRename.resx">
+      <DependentUpon>LayerRename.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Function_Forms\NewFile.resx">
       <DependentUpon>NewFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function_Forms\NewLayer.resx">
+      <DependentUpon>NewLayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function_Forms\Noise.resx">
+      <DependentUpon>Noise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function_Forms\Pixelate.resx">
+      <DependentUpon>Pixelate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function_Forms\Threshold.resx">
+      <DependentUpon>Threshold.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LayerRow.resx">
       <DependentUpon>LayerRow.cs</DependentUpon>
