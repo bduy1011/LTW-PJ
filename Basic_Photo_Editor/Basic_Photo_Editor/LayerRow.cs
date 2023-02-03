@@ -107,7 +107,7 @@ namespace Basic_Photo_Editor
             form.LayerButtonCheck();
             form.opacityVal = layer.Opacity;
             form.OpacityBarUpdate();
-            //form.BlendModeBoxUpdate(Blend);
+            form.BlendModeBoxUpdate(Blend);
         }
     }
 }

@@ -46,8 +46,9 @@ namespace Basic_Photo_Editor
             toolPanel.Height = Size.Height - toolPanel.Location.Y;
             propertiesPanel.Height = this.Height - propertiesPanel.Location.Y - statusStrip1.Height;
             layerPanel.Height = this.Height - layerPanel.Location.Y - statusStrip1.Height;
-            workSpaceTabControl.Width = this.Width - rightPanel.Width - leftPanel.Width;
+            workSpaceTabControl.Width = this.Width - leftPanel.Width - rightPanel.Width;
             workSpaceTabControl.Height = this.Height - bottomPanel.Height - statusStrip1.Height - menuStrip.Height;
+            workSpaceTabControl.Left = rightPanel.Right; 
             if (Current != null)
             {
                 Current.LayerContainer.Height = layerPanel.Height - blendPanel.Height - layerToolStrip.Height - statusStrip1.Height;
@@ -967,7 +968,7 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
-        #region RightPanel
+        #region LeftPanel
         private void LayerContainerInit()
         {
             Current.LayerContainer.AutoScroll = true;
@@ -1180,7 +1181,7 @@ namespace Basic_Photo_Editor
         }
         #endregion
 
-        #region LeftPanel
+        #region RightPanel
 
         #region Color_Panel
         private bool colorIsPicking = false;

@@ -46,13 +46,14 @@
             // brightnessTrack
             // 
             this.brightnessTrack.AutoSize = false;
+            this.brightnessTrack.BackColor = System.Drawing.Color.DimGray;
             this.brightnessTrack.LargeChange = 1;
             this.brightnessTrack.Location = new System.Drawing.Point(93, 25);
             this.brightnessTrack.Margin = new System.Windows.Forms.Padding(4);
             this.brightnessTrack.Maximum = 100;
             this.brightnessTrack.Minimum = -100;
             this.brightnessTrack.Name = "brightnessTrack";
-            this.brightnessTrack.Size = new System.Drawing.Size(400, 53);
+            this.brightnessTrack.Size = new System.Drawing.Size(400, 36);
             this.brightnessTrack.TabIndex = 1;
             this.brightnessTrack.TickStyle = System.Windows.Forms.TickStyle.None;
             // 
@@ -154,7 +155,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(539, 167);
+            this.ClientSize = new System.Drawing.Size(539, 205);
             this.ControlBox = false;
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);

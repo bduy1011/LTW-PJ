@@ -190,16 +190,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="History.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="History.Designer.cs">
       <DependentUpon>History.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="WorkSpace.cs">
       <SubType>UserControl</SubType>
@@ -212,6 +212,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Function_Forms\Brightness_Contrast.resx">
       <DependentUpon>Brightness_Contrast.cs</DependentUpon>
@@ -241,35 +242,166 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\bucket.png" />
-    <Content Include="Images\clear_L.png" />
-    <Content Include="Images\color_gradian.jpg" />
-    <Content Include="Images\color_wheel.png" />
-    <Content Include="Images\cross.png" />
-    <Content Include="Images\delete_L.png" />
-    <Content Include="Images\duplicate_L.png" />
-    <Content Include="Images\eraser.png" />
-    <Content Include="Images\hand.png" />
-    <Content Include="Images\line.png" />
-    <Content Include="Images\logo.png" />
-    <Content Include="Images\merge.png" />
-    <Content Include="Images\minus.png" />
-    <Content Include="Images\mouse.png" />
-    <Content Include="Images\move.png" />
-    <Content Include="Images\move_L_down.png" />
-    <Content Include="Images\move_L_up.png" />
-    <Content Include="Images\new_L.png" />
-    <Content Include="Images\not_visible.png" />
-    <Content Include="Images\pen.png" />
-    <Content Include="Images\picker.png" />
-    <Content Include="Images\rectangel.png" />
-    <Content Include="Images\rename_L.png" />
-    <Content Include="Images\select.png" />
-    <Content Include="Images\shape.png" />
-    <Content Include="Images\switch_color.png" />
-    <Content Include="Images\TransparencyBG.png" />
-    <Content Include="Images\visible.png" />
-    <Content Include="Images\zoom.png" />
+    <None Include="Images\bucket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\clear_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\color_wheel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\delete_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\duplicate_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\eraser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\hand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\merge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\mouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\move.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\move_L_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\move_L_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\new_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\not_visible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\picker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\rectangel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\rename_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\switch_color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\TransparencyBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\visible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bucket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\color_wheel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duplicate_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eraser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\merge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\move.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\move_L_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\move_L_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\not_visible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rectangel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rename_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\switch_color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TransparencyBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visible.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

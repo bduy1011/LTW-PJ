@@ -66,27 +66,21 @@ namespace Basic_Photo_Editor.Function_Forms
                     }
                 }
             }
-            #region bug ProcessUpdate in LayerContainer
-            //lc.ProcessUpdate(adjusted, true);
-            //f.DSUpdate();
-            #endregion
+            lc.ProcessUpdate(adjusted, true);
+            f.DrawSpaceUpdate();
         }
 
         private void PixelTrack_Scroll(object sender, EventArgs e)
         {
-            #region bug pixelTrack
-            //pixel = pixelTrack.Value;
-            //label3.Text = pixelTrack.Value.ToString();
-            #endregion
+            pixel = pixelTrack.Value;
+            label3.Text = pixelTrack.Value.ToString();
             Adjust();
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            #region bug ProcessUpdate in LayerContainer
-            //lc.ProcessUpdate(origin, true);
-            //f.DSUpdate();
-            #endregion
+            lc.ProcessUpdate(origin, true);
+            f.DrawSpaceUpdate();
         }
     }
 }

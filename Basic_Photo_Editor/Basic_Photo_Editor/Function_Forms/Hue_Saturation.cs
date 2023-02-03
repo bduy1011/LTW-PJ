@@ -77,10 +77,8 @@ namespace Basic_Photo_Editor.Function_Forms
 
             System.Runtime.InteropServices.Marshal.Copy(pixels, 0, ptr, dataSize);
             adjusted.UnlockBits(bmpData);
-            #region this is bug and fix bug in LayerContainer
-            //lc.ProcessUpdate(adjusted, true);
-            //f.DSUpdate();
-            #endregion
+            lc.ProcessUpdate(adjusted, true);
+            f.DrawSpaceUpdate();
         }
 
         private void SetColor(ref Color c)
@@ -172,50 +170,40 @@ namespace Basic_Photo_Editor.Function_Forms
 
         private void TrackBar1_Scroll(object sender, EventArgs e)
         {
-            #region bug of hueTrack
-            //label3.Text = hueTrack.Value.ToString();
-            //hueVal = hueTrack.Value;
-            #endregion
+            label3.Text = hueTrack.Value.ToString();
+            hueVal = hueTrack.Value;
             Adjust();
         }
 
         private void TrackBar2_Scroll(object sender, EventArgs e)
         {
-            #region bug of saturationTrack
-            //label4.Text = saturationTrack.Value.ToString();
-            //saturationVal = saturationTrack.Value;
-            #endregion
+            label4.Text = saturationTrack.Value.ToString();
+            saturationVal = saturationTrack.Value;
             Adjust();
         }
 
         private void TrackBar3_Scroll(object sender, EventArgs e)
         {
-            #region bug give value in luminosityTrack
-            //label6.Text = luminosityTrack.Value.ToString();
-            //luiminosityVal = luminosityTrack.Value;
-            #endregion
+            label6.Text = luminosityTrack.Value.ToString();
+            luiminosityVal = luminosityTrack.Value;
             Adjust();
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            #region bug hueTrack and saturationTrack
-            //hueVal = hueTrack.Value = 0;
-            //label3.Text = hueTrack.Value.ToString();
-            //saturationVal = saturationTrack.Value = 0;
-            //label4.Text = saturationTrack.Value.ToString();
-            //luiminosityVal = luminosityTrack.Value = 0;
-            //label6.Text = luminosityTrack.Value.ToString();
-            #endregion
+            hueVal = hueTrack.Value = 0;
+            label3.Text = hueTrack.Value.ToString();
+            saturationVal = saturationTrack.Value = 0;
+            label4.Text = saturationTrack.Value.ToString();
+            luiminosityVal = luminosityTrack.Value = 0;
+            label6.Text = luminosityTrack.Value.ToString();
             Adjust();
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            #region this is bug and fix bug in LayerContainer
-            //lc.ProcessUpdate(origin, true);
-            //f.DSUpdate();
-            #endregion
+            lc.ProcessUpdate(origin, true);
+            f.DrawSpaceUpdate();
         }
 
     }

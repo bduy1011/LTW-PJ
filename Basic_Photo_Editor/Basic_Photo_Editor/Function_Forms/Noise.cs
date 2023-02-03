@@ -87,27 +87,21 @@ namespace Basic_Photo_Editor.Function_Forms
 
             System.Runtime.InteropServices.Marshal.Copy(pixels, 0, ptr, dataSize);
             adjusted.UnlockBits(bmpData);
-            #region bug function ProcessUpdate in Layercontainer
-            //lc.ProcessUpdate(adjusted, true);
-            //f.DSUpdate();
-            #endregion
+            lc.ProcessUpdate(adjusted, true);
+            f.DrawSpaceUpdate();
         }
 
         private void NoiseTrack_Scroll(object sender, EventArgs e)
         {
-            #region bug noiseTrack
-            //amount = noiseTrack.Value;
-            //label3.Text = noiseTrack.Value.ToString();
-            #endregion
+            amount = noiseTrack.Value;
+            label3.Text = noiseTrack.Value.ToString();
             Adjust();
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            #region bug function ProcessUpdate in Layercontainer
-            //lc.ProcessUpdate(origin, true);
-            //f.DSUpdate();
-            #endregion
+            lc.ProcessUpdate(origin, true);
+            f.DrawSpaceUpdate();
         }
     }
 }
