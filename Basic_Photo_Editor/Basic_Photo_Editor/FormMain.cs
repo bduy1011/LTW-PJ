@@ -369,13 +369,13 @@ namespace Basic_Photo_Editor
             {
                 if (!Current.Saved)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Your work haven't saved yet.\nDo you want to save it", "Photo Editor",
-                        MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                    DialogResult dialogResult = MessageBox.Show("Your work haven't saved yet.\nDo you want to save it", "Warning",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.Yes)
                     {
                         SaveToolStripMenuItem_Click(sender, e);
                     }
-                    else if (dialogResult == DialogResult.Cancel)
+                    else if (dialogResult == DialogResult.No)
                     {
                         return;
                     }
@@ -406,7 +406,7 @@ namespace Basic_Photo_Editor
                 else Current = (WorkSpace)workSpaceTabControl.SelectedTab.Controls[0];
             }
         }
-        //Exit Button 
+        //Exit Button  
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int tabcount = workSpaceTabControl.TabPages.Count;
@@ -854,13 +854,6 @@ namespace Basic_Photo_Editor
                     DrawSpaceUpdate();
                 }
             }
-        }
-        #endregion
-        
-        #region Help
-        private void AboutPhotoEditorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Nothing to see here", "Notice");
         }
         #endregion
 

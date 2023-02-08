@@ -81,3 +81,26 @@ C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Edi
 C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.Noise.resources
 C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.Pixelate.resources
 C:\IT\GIT\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.Threshold.resources
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\bin\Debug\Basic_Photo_Editor.exe.config
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\bin\Debug\Basic_Photo_Editor.exe
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\bin\Debug\Basic_Photo_Editor.pdb
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.AssemblyReference.cache
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.SuggestedBindingRedirects.cache
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.DrawSpace.resources
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.FormMain.resources
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.Brightness_Contrast.resources
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.ColorBalance.resources
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.GaussianBlur.resources
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.Hue_Saturation.resources
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.LayerRename.resources
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.NewFile_Form.resources
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.NewLayer.resources
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.Noise.resources
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.Pixelate.resources
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.Threshold.resources
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.LayerRow.resources
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Properties.Resources.resources
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.GenerateResource.cache
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.CoreCompileInputs.cache
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.exe
+D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.pdb
