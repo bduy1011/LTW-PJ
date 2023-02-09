@@ -71,6 +71,7 @@ namespace Basic_Photo_Editor
 
         private void ExitBtn_Click(object sender, EventArgs e)
         {
+            
             ExitToolStripMenuItem_Click(null, null);
         }
 
@@ -369,16 +370,12 @@ namespace Basic_Photo_Editor
             {
                 if (!Current.Saved)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Your work haven't saved yet.\nDo you want to save it", "Warning",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (dialogResult == DialogResult.Yes)
-                    {
+                    DialogResult dialog = MessageBox.Show("Your work haven't saved yet.\nDo you want to save it", "Photo Editor",
+                                                           MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                    if (dialog == DialogResult.Yes)
                         SaveToolStripMenuItem_Click(sender, e);
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
+                    else if (dialog == DialogResult.Cancel)
                         return;
-                    }
                 }
 
                 tools.Select.Selected = false;

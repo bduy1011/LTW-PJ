@@ -125,7 +125,7 @@ namespace Basic_Photo_Editor
                     break;
                 case HistoryEvent.Blend:
                     events.Peek().Value.RestoreBlend();
-                    //form.BlendModeBoxUpdate(events.Peek().Value.Blend);
+                    form.BlendModeBoxUpdate(events.Peek().Value.Blend);
                     form.DrawSpaceUpdate();
                     break;
                 default:
