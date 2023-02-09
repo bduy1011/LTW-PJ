@@ -104,3 +104,11 @@ D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basi
 D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.csproj.CoreCompileInputs.cache
 D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.exe
 D:\Nam_2\HK1\Lập trình trực quan\dự phòng\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.pdb
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.ColorBalance.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.GaussianBlur.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.Hue_Saturation.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.LayerRename.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.NewLayer.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.Noise.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.Pixelate.resources
+C:\Users\Administrator\Documents\LTTQ\DoAn\LTW-PJ\Basic_Photo_Editor\Basic_Photo_Editor\obj\Debug\Basic_Photo_Editor.Function_Forms.Threshold.resources
