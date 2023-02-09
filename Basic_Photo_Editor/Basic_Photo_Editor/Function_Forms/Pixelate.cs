@@ -13,16 +13,16 @@ namespace Basic_Photo_Editor.Function_Forms
 {
     public partial class Pixelate : Form
     {
-        private FormMain f;
-        private LayerContainer lc;
+        private FormMain fMain;
+        private LayerContainer layerContainer;
         private Bitmap origin;
         private Bitmap adjusted;
 
-        public Pixelate(FormMain f, LayerContainer lc)
+        public Pixelate(FormMain fMain, LayerContainer layerContainer)
         {
             InitializeComponent();
-            this.f = f;
-            this.lc = lc;
+            this.fMain = fMain;
+            this.layerContainer = layerContainer;
         }
         public Bitmap Image
         {
@@ -66,8 +66,8 @@ namespace Basic_Photo_Editor.Function_Forms
                     }
                 }
             }
-            lc.ProcessUpdate(adjusted, true);
-            f.DrawSpaceUpdate();
+            layerContainer.ProcessUpdate(adjusted, true);
+            fMain.DrawSpaceUpdate();
         }
 
         private void PixelTrack_Scroll(object sender, EventArgs e)
@@ -79,8 +79,8 @@ namespace Basic_Photo_Editor.Function_Forms
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            lc.ProcessUpdate(origin, true);
-            f.DrawSpaceUpdate();
+            layerContainer.ProcessUpdate(origin, true);
+            fMain.DrawSpaceUpdate();
         }
     }
 }

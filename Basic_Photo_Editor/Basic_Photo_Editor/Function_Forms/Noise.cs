@@ -13,19 +13,19 @@ namespace Basic_Photo_Editor.Function_Forms
 {
     public partial class Noise : Form
     {
-        private FormMain f;
-        private LayerContainer lc;
+        private FormMain fMain;
+        private LayerContainer layerContainer;
         private Bitmap origin;
         private Bitmap adjusted;
         private System.Drawing.Imaging.BitmapData bmpData;
         private byte[] imagePixels;
         private int dataSize;
 
-        public Noise(FormMain f, LayerContainer lc)
+        public Noise(FormMain fMain, LayerContainer layerContainer)
         {
             InitializeComponent();
-            this.f = f;
-            this.lc = lc;
+            this.fMain = fMain;
+            this.layerContainer = layerContainer;
         }
         public Bitmap Image
         {
@@ -87,8 +87,8 @@ namespace Basic_Photo_Editor.Function_Forms
 
             System.Runtime.InteropServices.Marshal.Copy(pixels, 0, ptr, dataSize);
             adjusted.UnlockBits(bmpData);
-            lc.ProcessUpdate(adjusted, true);
-            f.DrawSpaceUpdate();
+            layerContainer.ProcessUpdate(adjusted, true);
+            fMain.DrawSpaceUpdate();
         }
 
         private void NoiseTrack_Scroll(object sender, EventArgs e)
@@ -100,8 +100,8 @@ namespace Basic_Photo_Editor.Function_Forms
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            lc.ProcessUpdate(origin, true);
-            f.DrawSpaceUpdate();
+            layerContainer.ProcessUpdate(origin, true);
+            fMain.DrawSpaceUpdate();
         }
     }
 }

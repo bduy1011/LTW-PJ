@@ -87,10 +87,8 @@ namespace Basic_Photo_Editor.Function_Forms
 
                 adjusted = Process(radial);
             }
-            /*
-            lc.ProcessUpdate(adjusted, true);
-            f.DSUpdate();
-            */
+            layerContainer.ProcessUpdate(adjusted, true);
+            fMain.DrawSpaceUpdate();
         }
 
         Bitmap Process(int r)
@@ -236,8 +234,8 @@ namespace Basic_Photo_Editor.Function_Forms
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            /* lc.ProcessUpdate(origin, true);
-             f.DSUpdate();*/
+             layerContainer.ProcessUpdate(origin, true);
+             fMain.DrawSpaceUpdate();
         }
     }
 }
