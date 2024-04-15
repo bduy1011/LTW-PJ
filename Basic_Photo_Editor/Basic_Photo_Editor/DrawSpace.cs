@@ -16,6 +16,7 @@ namespace Basic_Photo_Editor
         private Bitmap processing;
         Graphics gFinal;
         Graphics gF;
+        Graphics gf1;
         Graphics gProcess;
         Graphics gTop;
         Graphics g;
